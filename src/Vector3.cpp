@@ -32,20 +32,20 @@ Vector3 operator * (const float k, Vector3 v) {
 
 // Static "operators"
 // Multiply two vectors component-wise
-static Vector3 scale(const Vector3 a, const Vector3 b) {
+Vector3 Vector3::scale(const Vector3 a, const Vector3 b) {
   return Vector3(a.x * b.x, a.y * b.y, a.z * b.z);
 }
 
 // Dot product
-static float dot(const Vector3 a, const Vector3 b) {
+float Vector3::dot(const Vector3 a, const Vector3 b) {
   return a.x * b.x + a.y * b.y + a.z * b.z;
 }
 
 // Cross product
-static Vector3 cross(const Vector3 a, const Vector3 b) {
+Vector3 Vector3::cross(const Vector3 a, const Vector3 b) {
   return Vector3(a.y * b.z - a.z * b.y,
-		 a.z * b.x - a.x * b.z,
-		 a.x * b.y - a.y * b.x);
+                 a.z * b.x - a.x * b.z,
+                 a.x * b.y - a.y * b.x);
 }
 
 float Vector3::magnitude() const {
@@ -58,8 +58,9 @@ float Vector3::sqrMagnitude() const {
 }
 
 Vector3 Vector3::normalized() const {
-  float mag = this->magnitude();
-  return mag * *this;
+    float mag = this->magnitude();
+    if (mag == 0) return Vector3(0, 0, 0); //handle division by 0
+    return Vector3(this->x / mag, this->y / mag, this->z / mag);
 }
 
 
