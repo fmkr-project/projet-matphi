@@ -8,24 +8,26 @@ class Particle
 {
 
 private:
-	Vector3d position;
-	Vector3d direction;
-	float speed;
+	Vector3 position;
+	Vector3 direction;
+	Vector3 speed;
+	float mass;
 
 public:
 
 	Particle();
-	Particle(Vector3d pos, Vector3d dir, float speed);
+	Particle(Vector3 pos, Vector3 dir, Vector3 spd, float m);
 	Particle(const Particle& other);
 	~Particle();
 
 	Vector3 getPosition();
 	Vector3 getDirection();
-	float getSpeed();
+	Vector3 getSpeed();
+	float getInverseMass();
 
 	void setPosition(Vector3 pos);
 	void setDirection(Vector3 dir);
-	void setSpeed(float vitesse);
+	void setSpeed(Vector3 vitesse);
 
   	void eulerIntegrate(float t);
 

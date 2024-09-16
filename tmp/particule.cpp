@@ -44,7 +44,6 @@ void Particule::setDirection(Vector3d dir) {
 	direction = dir;
 }
 
-
 void Particule::setSpeed(float vitesse) {
 	speed = vitesse;
 }
