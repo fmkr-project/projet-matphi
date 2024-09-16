@@ -20,6 +20,10 @@ void ofApp::draw() {
 	for (auto& particle : myParticles) {
 		particle.draw();
 	}
+	ofSetColor(255, 255, 255);
+	float frameTime = ofGetLastFrameTime();
+	ofDrawBitmapString("Press p to shoot particules", 10, 10);
+	ofDrawBitmapString("Frame Time : " + ofToString(frameTime), 800, 10);
 }
 
 //--------------------------------------------------------------
