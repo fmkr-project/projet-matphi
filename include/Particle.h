@@ -16,7 +16,7 @@ private:
 public:
 
 	Particle();
-	Particle(Vector3d pos, Vector3d dir, Vector3 speed, float mass);
+	Particle(Vector3 pos, Vector3 dir, Vector3 spd, float m);
 	Particle(const Particle& other);
 	~Particle();
 

@@ -18,7 +18,7 @@ Particle::Particle(Vector3 pos, Vector3 dir, Vector3 spd, float m) {
 	mass = m;
 }
 
-Particle::Particle(const Particule& other) {
+Particle::Particle(const Particle& other) {
 	position = other.position;
 	direction = other.direction;
 	speed = other.speed;
@@ -55,7 +55,7 @@ void Particle::setDirection(Vector3 dir) {
 	direction = dir;
 }
 
-void Particle::setSpeed(float vitesse) {
+void Particle::setSpeed(Vector3 vitesse) {
 	speed = vitesse;
 }
 
