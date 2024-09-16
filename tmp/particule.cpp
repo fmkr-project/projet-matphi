@@ -5,18 +5,21 @@ Particule::Particule() {
 	position = Vector3d();
 	direction = Vector3d();
 	speed = 0;
+	color = ofColor();
 }
 
 Particule::Particule(Vector3d pos, Vector3d dir, float spd) {
 	position = pos;
 	direction = dir;
-	speed = spd ;
+	speed = spd;
+	color = col;
 }
 
 Particule::Particule(const Particule& other) {
 	position = other.position;
 	direction = other.direction;
 	speed = other.speed;
+	color = other.color;
 }
 
 Particule::~Particule() {
@@ -36,6 +39,10 @@ float Particule::getSpeed() {
 	return speed;
 }
 
+ofColor Particule::getColor() {
+	return color;
+}
+
 void Particule::setPosition(Vector3d pos) {
 	position = pos;
 }
@@ -48,10 +55,14 @@ void Particule::setSpeed(float vitesse) {
 	speed = vitesse;
 }
 
+void Particule::setColor(ofColor col) {
+	color = col;
+}
+
 void Particule::move() {
-	position += direction * speed;
+	position += ofGetLastFrameTime() * direction * speed;
 }
 
 void Particule::draw() {
-	ofDrawIcoSphere(position.v3(), 10);
+	ofDrawIcoSphere(position.v3(), 1);
 }
