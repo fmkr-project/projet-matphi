@@ -1,20 +1,22 @@
 #include "ofApp.h"
-#include "../particule.h"
-#include "../vector3d.h"
+#include "particule.h"
+#include "vector3d.h"
 
 float timeSinceLastSecond = float(0.0);
 //--------------------------------------------------------------
 void ofApp::setup() {
 	box.set(500);
-	ofBackground(0);
 	ofSetBackgroundAuto(false);
+	ofBackground(0);
 	Particule p(Vector3d(500, 500), Vector3d(1, 1), 20, ofColor());
 }
 
 //--------------------------------------------------------------
 void ofApp::update() {
 	timeSinceLastSecond += ofGetLastFrameTime();
+
 	for (auto& particle : myParticles) {
+
 		particle.move();
 	}
 }
@@ -27,12 +29,14 @@ void ofApp::draw() {
 		isSecond = true;
 	}
 	for (auto& particle : myParticles) {
+		ofSetColor(particle.getColor());
 		if (isSecond) {
 			ofDrawIcoSphere(particle.getPosition().v3(), 10);
 		}
 		particle.draw();
 	}
 	float frameTime = ofGetLastFrameTime();
+	ofSetColor(255);
 	ofDrawBitmapString("Press p to shoot particules", 10, 10);
 	ofSetColor(0);
 	ofDrawRectangle(800, 0, 200, 20);
@@ -46,12 +50,13 @@ void ofApp::keyPressed(int key) {
 	myParticles.clear();
 	switch (key) {
 	case 'p':
+
 		SpawnParticle(ofColor(ofRandom(256), ofRandom(256), ofRandom(256)));
 		break;
-
 	default:
 		break;
 	}
+
 
 }
 
@@ -112,6 +117,5 @@ void ofApp::SpawnParticle(ofColor col) {
 		20,
 		col
 	);
-
 	myParticles.push_back(newParticle);
 }
