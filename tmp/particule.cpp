@@ -8,7 +8,7 @@ Particule::Particule() {
 	color = ofColor();
 }
 
-Particule::Particule(Vector3d pos, Vector3d dir, float spd) {
+Particule::Particule(Vector3d pos, Vector3d dir, float spd, ofColor col) {
 	position = pos;
 	direction = dir;
 	speed = spd;
