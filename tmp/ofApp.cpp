@@ -32,9 +32,11 @@ void ofApp::draw() {
 		}
 		particle.draw();
 	}
-	ofSetColor(255, 255, 255);
 	float frameTime = ofGetLastFrameTime();
 	ofDrawBitmapString("Press p to shoot particules", 10, 10);
+	ofSetColor(0);
+	ofDrawRectangle(800, 0, 200, 20);
+	ofSetColor(255);
 	ofDrawBitmapString("Frame Time : " + ofToString(frameTime), 800, 10);
 }
 
