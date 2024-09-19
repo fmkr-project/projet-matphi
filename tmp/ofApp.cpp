@@ -1,6 +1,6 @@
 #include "ofApp.h"
-#include "../particule.h"
-#include "../vector3d.h"
+#include "particule.h"
+#include "vector3d.h"
 
 //--------------------------------------------------------------
 void ofApp::setup() {

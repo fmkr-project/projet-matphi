@@ -1,5 +1,6 @@
 #pragma once
 #include "vector3d.h"
+#include "particule.h"
 
 #ifndef PARTICULE_H
 #define PARTICULE_H
@@ -33,3 +34,11 @@ public:
 };
 
 #endif
+
+class particule
+{
+};
+
+
+
+

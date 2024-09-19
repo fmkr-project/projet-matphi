@@ -317,3 +317,4 @@ Vector3d operator/(const Vector3d& v, float& f)
     Vector3d resu = v;
     return resu /= f;
 }
+

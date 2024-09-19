@@ -69,4 +69,12 @@ Vector3d operator*(const Vector3d& v, float d);
 Vector3d operator*(float d, const Vector3d& v);
 Vector3d operator/(const Vector3d& v, float& d);
 
+
+
 #endif
+
+class vector3d
+{
+};
+
+

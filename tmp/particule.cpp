@@ -1,5 +1,6 @@
 #include "particule.h"
-#include <of3dGraphics.h>
+#include <ofMain.h>
+//#include <of3dGraphics.h>
 
 Particule::Particule() {
 	position = Vector3d();

@@ -9,6 +9,7 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void testvector3d();
 
 	void keyPressed(int key);
 	void keyReleased(int key);
@@ -28,8 +29,4 @@ public:
 	vector<Particule> myParticles;
 	ofBoxPrimitive box;
 
-};
-
-class ofApp
-{
 };
