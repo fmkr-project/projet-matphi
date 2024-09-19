@@ -1,27 +1,33 @@
-#include <of3dGraphics.h>
-
-#include "Vector3.h"
-#include "Particle.h"
 #include "consts.h"
+#include "Particle.h"
+#include <of3dGraphics.h>
 
 Particle::Particle() {
 	position = Vector3();
-	direction = Vector3();
-	speed = Vector3;
+	speed = Vector3(0, 0, 1);
+	color = ofColor();
 	mass = 1;
 }
 
-Particle::Particle(Vector3 pos, Vector3 dir, Vector3 spd, float m) {
-	position = pos;
-	direction = dir;
+Particle::Particle(Vector3 pos, Vector3 spd, float m)
+{
+	position = pos;;
 	speed = spd;
+	mass = m;
+}
+
+Particle::Particle(Vector3 pos, Vector3 spd, float m, ofColor col)
+{
+	position = pos;
+	speed = spd;
+	color = col;
 	mass = m;
 }
 
 Particle::Particle(const Particle& other) {
 	position = other.position;
-	direction = other.direction;
 	speed = other.speed;
+	color = other.color;
 	mass = other.mass;
 }
 
@@ -33,38 +39,29 @@ Vector3 Particle::getPosition() {
 	return position;
 }
 
-Vector3 Particle::getDirection() {
-	return direction;
-}
-
-
 Vector3 Particle::getSpeed() {
 	return speed;
 }
 
-float Particle::getInverseMass()
-{
-	return 1/mass;
-}
-	
-void Particle::setPosition(Vector3 pos) {
-	position = pos;
+ofColor Particle::getColor() {
+	return color;
 }
 
-void Particle::setDirection(Vector3 dir) {
-	direction = dir;
+float Particle::getInverseMass()
+{
+	return 1 / this->mass;
+}
+
+void Particle::setPosition(Vector3 pos) {
+	position = pos;
 }
 
 void Particle::setSpeed(Vector3 vitesse) {
 	speed = vitesse;
 }
 
-void Particle::move() {
-	position += direction * speed;
-}
-
-void Particle::draw() {
-	ofDrawIcoSphere(position.v3(), 10);
+void Particle::setColor(ofColor col) {
+	color = col;
 }
 
 void Particle::eulerIntegrate(float t)
@@ -72,4 +69,12 @@ void Particle::eulerIntegrate(float t)
 {
 	speed += t * g;
 	position += t * speed;
+}
+
+void Particle::move() {
+	this->eulerIntegrate(ofGetLastFrameTime());
+}
+
+void Particle::draw() {
+	ofDrawIcoSphere(position.v3(), 5);
 }
