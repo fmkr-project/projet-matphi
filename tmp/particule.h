@@ -1,8 +1,9 @@
 #pragma once
-#include "Vector3d.h"
+#include "vector3d.h"
+#include <ofGraphics.h>
 
-#ifndef Particule_H
-#define Particule_H
+#ifndef PARTICULE_H
+#define PARTICULE_H
 
 class Particule
 {
@@ -11,23 +12,25 @@ private:
 	Vector3d position;
 	Vector3d direction;
 	float speed;
+	ofColor color;
 
 public:
 
+
 	Particule();
-	Particule(Vector3d pos, Vector3d dir, float speed);
+	Particule(Vector3d pos, Vector3d dir, float speed, ofColor col);
 	Particule(const Particule& other);
 	~Particule();
 
 	Vector3d getPosition();
 	Vector3d getDirection();
 	float getSpeed();
+	ofColor getColor();
 
 	void setPosition(Vector3d pos);
 	void setDirection(Vector3d dir);
 	void setSpeed(float vitesse);
-
-  	void eulerIntegrate(float t);
+	void setColor(ofColor col);
 
 	void move();
 	void draw();
