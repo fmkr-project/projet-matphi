@@ -30,6 +30,9 @@ Vector3 operator * (const float k, Vector3 v) {
   return v*k;
 }
 
+// Static standard vectors
+Vector3 Vector3::zero = Vector3(0, 0, 0);
+
 // Static "operators"
 // Multiply two vectors component-wise
 Vector3 Vector3::scale(const Vector3 a, const Vector3 b) {

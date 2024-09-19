@@ -17,6 +17,9 @@ public:
   // Standard vector scaling
   Vector3 operator * (const float k) const;
 
+  // Static standard vectors
+  static Vector3 zero;
+
   // Static "operators"
   // Multiply two vectors component-wise
   static Vector3 scale(const Vector3 a, const Vector3 b);

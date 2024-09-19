@@ -1,10 +1,10 @@
 #pragma once
-#include "Vector3.h"
+#include "Vector3d.h"
 
-#ifndef PARTICLE_H
-#define PARTICLE_H
+#ifndef Particule_H
+#define Particule_H
 
-class Particle
+class Particule
 {
 
 private:
@@ -14,17 +14,17 @@ private:
 
 public:
 
-	Particle();
-	Particle(Vector3d pos, Vector3d dir, float speed);
-	Particle(const Particle& other);
-	~Particle();
+	Particule();
+	Particule(Vector3d pos, Vector3d dir, float speed);
+	Particule(const Particule& other);
+	~Particule();
 
-	Vector3 getPosition();
-	Vector3 getDirection();
+	Vector3d getPosition();
+	Vector3d getDirection();
 	float getSpeed();
 
-	void setPosition(Vector3 pos);
-	void setDirection(Vector3 dir);
+	void setPosition(Vector3d pos);
+	void setDirection(Vector3d dir);
 	void setSpeed(float vitesse);
 
   	void eulerIntegrate(float t);
