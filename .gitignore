@@ -37,3 +37,7 @@ obj/*
 
 # Emacs
 *~
+
+# VS
+.vs/*
+.vscode/*
