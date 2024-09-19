@@ -32,5 +32,8 @@ main
 *.out
 *.app
 
+# Build objects
+./obj
+
 # Emacs
 *~
