@@ -9,6 +9,7 @@ public:
 	void setup();
 	void update();
 	void draw();
+	void testVector3();
 
 	void keyPressed(int key);
 	void keyReleased(int key);
