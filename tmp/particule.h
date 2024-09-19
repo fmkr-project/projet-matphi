@@ -10,27 +10,30 @@ class Particule
 
 private:
 	Vector3d position;
-	Vector3d direction;
-	float speed;
+	Vector3d speed;
+	float mass;
 	ofColor color;
 
 public:
 
 
 	Particule();
-	Particule(Vector3d pos, Vector3d dir, float speed, ofColor col);
+	Particule(Vector3d pos, Vector3d spd, float m);
+	Particule(Vector3d pos, Vector3d spd, float m, ofColor col);
 	Particule(const Particule& other);
 	~Particule();
 
 	Vector3d getPosition();
-	Vector3d getDirection();
-	float getSpeed();
+	Vector3d getSpeed();
 	ofColor getColor();
 
+	float getInverseMass();
+
 	void setPosition(Vector3d pos);
-	void setDirection(Vector3d dir);
-	void setSpeed(float vitesse);
+	void setSpeed(Vector3d vitesse);
 	void setColor(ofColor col);
+
+	void eulerIntegrate(float t);
 
 	void move();
 	void draw();

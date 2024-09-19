@@ -113,8 +113,8 @@ void ofApp::dragEvent(ofDragInfo dragInfo) {
 void ofApp::SpawnParticle(ofColor col) {
 	Particule newParticle(
 		Vector3d(500, 500),
-		Vector3d(ofRandom(-2, 2), ofRandom(-2, 2)),
-		20,
+		Vector3d(ofRandom(10, 100), ofRandom(-10, -100)),
+		1,
 		col
 	);
 	myParticles.push_back(newParticle);
