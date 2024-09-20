@@ -3,6 +3,6 @@
 
 #include "Vector3.h"
 
-const Vector3 g = Vector3(0, 33.4, 0);
+const Vector3 g = Vector3(0, 50, 0);
 
 #endif

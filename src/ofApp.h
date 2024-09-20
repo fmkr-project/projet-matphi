@@ -22,7 +22,7 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
-	void SpawnParticle();
+	void SpawnParticle(float speed, float mass, ofColor col);
 
 public:
 

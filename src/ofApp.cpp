@@ -4,39 +4,82 @@
 
 #include <of3dGraphics.h>
 
+
+float timeSinceLastSecond = float(0.);
+
 //--------------------------------------------------------------
-void ofApp::setup() {
+void ofApp::setup()
+{
 	box.set(500);
+    ofSetBackgroundAuto(false);
+    ofBackground(0);
 	Particle p(Vector3(500, 500), Vector3(20, 20), 1.);
     testVector3();
 }
 
 //--------------------------------------------------------------
-void ofApp::update() {
-	for (auto& particle : myParticles) {
+void ofApp::update()
+{
+    timeSinceLastSecond += ofGetLastFrameTime();
+	for (auto& particle : myParticles)
+    {
 		particle.move();
 	}
 }
 
 //--------------------------------------------------------------
-void ofApp::draw() {
-	for (auto& particle : myParticles) {
-		particle.draw();
-	}
+void ofApp::draw()
+{
+    bool isSecond = false;
+    if (timeSinceLastSecond >= float(1.0))
+    {
+        timeSinceLastSecond -= float(1.0);
+        isSecond = true;
+    }
+    for (auto& particle : myParticles)
+    {
+        ofSetColor(particle.getColor());
+        if (isSecond) ofDrawIcoSphere(particle.getPosition().v3(), 10);
+        particle.draw();
+    }
+    float frameTime = ofGetLastFrameTime();
+    ofSetColor(255);
+    ofDrawBitmapString("Press c to shoot cannonballs", 10, 10);
+    ofDrawBitmapString("Press p to shoot pistols bullets", 10, 25);
+    ofDrawBitmapString("Press a to shoot arrows", 10, 40);
+    ofDrawBitmapString("Press l to shoot lasers", 10, 55);
+    ofDrawBitmapString("Press b to shoot basket balls", 10, 70);
+    ofSetColor(0);
+    ofDrawRectangle(800, 0, 200, 20);
+    ofSetColor(255);
+    ofDrawBitmapString("Frame Time : " + ofToString(frameTime), 800, 10);
 }
 
 //--------------------------------------------------------------
-void ofApp::keyPressed(int key) {
-
-	switch (key) {
-	case 'p':
-		SpawnParticle();
-		break;
-
-	default:
-		break;
-	}
-
+void ofApp::keyPressed(int key)
+{
+    ofBackground(0);
+    myParticles.clear();
+    switch (key)
+    {
+    case 'c':
+        SpawnParticle(250, 5000, ofColor(125));
+        break;
+    case 'p':
+        SpawnParticle(500, 5, ofColor(255));
+        break;
+    case 'a':
+        SpawnParticle(100, 25, ofColor(125, 42, 42));
+        break;
+    case 'l':
+        SpawnParticle(5000, 1, ofColor(255, 0, 0));
+        break;
+    case 'b':
+        SpawnParticle(50, 100, ofColor(255, 155, 0));
+        break;
+    default:
+        break;
+    }
 }
 
 //--------------------------------------------------------------
@@ -89,14 +132,17 @@ void ofApp::dragEvent(ofDragInfo dragInfo) {
 
 }
 
-void ofApp::SpawnParticle() {
-	Particle newParticle(
-		Vector3(500, 500),
-		ofRandom(10., 100.) * Vector3(ofRandom(-1., 1.), ofRandom(-1., 0.), ofRandom(-1., 1.)),
-		ofRandom(1., 10.)
-	);
-
-	myParticles.push_back(newParticle);
+void ofApp::SpawnParticle(float speed, float mass, ofColor col)
+{
+    Vector3 speedVector = Vector3(ofRandom(0.1, 0.8), ofRandom(-1., 0.), ofRandom(-0.25, 0.25));
+    speedVector.normalise();
+    Particle newParticle(
+        Vector3(20, 600),
+        speed * speedVector,
+        mass,
+        col
+    );
+    myParticles.push_back(newParticle);
 }
 
 bool floatEquals(float a, float b, float tolerance = 0.0001f)
