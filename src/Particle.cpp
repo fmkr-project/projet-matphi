@@ -7,6 +7,7 @@ Particle::Particle() {
 	speed = Vector3(0, 0, 1);
 	color = ofColor();
 	mass = 1;
+	accumForce = Vector3(0, 0, 0);
 }
 
 Particle::Particle(Vector3 pos, Vector3 spd, float m)
@@ -22,6 +23,7 @@ Particle::Particle(Vector3 pos, Vector3 spd, float m, ofColor col)
 	speed = spd;
 	color = col;
 	mass = m;
+	accumForce = Vector3(0, 0, 0);
 }
 
 Particle::Particle(const Particle& other) {
@@ -77,4 +79,12 @@ void Particle::move() {
 
 void Particle::draw() {
 	ofDrawIcoSphere(position.v3(), 5);
+}
+
+void Particle::addForce(const Vector3& force) {
+	accumForce += force;
+}
+
+void Particle::clearAccum() {
+	accumForce = Vector3(0, 0, 0);
 }

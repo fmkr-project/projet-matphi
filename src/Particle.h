@@ -13,6 +13,7 @@ private:
 	Vector3 speed;
 	float mass;
 	ofColor color;
+	Vector3 accumForce;
 
 public:
 
@@ -37,6 +38,9 @@ public:
 
 	void move();
 	void draw();
+
+	void addForce(const Vector3& force);
+	void clearAccum();
 
 };
 
