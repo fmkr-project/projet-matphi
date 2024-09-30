@@ -69,7 +69,7 @@ void Particle::setColor(ofColor col) {
 void Particle::eulerIntegrate(float t)
 // Consider that the particle is only affected by its weight
 {
-	speed += t * g;
+	speed += t * g * mass;
 	position += t * speed;
 }
 
