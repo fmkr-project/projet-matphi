@@ -12,14 +12,14 @@ Particle::Particle() {
 
 Particle::Particle(Vector3 pos, Vector3 spd, float m)
 {
-	position = pos;;
+	position, previousPosition = pos;
 	speed = spd;
 	mass = m;
 }
 
 Particle::Particle(Vector3 pos, Vector3 spd, float m, ofColor col)
 {
-	position = pos;
+	position, previousPosition = pos;
 	speed = spd;
 	color = col;
 	mass = m;
@@ -27,7 +27,7 @@ Particle::Particle(Vector3 pos, Vector3 spd, float m, ofColor col)
 }
 
 Particle::Particle(const Particle& other) {
-	position = other.position;
+	position, previousPosition = other.position;
 	speed = other.speed;
 	color = other.color;
 	mass = other.mass;
@@ -73,7 +73,14 @@ void Particle::eulerIntegrate(float t)
 	position += t * speed;
 }
 
-void Particle::move() {
+void Particle::verletIntegrate(float t)
+{
+	this->position = 2 * this->position - this->previousPosition + this->accumForce * pow(t, 2);
+}
+
+void Particle::move()
+{
+	previousPosition = position;
 	this->eulerIntegrate(ofGetLastFrameTime());
 }
 
