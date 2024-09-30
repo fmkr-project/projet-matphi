@@ -1,5 +1,6 @@
 #include "ParticleForceRegistry.h"
-
+#include "Particle.h"
+#include "ParticleForceGenerator.h"
 
 ParticleForceRegistry::ParticleForceRegistry(Particle* particle, ParticleForceGenerator* fg) {
     registrations.push_back({ particle, fg });
