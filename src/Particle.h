@@ -10,6 +10,7 @@ class Particle
 
 private:
 	Vector3 position;
+	Vector3 previousPosition;
 	Vector3 speed;
 	float mass;
 	ofColor color;
@@ -35,6 +36,7 @@ public:
 	void setColor(ofColor col);
 
 	void eulerIntegrate(float t);
+	void verletIntegrate(float t);
 
 	void move();
 	void draw();
