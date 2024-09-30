@@ -104,12 +104,15 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ParticleForceRegistry.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Particle.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ParticleForceGenerator.h" />
+    <ClInclude Include="ParticleForceRegistry.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Particle.h" />
     <ClInclude Include="src\Vector3.h" />
