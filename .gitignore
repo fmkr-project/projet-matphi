@@ -33,7 +33,11 @@ main
 *.app
 
 # Build objects
-./obj
+obj/*
 
 # Emacs
 *~
+
+# VS
+.vs/*
+.vscode/*

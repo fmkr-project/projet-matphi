@@ -1,13 +1,17 @@
-#include <iostream>
+#include "ofMain.h"
+#include "ofApp.h"
 
-#include "Vector3.h"
+//========================================================================
+int main( ){
 
-int main() {
-  Vector3 u(3,4,5);
-  Vector3 v(2,6,6);
-  Vector3 w = u+v;
-  Vector3 x = (float) 42 * u;
-  w.print();
-  x.print();
-  return 0;
+	//Use ofGLFWWindowSettings for more options like multi-monitor fullscreen
+	ofGLWindowSettings settings;
+	settings.setSize(1024, 768);
+	settings.windowMode = OF_WINDOW; //can also be OF_FULLSCREEN
+
+	auto window = ofCreateWindow(settings);
+
+	ofRunApp(window, make_shared<ofApp>());
+	ofRunMainLoop();
+
 }
