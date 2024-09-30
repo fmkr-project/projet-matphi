@@ -19,6 +19,9 @@
     <ClCompile Include="src\Vector3.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\World.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -39,6 +42,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\consts.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\World.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
