@@ -1,6 +1,7 @@
 #include "ofApp.h"
 #include "Particle.h"
 #include "Vector3.h"
+#include "World.h"
 
 #include <of3dGraphics.h>
 
@@ -143,6 +144,7 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
         col
     );
     myParticles.push_back(newParticle);
+    World::addParticle(newParticle);
 }
 
 bool floatEquals(float a, float b, float tolerance = 0.0001f)
