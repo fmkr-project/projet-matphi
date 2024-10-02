@@ -5,4 +5,6 @@
 
 const Vector3 g = Vector3(0, 50, 0);
 
+const float c = 3E8;
+
 #endif
