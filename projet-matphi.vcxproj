@@ -104,7 +104,7 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ParticleFriction.cpp" />
+    <ClCompile Include="ForceFriction.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Particle.cpp" />
@@ -114,7 +114,7 @@
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ParticleFriction.h" />
+    <ClInclude Include="ForceFriction.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Particle.h" />
     <ClInclude Include="src\ParticleForceGenerator.h" />

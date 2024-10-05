@@ -28,7 +28,7 @@
     <ClCompile Include="src\ofApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="ParticleFriction.cpp" />
+    <ClCompile Include="ForceFriction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -60,7 +60,7 @@
     <ClInclude Include="src\ofApp.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="ParticleFriction.h" />
+    <ClInclude Include="ForceFriction.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="icon.rc" />

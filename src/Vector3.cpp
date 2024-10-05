@@ -4,7 +4,9 @@
 */
 
 #include "Vector3.h"
+#include <cmath>
 
+using namespace std;
 
 /**
  * @brief Constructeur par d?faut et valu?
@@ -232,6 +234,10 @@ Vector3 Vector3::crossProduct(const Vector3& v) const
     float z = x_ * v.y_ - y_ * v.x_;
 
     return Vector3(x, y, z);
+}
+
+float Vector3::norm() const {
+    return sqrt(pow(x_, 2) + pow(y_, 2) + pow(z_, 2));
 }
 
 

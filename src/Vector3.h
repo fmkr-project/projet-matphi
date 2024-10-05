@@ -57,6 +57,7 @@ public:
     void normalise();
     float dotProduct(const Vector3& v) const;
     Vector3 crossProduct(const Vector3& v) const;
+    float norm() const;
 
     glm::vec2 v2() { return glm::vec2(x_, y_); };
     glm::vec3 v3() { return glm::vec3(x_, y_, z_); };
