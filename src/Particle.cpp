@@ -109,3 +109,13 @@ void Particle::addForce(const Vector3& force) {
 void Particle::clearAccum() {
 	accumForce = Vector3(0, 0, 0);
 }
+
+bool Particle::operator==(const Particle& p) const
+{
+	return
+		(
+			this->position == p.position &&
+			this->size == p.size &&
+			this->speed == p.speed
+			);
+}

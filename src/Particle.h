@@ -46,6 +46,8 @@ public:
 	void addForce(const Vector3& force);
 	void clearAccum();
 
+	bool operator==(const Particle& p) const;
+
 };
 
 #endif
