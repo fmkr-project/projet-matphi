@@ -22,6 +22,15 @@
     <ClCompile Include="src\World.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\ForceFriction.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleForceRegistry.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ParticleGravity.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -45,6 +54,15 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\World.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ForceFriction.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleForceGenerator.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ParticleForceRegistry.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
