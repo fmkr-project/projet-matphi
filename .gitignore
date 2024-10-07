@@ -441,3 +441,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+.vs/projet-matphi/v17/Browse.VC.db
+.vs/projet-matphi/v17/Solution.VC.db
+.vs/slnx.sqlite
