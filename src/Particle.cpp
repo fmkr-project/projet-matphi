@@ -3,6 +3,7 @@
 #include <of3dGraphics.h>
 
 
+// Ctors
 Particle::Particle() {
 	position = Vector3();
 	speed = Vector3(0, 0, 1);
@@ -37,8 +38,15 @@ Particle::Particle(const Particle& other) {
 	mass = other.mass;
 }
 
+// Dtor
 Particle::~Particle() {
 
+}
+
+// Statics
+float Particle::distance(const Particle& p, const Particle& q)
+{
+	return (p.position - q.position).norm();
 }
 
 Vector3 Particle::getPosition() {

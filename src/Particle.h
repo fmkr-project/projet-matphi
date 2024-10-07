@@ -18,12 +18,17 @@ private:
 	Vector3 accumForce;
 
 public:
-
+	// Ctors
 	Particle();
 	Particle(Vector3 pos, Vector3 spd, float m, float s);
 	Particle(Vector3 pos, Vector3 spd, float m, float s, ofColor col);
 	Particle(const Particle& other);
+
+	// Dtor
 	~Particle();
+
+	// Statics
+	static float distance(const Particle& p, const Particle& q);
 
 	Vector3 getPosition();
 	Vector3 getSpeed();
