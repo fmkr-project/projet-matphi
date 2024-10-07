@@ -3,29 +3,30 @@
 #include <of3dGraphics.h>
 
 
-float Particle::size = 100.;
-
 Particle::Particle() {
 	position = Vector3();
 	speed = Vector3(0, 0, 1);
 	color = ofColor();
 	mass = 1;
+	size = 100.;
 	accumForce = Vector3(0, 0, 0);
 }
 
-Particle::Particle(Vector3 pos, Vector3 spd, float m)
+Particle::Particle(Vector3 pos, Vector3 spd, float m, float s)
 {
 	position, previousPosition = pos;
 	speed = spd;
 	mass = m;
+	size = s;
 }
 
-Particle::Particle(Vector3 pos, Vector3 spd, float m, ofColor col)
+Particle::Particle(Vector3 pos, Vector3 spd, float m, float s, ofColor col)
 {
 	position, previousPosition = pos;
 	speed = spd;
 	color = col;
 	mass = m;
+	size = s;
 	accumForce = Vector3(0, 0, 0);
 }
 
@@ -52,6 +53,11 @@ ofColor Particle::getColor() {
 	return color;
 }
 
+float Particle::getSize()
+{
+	return size;
+}
+
 float Particle::getInverseMass()
 {
 	return 1 / this->mass;
@@ -67,6 +73,11 @@ void Particle::setSpeed(Vector3 vitesse) {
 
 void Particle::setColor(ofColor col) {
 	color = col;
+}
+
+void Particle::setSize(float s)
+{
+	size = s;
 }
 
 void Particle::eulerIntegrate(float t)
