@@ -2,6 +2,9 @@
 #include "Particle.h"
 #include <of3dGraphics.h>
 
+
+float Particle::size = 100.;
+
 Particle::Particle() {
 	position = Vector3();
 	speed = Vector3(0, 0, 1);

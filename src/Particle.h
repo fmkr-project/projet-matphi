@@ -17,7 +17,7 @@ private:
 	Vector3 accumForce;
 
 public:
-
+	static float size;
 
 	Particle();
 	Particle(Vector3 pos, Vector3 spd, float m);
