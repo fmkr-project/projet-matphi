@@ -4,11 +4,12 @@
 #include <vector>
 
 #include "Particle.h"
+#include "CollisionManager.h"
 
 class World
 {
 	static std::vector<Particle> Particles;
-	// std::vector<Collision> Collisions;
+	static CollisionManager collisionManager;
 
 public:
 	static void addParticle(Particle p);
