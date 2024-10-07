@@ -13,6 +13,8 @@ class World
 
 public:
 	static void addParticle(Particle p);
+
+	static Particle getParticle(int i);
 };
 
 #endif

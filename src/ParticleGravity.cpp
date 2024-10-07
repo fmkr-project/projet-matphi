@@ -1,17 +1,21 @@
 #include "ParticleForceGenerator.h"
+#include "consts.h"
 
 
 class ParticleGravity : public ParticleForceGenerator {
-	Vector3 gravity = Vector3();
+private :
+	Vector3 gravity;
 
-	ParticleGravity() {
-		gravity = Vector3(0, -9.81, 0);
+public:
+
+	ParticleGravity(Vector3 g = g) {
+		gravity = g;
 	}
 
 	void UpdateForce(Particle* particle, float duration) {
 		float m = 1 / particle->getInverseMass();
 		if (m != 0) {
-			particle->addForce(gravity * m);
+			particle->addForce(m * gravity);
 		}
 	}
 };
