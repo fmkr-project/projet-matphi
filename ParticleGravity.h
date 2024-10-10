@@ -3,7 +3,7 @@
 
 
 class ParticleGravity : public ParticleForceGenerator {
-private :
+private:
 	Vector3 gravity;
 
 public:

@@ -15,7 +15,8 @@ Particle::Particle() {
 
 Particle::Particle(Vector3 pos, Vector3 spd, float m, float s)
 {
-	position, previousPosition = pos;
+	position = pos;
+	previousPosition = pos;
 	speed = spd;
 	mass = m;
 	size = s;
@@ -24,7 +25,8 @@ Particle::Particle(Vector3 pos, Vector3 spd, float m, float s)
 
 Particle::Particle(Vector3 pos, Vector3 spd, float m, float s, ofColor col)
 {
-	position, previousPosition = pos;
+	position = pos;
+	previousPosition = pos;
 	speed = spd;
 	color = col;
 	mass = m;
@@ -33,7 +35,8 @@ Particle::Particle(Vector3 pos, Vector3 spd, float m, float s, ofColor col)
 }
 
 Particle::Particle(const Particle& other) {
-	position, previousPosition = other.position;
+	position = other.position;
+	previousPosition = other.position;
 	speed = other.speed;
 	color = other.color;
 	mass = other.mass;
@@ -107,6 +110,7 @@ void Particle::move()
 {
 	previousPosition = position;
 	this->eulerIntegrate(ofGetLastFrameTime());
+	//this->verletIntegrate(ofGetLastFrameTime());
 }
 
 void Particle::draw() {

@@ -9,7 +9,6 @@ public:
 	void setup();
 	void update();
 	void draw();
-	void testVector3();
 
 	void keyPressed(int key);
 	void keyReleased(int key);
@@ -22,7 +21,9 @@ public:
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+
 	void SpawnParticle(float speed, float mass, ofColor col);
+	void DrawSpring(Particle p);
 
 public:
 
