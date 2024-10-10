@@ -3,12 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ForceFriction.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:ForceFriction.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\Particle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ForceFriction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:ForceFriction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\Particle.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ofApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\ofApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ofApp.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\ofApp.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\CollisionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\CollisionManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ForceFriction.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\ForceFriction.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceGenerator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\ParticleForceGenerator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceRegistry.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\ParticleForceRegistry.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceRegistry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\ParticleForceRegistry.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\consts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\consts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ForceFriction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\ForceFriction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\World.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\World.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\CollisionManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\CollisionManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\World.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\World.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Vector3.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -19,16 +67,12 @@
       "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\Vector3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\consts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\consts.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceGenerator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\ParticleForceGenerator.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ParticleFriction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ParticleFriction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ForceFriction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ForceFriction.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,63 +82,180 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Vector3.h",
-              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Vector3.h",
-              "RelativeDocumentMoniker": "src\\Vector3.h",
-              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Vector3.h",
-              "RelativeToolTip": "src\\Vector3.h",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAADsAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-05T03:40:53.007Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ForceFriction.cpp",
-              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ForceFriction.cpp",
-              "RelativeDocumentMoniker": "ForceFriction.cpp",
-              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ForceFriction.cpp",
-              "RelativeToolTip": "ForceFriction.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-05T03:48:58.198Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Vector3.cpp",
-              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Vector3.cpp",
-              "RelativeDocumentMoniker": "src\\Vector3.cpp",
-              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Vector3.cpp",
-              "RelativeToolTip": "src\\Vector3.cpp",
-              "ViewState": "AgIAAOEAAAAAAAAAAAAAAO8AAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-05T03:37:26.261Z",
+              "Title": "ofApp.h",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ofApp.h",
+              "RelativeDocumentMoniker": "src\\ofApp.h",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ofApp.h",
+              "RelativeToolTip": "src\\ofApp.h",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB4AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-10T18:31:22.54Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ForceFriction.h",
-              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ForceFriction.h",
-              "RelativeDocumentMoniker": "ForceFriction.h",
-              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ForceFriction.h",
-              "RelativeToolTip": "ForceFriction.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Title": "Particle.h",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.h",
+              "RelativeDocumentMoniker": "src\\Particle.h",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.h",
+              "RelativeToolTip": "src\\Particle.h",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-05T03:33:24.738Z",
+              "WhenOpened": "2024-10-10T18:16:57.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ofApp.cpp",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ofApp.cpp",
+              "RelativeDocumentMoniker": "src\\ofApp.cpp",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ofApp.cpp",
+              "RelativeToolTip": "src\\ofApp.cpp",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABEAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-10T18:12:56.039Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Particle.cpp",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.cpp",
+              "RelativeDocumentMoniker": "src\\Particle.cpp",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.cpp",
+              "RelativeToolTip": "src\\Particle.cpp",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAAAHAAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-10T18:12:15.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ParticleForceRegistry.cpp",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceRegistry.cpp",
+              "RelativeDocumentMoniker": "src\\ParticleForceRegistry.cpp",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceRegistry.cpp",
+              "RelativeToolTip": "src\\ParticleForceRegistry.cpp",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-10T18:05:04.036Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "CollisionManager.cpp",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\CollisionManager.cpp",
+              "RelativeDocumentMoniker": "src\\CollisionManager.cpp",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\CollisionManager.cpp",
+              "RelativeToolTip": "src\\CollisionManager.cpp",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAABYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-10T17:56:54.951Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ParticleForceGenerator.h",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceGenerator.h",
+              "RelativeDocumentMoniker": "src\\ParticleForceGenerator.h",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceGenerator.h",
+              "RelativeToolTip": "src\\ParticleForceGenerator.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-02T18:35:15.735Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ForceFriction.cpp",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ForceFriction.cpp",
+              "RelativeDocumentMoniker": "src\\ForceFriction.cpp",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ForceFriction.cpp",
+              "RelativeToolTip": "src\\ForceFriction.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-10T18:00:44.933Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ParticleForceRegistry.h",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceRegistry.h",
+              "RelativeDocumentMoniker": "src\\ParticleForceRegistry.h",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceRegistry.h",
+              "RelativeToolTip": "src\\ParticleForceRegistry.h",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-10T18:04:48.237Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ForceFriction.h",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ForceFriction.h",
+              "RelativeDocumentMoniker": "src\\ForceFriction.h",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ForceFriction.h",
+              "RelativeToolTip": "src\\ForceFriction.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-10T18:00:04.052Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CollisionManager.h",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\CollisionManager.h",
+              "RelativeDocumentMoniker": "src\\CollisionManager.h",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\CollisionManager.h",
+              "RelativeToolTip": "src\\CollisionManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-10T17:56:22.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "World.cpp",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\World.cpp",
+              "RelativeDocumentMoniker": "src\\World.cpp",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\World.cpp",
+              "RelativeToolTip": "src\\World.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-10T17:56:16.941Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "World.h",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\World.h",
+              "RelativeDocumentMoniker": "src\\World.h",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\World.h",
+              "RelativeToolTip": "src\\World.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-10T17:56:10.063Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "consts.h",
               "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\consts.h",
               "RelativeDocumentMoniker": "src\\consts.h",
@@ -107,7 +268,44 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
+              "Title": "Vector3.h",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Vector3.h",
+              "RelativeDocumentMoniker": "src\\Vector3.h",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Vector3.h",
+              "RelativeToolTip": "src\\Vector3.h",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAADsAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-05T03:40:53.007Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ForceFriction.h",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ForceFriction.h",
+              "RelativeDocumentMoniker": "ForceFriction.h",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ForceFriction.h",
+              "RelativeToolTip": "ForceFriction.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-10-05T03:33:24.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Vector3.cpp",
+              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Vector3.cpp",
+              "RelativeDocumentMoniker": "src\\Vector3.cpp",
+              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Vector3.cpp",
+              "RelativeToolTip": "src\\Vector3.cpp",
+              "ViewState": "AgIAAOEAAAAAAAAAAAAAAO8AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-10-05T03:37:26.261Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "ParticleFriction.h",
               "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\ParticleFriction.h",
               "RelativeDocumentMoniker": "ParticleFriction.h",
@@ -116,18 +314,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-10-02T18:35:44.258Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ParticleForceGenerator.h",
-              "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceGenerator.h",
-              "RelativeDocumentMoniker": "src\\ParticleForceGenerator.h",
-              "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleForceGenerator.h",
-              "RelativeToolTip": "src\\ParticleForceGenerator.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-10-02T18:35:15.735Z"
             }
           ]
         }

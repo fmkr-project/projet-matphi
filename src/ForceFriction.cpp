@@ -6,7 +6,8 @@ ForceFriction::ForceFriction(float k1 = 0, float k2 = 0) {
 }
 
 void ForceFriction::updateForce(Particle* particle, float duration) {
-	Vector3 speed = Vector3(particle->getSpeed());
+	Vector3 speed = Vector3(particle->getSpeed()); //Récupération de la vitesse initiale de la particule
+	//Application de la formule de cours
 	float tmp = k1 * speed.norm() + k2 * pow(speed.norm(), 2);
 	speed.normalise();
 	Vector3 forceFriction = Vector3(-1 * speed * tmp);

@@ -33,4 +33,5 @@ std::vector<Particle> CollisionManager::detectCollisions()
 			}
 		}
 	}
+	return particles; //tmp sinon erreur
 }

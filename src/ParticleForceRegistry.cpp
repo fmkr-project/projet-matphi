@@ -10,6 +10,10 @@ ParticleForceRegistry::ParticleForceRegistry(const ParticleForceRegistry& other)
     registrations = other.registrations;
 }
 
+ParticleForceRegistry::~ParticleForceRegistry()
+{
+}
+
 void ParticleForceRegistry::add(Particle* particle, ParticleForceGenerator* Fg) {
     registrations.push_back({ particle, Fg });
 }

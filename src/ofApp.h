@@ -28,5 +28,6 @@ public:
 
 	vector<Particle> myParticles;
 	ofBoxPrimitive box;
+	Particle init;
 
 };

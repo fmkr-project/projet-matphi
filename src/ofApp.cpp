@@ -8,14 +8,15 @@
 
 float timeSinceLastSecond = float(0.);
 
+float mouseXPos = 0;
+float mouseYPos = 0;
+
 //--------------------------------------------------------------
 void ofApp::setup()
 {
 	box.set(500);
-    ofSetBackgroundAuto(false);
     ofBackground(0);
-	Particle p(Vector3(500, 500), Vector3(20, 20), 1.);
-    testVector3();
+    init = Particle(Vector3(),Vector3(), 1, 200.);
 }
 
 //--------------------------------------------------------------
@@ -31,6 +32,8 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+    init.setPosition(Vector3(mouseXPos, mouseYPos, 0.));
+    init.draw();
     bool isSecond = false;
     if (timeSinceLastSecond >= float(1.0))
     {
@@ -43,7 +46,7 @@ void ofApp::draw()
         if (isSecond) ofDrawIcoSphere(particle.getPosition().v3(), 10);
         particle.draw();
     }
-    float frameTime = ofGetLastFrameTime();
+    /*float frameTime = ofGetLastFrameTime();
     ofSetColor(255);
     ofDrawBitmapString("Press c to shoot cannonballs", 10, 10);
     ofDrawBitmapString("Press p to shoot pistols bullets", 10, 25);
@@ -53,7 +56,7 @@ void ofApp::draw()
     ofSetColor(0);
     ofDrawRectangle(800, 0, 200, 20);
     ofSetColor(255);
-    ofDrawBitmapString("Frame Time : " + ofToString(frameTime), 800, 10);
+    ofDrawBitmapString("Frame Time : " + ofToString(frameTime), 800, 10);*/
 }
 
 //--------------------------------------------------------------
@@ -90,7 +93,9 @@ void ofApp::keyReleased(int key) {
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {
-
+    //Met à jour la position de la souris
+    mouseXPos = x;
+    mouseYPos = y;
 }
 
 //--------------------------------------------------------------
@@ -138,9 +143,10 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     Vector3 speedVector = Vector3(ofRandom(0.1, 0.8), ofRandom(-1., 0.), ofRandom(-0.25, 0.25));
     speedVector.normalise();
     Particle newParticle(
-        Vector3(20, 600),
+        Vector3(0, 0),
         speed * speedVector,
         mass,
+        100.,
         col
     );
     myParticles.push_back(newParticle);

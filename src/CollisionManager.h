@@ -13,4 +13,4 @@ public:
 	CollisionManager();
 	void addParticle(Particle p);
 	std::vector<Particle> detectCollisions();
-}
+};
