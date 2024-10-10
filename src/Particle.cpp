@@ -109,8 +109,8 @@ void Particle::verletIntegrate(float t)
 void Particle::move()
 {
 	previousPosition = position;
-	this->eulerIntegrate(ofGetLastFrameTime());
-	//this->verletIntegrate(ofGetLastFrameTime());
+	//this->eulerIntegrate(ofGetLastFrameTime());
+	this->verletIntegrate(ofGetLastFrameTime());
 }
 
 void Particle::draw() {

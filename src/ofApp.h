@@ -2,6 +2,10 @@
 
 #include "ofMain.h"
 #include "Particle.h"
+#include "ParticleForceRegistry.h"
+#include "ForceFriction.h"
+#include "ParticleGravity.h"
+#include "ParticleSpring.h"
 
 class ofApp : public ofBaseApp {
 
@@ -29,6 +33,10 @@ public:
 
 	vector<Particle> myParticles;
 	ofBoxPrimitive box;
-	Particle init;
+	Particle init; //Particule que l'on déplace avec la souris
+	ParticleForceRegistry* forceRegistry;
+	ForceFriction* forceFriction;
+	ParticleGravity forceGravity;
+	ParticleSpring forceSpring;
 
 };

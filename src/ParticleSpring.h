@@ -12,7 +12,7 @@ public:
 		restPos = pos;
 	}
 
-	void UpdateForce(Particle* particle, float duration) {
+	void updateForce(Particle* particle, float duration) override {
 		particle->addForce(k * (restPos - particle->getPosition()));
 	}
 

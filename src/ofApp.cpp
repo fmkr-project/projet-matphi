@@ -3,7 +3,8 @@
 #include "Vector3.h"
 #include "World.h"
 #include "ForceFriction.h"
-//#include "ParticleGravity.h"
+#include "ParticleGravity.h"
+#include "ParticleSpring.h"
 
 #include <of3dGraphics.h>
 
@@ -20,8 +21,9 @@ void ofApp::setup()
     ofBackground(0);
     init = Particle(Vector3(),Vector3(), 1, 200.);
 
-    ForceFriction* frictionForce = new ForceFriction(0.1f, 0.2f);
-    //ForceGravity* gravityForce = new ForceGravity(Vector3(0, -9.81, 0));
+    forceFriction = new ForceFriction(0.1f, 0.1f);
+    forceGravity = ParticleGravity();
+    forceSpring = ParticleSpring(1.);
 }
 
 //--------------------------------------------------------------
@@ -120,6 +122,7 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     );
     myParticles.push_back(newParticle);
     World::addParticle(newParticle);
+
 }
 
 void ofApp::DrawSpring(Particle p)
