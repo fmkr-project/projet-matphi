@@ -29,7 +29,11 @@ std::vector<Particle> CollisionManager::detectCollisions()
 			// Interpenetration
 			if (Particle::distance(p, q) < p.getSize() + q.getSize())
 			{
-				// etc
+				// Cancel penetration
+				Vector3 unit = q.getPosition - p.getPosition;
+				unit.normalise();
+				p.setPosition(p.getPosition() + unit * q.getMass() / (p.getMass() + q.getMass()))
+				q.setPosition(q.getPosition() - unit * p.getMass() / (p.getMass() + q.getMass()))
 			}
 		}
 	}

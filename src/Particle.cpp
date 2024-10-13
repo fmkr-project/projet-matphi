@@ -72,6 +72,11 @@ float Particle::getSize()
 	return size;
 }
 
+float Particle::getMass()
+{
+	return this->mass;
+}
+
 float Particle::getInverseMass()
 {
 	return 1 / this->mass;

@@ -35,6 +35,7 @@ public:
 	ofColor getColor();
 	float getSize();
 
+	float getMass();
 	float getInverseMass();
 
 	void setPosition(Vector3 pos);
