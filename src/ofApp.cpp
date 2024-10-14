@@ -22,8 +22,8 @@ void ofApp::setup()
     init = Particle(Vector3(),Vector3(), 1, 200.);
 
     forceFriction = new ForceFriction(0.1f, 0.1f);
-    forceGravity = ParticleGravity();
-    forceSpring = ParticleSpring(1.);
+    forceGravity = new ParticleGravity();
+    forceSpring = new ParticleSpring(1.);
 }
 
 //--------------------------------------------------------------
@@ -64,7 +64,6 @@ void ofApp::keyReleased(int key) {
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {
-    //Met ÅEjour la position de la souris
     mouseXPos = x;
     mouseYPos = y;
 }

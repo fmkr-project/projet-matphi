@@ -33,10 +33,10 @@ public:
 
 	vector<Particle> myParticles;
 	ofBoxPrimitive box;
-	Particle init; //Particule que l'on déplace avec la souris
+	Particle init;
 	ParticleForceRegistry* forceRegistry;
 	ForceFriction* forceFriction;
-	ParticleGravity forceGravity;
-	ParticleSpring forceSpring;
+	ParticleGravity* forceGravity;
+	ParticleSpring* forceSpring;
 
 };

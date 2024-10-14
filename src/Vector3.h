@@ -29,6 +29,10 @@ public:
     Vector3(float x = 0, float y = 0, float z = 0);
     Vector3(const Vector3& v);
 
+    // Usual vectors
+    static const Vector3* zero;
+    // TODO add forward, up, right
+    
     // Destructor
     ~Vector3();
 

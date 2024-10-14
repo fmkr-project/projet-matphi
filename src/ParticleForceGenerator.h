@@ -7,6 +7,7 @@
 class ParticleForceGenerator {
 
 public:
+	virtual ~ParticleForceGenerator() = default;
 	virtual void updateForce(Particle* particule, float duration) = 0;
 };
 

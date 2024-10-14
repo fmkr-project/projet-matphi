@@ -104,24 +104,179 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ParticleGravity.cpp" />
-    <ClCompile Include="ParticleSpring.cpp" />
+    <ClCompile Include="src\CollisionManager.cpp" />
     <ClCompile Include="src\ForceFriction.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Particle.cpp" />
     <ClCompile Include="src\ParticleForceRegistry.cpp" />
+    <ClCompile Include="src\ParticleFriction.cpp" />
+    <ClCompile Include="src\ParticleGravity.cpp">
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>obj\x64\Debug\</AssemblerListingLocation>
+      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+      <BrowseInformation>false</BrowseInformation>
+      <BrowseInformationFile>obj\x64\Debug\</BrowseInformationFile>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ConformanceMode>Default</ConformanceMode>
+      <DiagnosticsFormat>Column</DiagnosticsFormat>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <EnableASAN>false</EnableASAN>
+      <EnableFuzzer>false</EnableFuzzer>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <GenerateModuleDependencies>false</GenerateModuleDependencies>
+      <GenerateSourceDependencies>false</GenerateSourceDependencies>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ModuleDependenciesFile>obj\x64\Debug\</ModuleDependenciesFile>
+      <ModuleOutputFile>obj\x64\Debug\</ModuleOutputFile>
+      <OmitDefaultLibName>false</OmitDefaultLibName>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <Optimization>Disabled</Optimization>
+      <ObjectFileName>obj\x64\Debug\\Build\%(RelativeDir)\Debug\</ObjectFileName>
+      <CallingConvention>Cdecl</CallingConvention>
+      <ProgramDataBaseFileName>obj\x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>obj\x64\Debug\Test_debug.pch</PrecompiledHeaderOutputFile>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessKeepComments>false</PreprocessKeepComments>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <ShowIncludes>false</ShowIncludes>
+      <SourceDependenciesFile>obj\x64\Debug\</SourceDependenciesFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <SpectreMitigation>false</SpectreMitigation>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <TrackerLogDirectory>obj\x64\Debug\Test.tlog\</TrackerLogDirectory>
+      <TranslateIncludes>false</TranslateIncludes>
+      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <UseFullPaths>true</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <XMLDocumentationFileName>obj\x64\Debug\</XMLDocumentationFileName>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <IntelJCCErratum>false</IntelJCCErratum>
+      <BuildStlModules>false</BuildStlModules>
+      <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+      <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;POCO_STATIC;CAIRO_WIN32_STATIC_BUILD;DISABLE_SOME_FLOATING_POINT;CURL_STATICLIB;_UNICODE;UNICODE;</PreprocessorDefinitions>
+      <AdditionalOptions>/Zc:__cplusplus /Zc:__cplusplus </AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\graphics;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\app;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\sound;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\utils;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\communication;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\video;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\types;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\math;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\3d;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\gl;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\events;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glm\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\rtAudio\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\quicktime\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freetype\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freetype\include\freetype2;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freeImage\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\fmod\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\videoInput\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glew\include\;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glu\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\tess2\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\cairo\include\cairo;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glfw\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openssl\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\utf8\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\boost\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\json\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\curl\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\uriparser\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\pugixml\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\addons;;src</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LinkCompiled>true</LinkCompiled>
+    </ClCompile>
+    <ClCompile Include="src\ParticleSpring.cpp">
+      <AssemblerOutput>NoListing</AssemblerOutput>
+      <AssemblerListingLocation>obj\x64\Debug\</AssemblerListingLocation>
+      <UndefineAllPreprocessorDefinitions>false</UndefineAllPreprocessorDefinitions>
+      <BrowseInformation>false</BrowseInformation>
+      <BrowseInformationFile>obj\x64\Debug\</BrowseInformationFile>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ConformanceMode>Default</ConformanceMode>
+      <DiagnosticsFormat>Column</DiagnosticsFormat>
+      <DisableLanguageExtensions>false</DisableLanguageExtensions>
+      <ErrorReporting>Prompt</ErrorReporting>
+      <ExpandAttributedSource>false</ExpandAttributedSource>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <EnableASAN>false</EnableASAN>
+      <EnableFuzzer>false</EnableFuzzer>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Precise</FloatingPointModel>
+      <ForceConformanceInForLoopScope>true</ForceConformanceInForLoopScope>
+      <GenerateModuleDependencies>false</GenerateModuleDependencies>
+      <GenerateSourceDependencies>false</GenerateSourceDependencies>
+      <GenerateXMLDocumentationFiles>false</GenerateXMLDocumentationFiles>
+      <InlineFunctionExpansion>Default</InlineFunctionExpansion>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+      <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>Default</LanguageStandard_C>
+      <MinimalRebuild>false</MinimalRebuild>
+      <ModuleDependenciesFile>obj\x64\Debug\</ModuleDependenciesFile>
+      <ModuleOutputFile>obj\x64\Debug\</ModuleOutputFile>
+      <OmitDefaultLibName>false</OmitDefaultLibName>
+      <FavorSizeOrSpeed>Neither</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <Optimization>Disabled</Optimization>
+      <ObjectFileName>obj\x64\Debug\\Build\%(RelativeDir)\Debug\</ObjectFileName>
+      <CallingConvention>Cdecl</CallingConvention>
+      <ProgramDataBaseFileName>obj\x64\Debug\vc143.pdb</ProgramDataBaseFileName>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>obj\x64\Debug\Test_debug.pch</PrecompiledHeaderOutputFile>
+      <PreprocessToFile>false</PreprocessToFile>
+      <PreprocessKeepComments>false</PreprocessKeepComments>
+      <PreprocessSuppressLineNumbers>false</PreprocessSuppressLineNumbers>
+      <RemoveUnreferencedCodeData>true</RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+      <ShowIncludes>false</ShowIncludes>
+      <SourceDependenciesFile>obj\x64\Debug\</SourceDependenciesFile>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <BufferSecurityCheck>true</BufferSecurityCheck>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <SpectreMitigation>false</SpectreMitigation>
+      <StructMemberAlignment>Default</StructMemberAlignment>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <TrackerLogDirectory>obj\x64\Debug\Test.tlog\</TrackerLogDirectory>
+      <TranslateIncludes>false</TranslateIncludes>
+      <MinimalRebuildFromTracking>true</MinimalRebuildFromTracking>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <UseFullPaths>true</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <XMLDocumentationFileName>obj\x64\Debug\</XMLDocumentationFileName>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <IntelJCCErratum>false</IntelJCCErratum>
+      <BuildStlModules>false</BuildStlModules>
+      <TreatAngleIncludeAsExternal>false</TreatAngleIncludeAsExternal>
+      <ExternalWarningLevel>InheritWarningLevel</ExternalWarningLevel>
+      <TreatExternalTemplatesAsInternal>true</TreatExternalTemplatesAsInternal>
+      <DisableAnalyzeExternal>false</DisableAnalyzeExternal>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;POCO_STATIC;CAIRO_WIN32_STATIC_BUILD;DISABLE_SOME_FLOATING_POINT;CURL_STATICLIB;_UNICODE;UNICODE;</PreprocessorDefinitions>
+      <AdditionalOptions>/Zc:__cplusplus /Zc:__cplusplus </AdditionalOptions>
+      <AdditionalIncludeDirectories>C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\graphics;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\app;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\sound;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\utils;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\communication;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\video;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\types;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\math;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\3d;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\gl;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openFrameworks\events;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glm\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\rtAudio\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\quicktime\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freetype\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freetype\include\freetype2;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\freeImage\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\fmod\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\videoInput\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glew\include\;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glu\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\tess2\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\cairo\include\cairo;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\glfw\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\openssl\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\utf8\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\boost\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\json\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\curl\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\uriparser\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\libs\pugixml\include;C:\Users\thayt\Documents\of_v0.12.0_vs_release\libs\openFrameworksCompiled\project\vs\\..\..\..\..\\addons;;src</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LinkCompiled>true</LinkCompiled>
+    </ClCompile>
     <ClCompile Include="src\Vector3.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ParticleGravity.h" />
+    <ClInclude Include="src\CollisionManager.h" />
     <ClInclude Include="src\consts.h" />
     <ClInclude Include="src\ForceFriction.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Particle.h" />
     <ClInclude Include="src\ParticleForceGenerator.h" />
     <ClInclude Include="src\ParticleForceRegistry.h" />
+    <ClInclude Include="src\ParticleFriction.h" />
+    <ClInclude Include="src\ParticleGravity.h" />
+    <ClInclude Include="src\ParticleSpring.h" />
     <ClInclude Include="src\Vector3.h" />
     <ClInclude Include="src\World.h" />
   </ItemGroup>

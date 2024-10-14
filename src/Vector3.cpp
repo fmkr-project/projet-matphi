@@ -323,3 +323,7 @@ Vector3 operator/(const Vector3& v, float& f)
     Vector3 resu = v;
     return resu /= f;
 }
+
+
+// Usual vectors
+const Vector3* Vector3::zero = new Vector3(0, 0, 0);

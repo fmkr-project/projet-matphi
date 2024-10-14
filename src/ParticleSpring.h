@@ -10,6 +10,7 @@ private:
 
 public:
 
+	ParticleSpring(float kInit);
 	ParticleSpring(float kInit, Vector3 pos);
 
 	void updateForce(Particle* particle, float duration);

@@ -30,10 +30,10 @@ std::vector<Particle> CollisionManager::detectCollisions()
 			if (Particle::distance(p, q) < p.getSize() + q.getSize())
 			{
 				// Cancel penetration
-				Vector3 unit = q.getPosition - p.getPosition;
+				Vector3 unit = q.getPosition() - p.getPosition();
 				unit.normalise();
-				p.setPosition(p.getPosition() + unit * q.getMass() / (p.getMass() + q.getMass()))
-				q.setPosition(q.getPosition() - unit * p.getMass() / (p.getMass() + q.getMass()))
+				p.setPosition(p.getPosition() + unit * (q.getMass() / (p.getMass() + q.getMass())));
+				q.setPosition(q.getPosition() - unit * (p.getMass() / (p.getMass() + q.getMass())));
 			}
 		}
 	}
