@@ -21,9 +21,11 @@ void ofApp::setup()
     ofBackground(0);
     init = Particle(Vector3(),Vector3(), 1, 200.);
 
-    forceFriction = new ForceFriction(0.1f, 0.1f);
-    forceGravity = new ParticleGravity();
-    forceSpring = new ParticleSpring(1.);
+    collision_manager = *new CollisionManager();
+    collision_manager.add_particle(init);
+    force_friction = new ForceFriction(0.1f, 0.1f);
+    force_gravity = new ParticleGravity();
+    force_spring = new ParticleSpring(1.);
 }
 
 //--------------------------------------------------------------
@@ -33,6 +35,10 @@ void ofApp::update()
     {
 		particle.move();
 	}
+
+    // Manage resulting collisions
+    collision_manager.detect_collisions();
+    myParticles = collision_manager.get_particles();
 }
 
 //--------------------------------------------------------------
@@ -116,12 +122,14 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
         Vector3(mouseXPos, mouseYPos - 100),
         speed * speedVector,
         mass,
-        100.,
+        10.,
         col
     );
     myParticles.push_back(newParticle);
+    collision_manager.add_particle(newParticle);
     World::addParticle(newParticle);
 
+    std::cout << "New particle created" << std::endl;
 }
 
 void ofApp::DrawSpring(Particle p)

@@ -11,6 +11,7 @@ private:
 
 public:
 	CollisionManager();
-	void addParticle(Particle p);
-	std::vector<Particle> detectCollisions();
+	void add_particle(Particle p);
+	std::vector<Particle> get_particles();
+	void detect_collisions();
 };

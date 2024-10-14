@@ -1,5 +1,6 @@
 #pragma once
 
+#include "CollisionManager.h"
 #include "ofMain.h"
 #include "Particle.h"
 #include "ParticleForceRegistry.h"
@@ -34,9 +35,10 @@ public:
 	vector<Particle> myParticles;
 	ofBoxPrimitive box;
 	Particle init;
-	ParticleForceRegistry* forceRegistry;
-	ForceFriction* forceFriction;
-	ParticleGravity* forceGravity;
-	ParticleSpring* forceSpring;
+	ParticleForceRegistry* force_registry;
+	CollisionManager collision_manager;
+	ForceFriction* force_friction;
+	ParticleGravity* force_gravity;
+	ParticleSpring* force_spring;
 
 };

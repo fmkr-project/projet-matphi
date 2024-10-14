@@ -10,7 +10,7 @@ CollisionManager World::collisionManager = CollisionManager();
 void World::addParticle(Particle p)
 {
 	Particles.push_back(p);
-	collisionManager.addParticle(p);
+	collisionManager.add_particle(p);
 }
 
 Particle World::getParticle(int i) {

@@ -9,7 +9,7 @@ Particle::Particle() {
 	speed = Vector3(0, 0, 1);
 	color = ofColor();
 	mass = 1;
-	size = 100.;
+	size = 10.;
 	accumForce = Vector3(0, 0, 0);
 }
 

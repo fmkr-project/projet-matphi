@@ -221,6 +221,12 @@ float Vector3::dotProduct(const Vector3& v) const
     return x_ * v.x_ + y_ * v.y_ + z_ * v.z_;
 }
 
+float Vector3::dotProduct(const Vector3& v1, const Vector3& v2)
+{
+    return v1.dotProduct(v2);
+}
+
+
 /**
  * @brief Effectue le produit vectoriel entre 2 vecteurs
  *
@@ -234,6 +240,11 @@ Vector3 Vector3::crossProduct(const Vector3& v) const
     float z = x_ * v.y_ - y_ * v.x_;
 
     return Vector3(x, y, z);
+}
+
+Vector3 Vector3::crossProduct(const Vector3& v1, const Vector3& v2)
+{
+    return v1.crossProduct(v2);
 }
 
 float Vector3::norm() const {
