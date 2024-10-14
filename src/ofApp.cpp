@@ -64,7 +64,7 @@ void ofApp::keyReleased(int key) {
 
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y) {
-    //Met ‡ jour la position de la souris
+    //Met ÅEjour la position de la souris
     mouseXPos = x;
     mouseYPos = y;
 }

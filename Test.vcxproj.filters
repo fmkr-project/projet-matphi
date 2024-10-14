@@ -28,7 +28,10 @@
     <ClCompile Include="src\ParticleForceRegistry.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\ParticleGravity.cpp">
+    <ClCompile Include="ParticleGravity.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSpring.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -63,6 +66,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\ParticleForceRegistry.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleGravity.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
