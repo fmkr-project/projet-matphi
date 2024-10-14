@@ -1,22 +1,15 @@
+#pragma once
 #include "ParticleForceGenerator.h"
-#include "consts.h"
 
-
-class ParticleGravity : public ParticleForceGenerator {
-private:
+class ParticleGravity : public ParticleForceGenerator 
+{
+private :
 	Vector3 gravity;
 
-public:
+public :
 
-	ParticleGravity(Vector3 gravite = g) {
-		gravity = gravite;
-	}
+	ParticleGravity(Vector3 gravite);
 
-	void updateForce(Particle* particle, float duration) override {
-		float m = 1 / particle->getInverseMass();
-		if (m != 0) {
-			particle->addForce(m * gravity);
-		}
-	}
+	void updateForce(Particle* particle, float duration);
 };
 
