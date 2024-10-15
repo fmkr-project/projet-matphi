@@ -4,7 +4,7 @@
 #include "ofMain.h"
 #include "Particle.h"
 #include "ParticleForceRegistry.h"
-#include "ForceFriction.h"
+#include "ParticleFriction.h"
 #include "ParticleGravity.h"
 #include "ParticleSpring.h"
 
@@ -34,10 +34,10 @@ public:
 
 	vector<Particle*> myParticles;
 	ofBoxPrimitive box;
-	Particle init;
+	Particle init; //Particle that the user control
 	ParticleForceRegistry* force_registry;
 	CollisionManager collision_manager;
-	ForceFriction* force_friction;
+	ParticleFriction* force_friction;
 	ParticleGravity* force_gravity;
 	ParticleSpring* force_spring;
 

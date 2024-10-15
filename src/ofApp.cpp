@@ -2,7 +2,7 @@
 #include "Particle.h"
 #include "Vector3.h"
 #include "World.h"
-#include "ForceFriction.h"
+#include "ParticleFriction.h"
 #include "ParticleGravity.h"
 #include "ParticleSpring.h"
 
@@ -21,9 +21,10 @@ void ofApp::setup()
     ofBackground(0);
     init = Particle(Vector3(),Vector3(), 1, 200.);
 
+    force_registry = new ParticleForceRegistry();
     collision_manager = *new CollisionManager();
     collision_manager.add_particle(&init);
-    force_friction = new ForceFriction(0.1f, 0.1f);
+    force_friction = new ParticleFriction(0.1f, 0.1f);
     force_gravity = new ParticleGravity();
     force_spring = new ParticleSpring(1.);
 }
@@ -31,9 +32,12 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
-	for (auto& particle : myParticles)
+    //Update the forces in the registry
+    force_registry->updateForces(ofGetLastFrameTime());
+	for (auto particle : myParticles)
     {
 		particle->move();
+        particle->clearAccum();
 	}
 
     // Manage resulting collisions
@@ -129,6 +133,12 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
         col
     );
     myParticles.push_back(newParticle);
+
+    //Add forces to the new particule
+    force_registry->add(newParticle, force_friction);
+    force_registry->add(newParticle, force_gravity);
+    force_registry->add(newParticle, force_spring);
+
     collision_manager.add_particle(newParticle);
     //World::addParticle(newParticle);
 
