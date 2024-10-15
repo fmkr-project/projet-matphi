@@ -15,6 +15,16 @@ void CollisionManager::add_particle(Particle p)
 	particles.push_back(p);
 }
 
+void CollisionManager::remove_particle(Particle p)
+{
+	for (unsigned int i = 0; i < particles.size(); i++)
+	{
+		if (p == particles[i])
+			particles.erase(particles.begin() + i);
+	}
+}
+
+
 std::vector<Particle> CollisionManager::get_particles()
 {
 	return particles;
