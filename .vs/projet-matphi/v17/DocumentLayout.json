@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\Particle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ofApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\ofApp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|solutionrelative:src\\Particle.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7FD42DF7-442E-479A-BA76-D0022F99702A}|projet-matphi.vcxproj|C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ParticleGravity.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
@@ -38,8 +38,7 @@
               "RelativeToolTip": "src\\ParticleGravity.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-15T20:34:17.824Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T20:34:17.824Z"
             },
             {
               "$type": "Document",
@@ -51,31 +50,30 @@
               "RelativeToolTip": "src\\ParticleFriction.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-10-15T20:55:27.954Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-15T20:55:27.954Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Particle.cpp",
               "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.cpp",
               "RelativeDocumentMoniker": "src\\Particle.cpp",
               "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\Particle.cpp",
               "RelativeToolTip": "src\\Particle.cpp",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAAAHQAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHQAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-15T20:46:53.59Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "ofApp.cpp",
               "DocumentMoniker": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ofApp.cpp",
               "RelativeDocumentMoniker": "src\\ofApp.cpp",
               "ToolTip": "C:\\Users\\audre\\OneDrive\\Documents\\GitHub\\projet-matphi\\src\\ofApp.cpp",
               "RelativeToolTip": "src\\ofApp.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABgAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACcAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-10-10T18:12:56.039Z",
               "EditorCaption": ""

@@ -107,6 +107,7 @@
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\CollisionManager.cpp" />
+    <ClCompile Include="src\ForceFriction.cpp" />
     <ClCompile Include="src\Particle.cpp" />
     <ClCompile Include="src\ParticleForceRegistry.cpp" />
     <ClCompile Include="src\ParticleFriction.cpp" />
@@ -118,6 +119,7 @@
   <ItemGroup>
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\CollisionManager.h" />
+    <ClInclude Include="src\ForceFriction.h" />
     <ClInclude Include="src\Particle.h" />
     <ClInclude Include="src\ParticleForceGenerator.h" />
     <ClInclude Include="src\ParticleForceRegistry.h" />

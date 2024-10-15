@@ -1,87 +1,93 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <ItemGroup>
-    <ClCompile Include="src\ofApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\CollisionManager.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Particle.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleForceRegistry.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleFriction.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleGravity.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ParticleSpring.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Vector3.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\World.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\main.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ofApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\CollisionManager.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Particle.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ParticleForceGenerator.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ParticleForceRegistry.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ParticleFriction.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ParticleGravity.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ParticleSpring.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Vector3.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\World.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\consts.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\ofApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="icon.rc" />
-  </ItemGroup>
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\CollisionManager.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ForceFriction.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Particle.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ParticleForceRegistry.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ParticleFriction.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ParticleGravity.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ParticleSpring.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\Vector3.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\World.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\CollisionManager.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ForceFriction.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Particle.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ParticleForceGenerator.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ParticleForceRegistry.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ParticleFriction.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ParticleGravity.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ParticleSpring.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\Vector3.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\World.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\consts.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
 </Project>
