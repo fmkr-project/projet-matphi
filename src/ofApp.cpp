@@ -2,14 +2,13 @@
 #include "Particle.h"
 #include "Vector3.h"
 #include "World.h"
-#include "ForceFriction.h"
+#include "ParticleFriction.h"
 #include "ParticleGravity.h"
 #include "ParticleSpring.h"
 
 #include <of3dGraphics.h>
 
 
-float timeSinceLastSecond = float(0.);
 
 float mouseXPos = 0;
 float mouseYPos = 0;
@@ -21,9 +20,10 @@ void ofApp::setup()
     ofBackground(0);
     init = Particle(Vector3(),Vector3(), 1, 200.);
 
+    force_registry = new ParticleForceRegistry();
     collision_manager = *new CollisionManager();
-    collision_manager.add_particle(init);
-    force_friction = new ForceFriction(0.1f, 0.1f);
+    //collision_manager.add_particle(init);
+    force_friction = new ParticleFriction(0.1f, 0.1f);
     force_gravity = new ParticleGravity();
     force_spring = new ParticleSpring(1.);
 }
@@ -31,9 +31,12 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
+    init.setPosition(Vector3(mouseXPos, mouseYPos, 0.));
 	for (auto& particle : myParticles)
     {
+        force_registry->updateForces(ofGetLastFrameTime());
 		particle.move();
+        particle.clearAccum();
 	}
 
     // Manage resulting collisions
@@ -44,7 +47,6 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-    init.setPosition(Vector3(mouseXPos, mouseYPos, 0.));
     ofSetColor(init.getColor());
     init.draw();
     for (auto& particle : myParticles) {
@@ -128,6 +130,11 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     myParticles.push_back(newParticle);
     collision_manager.add_particle(newParticle);
     World::addParticle(newParticle);
+
+    //Ajout des forces dans le registre
+    force_registry->add(&newParticle, force_friction);
+    force_registry->add(&newParticle, force_gravity);
+    force_registry->add(&newParticle, force_spring);
 
     std::cout << "New particle created" << std::endl;
 }
