@@ -7,12 +7,15 @@
 class CollisionManager
 {
 private:
-	std::vector<Particle> particles;
+	std::vector<Particle*> particles;
 
 public:
 	CollisionManager();
-	void add_particle(Particle p);
-	void remove_particle(Particle p);
-	std::vector<Particle> get_particles();
+	void add_particle(Particle* p);
+	void remove_particle(Particle* p);
+	std::vector<Particle*> get_particles();
 	void detect_collisions();
+
+	// debug
+	void _debug_print_all_particles() const;
 };

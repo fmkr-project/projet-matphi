@@ -32,7 +32,7 @@ public:
 
 public:
 
-	vector<Particle> myParticles;
+	vector<Particle*> myParticles;
 	ofBoxPrimitive box;
 	Particle init;
 	ParticleForceRegistry* force_registry;
