@@ -44,7 +44,10 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+    // Update init position in collision manager
+    collision_manager.remove_particle(init);
     init.setPosition(Vector3(mouseXPos, mouseYPos, 0.));
+    collision_manager.add_particle(init);
     ofSetColor(init.getColor());
     init.draw();
     for (auto& particle : myParticles) {
