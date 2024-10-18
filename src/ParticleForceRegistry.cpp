@@ -36,6 +36,7 @@ void ParticleForceRegistry::clear() {
 
 void ParticleForceRegistry::updateForces(float duration) {
     for (auto it = registrations.begin(); it != registrations.end(); ++it) {
+        it->particle->clearAccum();
         it->Fg->updateForce(it->particle, duration);
     }
 }
