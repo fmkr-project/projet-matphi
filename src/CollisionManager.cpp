@@ -49,8 +49,8 @@ void CollisionManager::detect_collisions()
 				// Cancel penetration
 				Vector3 unit = q->getPosition() - p->getPosition();
 				unit.normalise();
-				p->setPosition(p->getPosition() + unit * (q->getMass() / (p->getMass() + q->getMass())));
-				q->setPosition(q->getPosition() - unit * (p->getMass() / (p->getMass() + q->getMass())));
+				p->setPosition(p->getPosition() - unit * (q->getMass() / (p->getMass() + q->getMass())));
+				q->setPosition(q->getPosition() + unit * (p->getMass() / (p->getMass() + q->getMass())));
 
 				// Generate pulse
 				// Consider a perfectly elastic collision (ie. e=1)
