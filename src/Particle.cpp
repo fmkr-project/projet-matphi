@@ -100,10 +100,9 @@ void Particle::setSize(float s)
 }
 
 void Particle::eulerIntegrate(float t)
-// Consider that the particle is only affected by its weight
 {
-	speed += t * g * mass;
-	position += t * speed;
+	speed += accumForce * this->getInverseMass() * t;
+	position += speed * t;
 }
 
 void Particle::verletIntegrate(float t)
@@ -114,8 +113,8 @@ void Particle::verletIntegrate(float t)
 void Particle::move()
 {
 	previousPosition = position;
-	//this->eulerIntegrate(ofGetLastFrameTime());
-	this->verletIntegrate(ofGetLastFrameTime());
+	this->eulerIntegrate(ofGetLastFrameTime());
+	//this->verletIntegrate(ofGetLastFrameTime());
 }
 
 void Particle::draw() {
