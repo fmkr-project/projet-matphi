@@ -135,7 +135,7 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     //Add forces to the new particule
     force_registry->add(newParticle, force_friction);
     force_registry->add(newParticle, force_gravity);
-    //force_registry->add(newParticle, force_spring);
+    force_registry->add(newParticle, force_spring);
 
     collision_manager.add_particle(newParticle);
     //World::addParticle(newParticle);

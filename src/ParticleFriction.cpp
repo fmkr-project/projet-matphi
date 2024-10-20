@@ -1,8 +1,9 @@
 #include "ParticleFriction.h"
 
-ParticleFriction::ParticleFriction(float k1 = 0, float k2 = 0) {
-	k1 = k1;
-	k2 = k2;
+ParticleFriction::ParticleFriction(float k1, float k2)
+{
+	this->k1 = k1;
+	this->k2 = k2;
 }
 
 void ParticleFriction::updateForce(Particle* particle, float duration) {

@@ -50,14 +50,14 @@ void CollisionManager::detect_collisions()
 				collisionNb++;
 				// Cancel penetration
 				Vector3 d = p->getSize() + q->getSize() - Particle::distance(*p, *q);
-				Vector3 unit = p->getPosition() - q->getPosition();
+				Vector3 unit = q->getPosition() - p->getPosition();
 				unit.normalise();
 				p->setPosition(p->getPosition() - d * unit * (q->getMass() / (p->getMass() + q->getMass())));
 				q->setPosition(q->getPosition() + d * unit * (p->getMass() / (p->getMass() + q->getMass())));
 
 				// Generate pulse
-				// Consider a perfectly elastic collision (ie. e=1)
-				float k = 2 * Vector3::dotProduct(p->getSpeed() - q->getSpeed(), unit) /
+				// Consider a near perfect elastic collision (ie. e=0.75)
+				float k = 1.75 * Vector3::dotProduct(p->getSpeed() - q->getSpeed(), unit) /
 					(p->getInverseMass() + q->getInverseMass());
 				// Change particle speeds accordingly
 				p->setSpeed(p->getSpeed() - k * p->getInverseMass() * unit);
