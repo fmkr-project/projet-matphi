@@ -26,7 +26,7 @@ void ofApp::setup()
     collision_manager.add_particle(&init);
     force_friction = new ParticleFriction(0.1f, 0.1f);
     force_gravity = new ParticleGravity();
-    force_spring = new ParticleSpring(42., &init);
+    force_spring = new ParticleSpring(5000., 10., &init);
 }
 
 //--------------------------------------------------------------
@@ -135,9 +135,9 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     myParticles.push_back(newParticle);
 
     //Add forces to the new particule
-    //force_registry->add(newParticle, force_friction);
+    force_registry->add(newParticle, force_friction);
     force_registry->add(newParticle, force_gravity);
-    force_registry->add(newParticle, force_spring);
+    //force_registry->add(newParticle, force_spring);
 
     collision_manager.add_particle(newParticle);
     //World::addParticle(newParticle);
