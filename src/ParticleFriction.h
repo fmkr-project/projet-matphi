@@ -6,7 +6,7 @@ class ParticleFriction :
     public ParticleForceGenerator
 {
 private:
-    //Valeurs dépendant des particules
+    //Valeurs dpendant des particules
     float k1;
     float k2;
 public:
