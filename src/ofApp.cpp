@@ -20,6 +20,7 @@ void ofApp::setup()
 	box.set(500);
     ofBackground(0);
     init = Particle(Vector3(),Vector3(), 1, 10.);
+    numberParticles = 0;
 
     force_registry = new ParticleForceRegistry();
     collision_manager = *new CollisionManager();
@@ -59,13 +60,14 @@ void ofApp::draw()
         particle->draw();
         DrawSpring(*particle);
     }
+    ofDrawBitmapString("Numbers of particles :" + ofToString(numberParticles), 10, 10);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
     ofColor randomColor = ofColor(ofRandom(127, 256), ofRandom(127, 256), ofRandom(127, 256));
-    if (key == 'e') {
+    if (key == 'e' && numberParticles <20) {
         SpawnParticle(1, 100, randomColor);
     }
 }
@@ -142,6 +144,7 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
 
     std::cout << "New particle created @" << mouseXPos << ' ' << mouseYPos << '\n';
     collision_manager._debug_print_all_particles();
+    numberParticles++;
 }
 
 void ofApp::DrawSpring(Particle p)

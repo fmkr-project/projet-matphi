@@ -40,5 +40,6 @@ public:
 	ParticleFriction* force_friction;
 	ParticleGravity* force_gravity;
 	ParticleSpring* force_spring;
+	int numberParticles;
 
 };
