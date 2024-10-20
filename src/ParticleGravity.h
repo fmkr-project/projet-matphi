@@ -8,7 +8,6 @@
 class ParticleGravity : public ParticleForceGenerator {
 private:
 	Vector3 gravity;
-
 public:
 	ParticleGravity();
 	ParticleGravity(Vector3 grav);

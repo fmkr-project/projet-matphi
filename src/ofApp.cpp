@@ -22,9 +22,11 @@ void ofApp::setup()
     init = Particle(Vector3(),Vector3(), 1, 10.);
     numberParticles = 0;
 
-    ground = Particle(Vector3(500,1600,0), Vector3(), 10000000, 1000., ofColor(160,160,160));
+    ground = Particle(Vector3(500,1600,0), Vector3(), MAXULONGLONG, 1000., ofColor(160,160,160));
 
     force_registry = new ParticleForceRegistry();
+    force_registry->bind(&init);
+    force_registry->bind(&ground);
     //ParticleGravity* tmp = new ParticleGravity(Vector3());
     //force_registry->add(&ground, tmp);
     collision_manager = *new CollisionManager();
@@ -61,7 +63,7 @@ void ofApp::draw()
     for (auto& particle : myParticles) {
         if (particle->getMass() < 1000) { //Allow to exclude the ground
             particle->draw();
-            DrawSpring(*particle);
+            if (force_registry->isBound(particle)) DrawSpring(*particle);
         }
     }
     for (auto& particle : myFreeParticles) {
@@ -78,18 +80,20 @@ void ofApp::keyPressed(int key)
     if (key == 'e' && numberParticles <20) {
         SpawnParticle(1, 100, randomColor);
     }
-    if (key == 'b' && numberParticles > 0 && myParticles.size() > 0) {
-        Particle* p = myParticles.back();
+    if (key == 'b' && myBoundParticles.size() > 0 && myParticles.size() > 0) {
+        Particle* p = myBoundParticles.back();
         myFreeParticles.push_back(p);
-        myParticles.pop_back();
-        collision_manager.remove_particle(p);
+        myBoundParticles.pop_back();
+        force_registry->unbind(p);
+        //collision_manager.remove_particle(p);
 
     }
-    if (key == 'a' && numberParticles > 0 && myFreeParticles.size() > 0) {
+    if (key == 'a' && myFreeParticles.size() > 0) {
         Particle* p = myFreeParticles.back();
-        myParticles.push_back(p);
+        myBoundParticles.push_back(p);
         myFreeParticles.pop_back();
-        collision_manager.add_particle(p);
+        force_registry->bind(p);
+        //collision_manager.add_particle(p);
     }
 }
 
@@ -154,6 +158,9 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
         col
     );
     myParticles.push_back(newParticle);
+    numberParticles++;
+    myBoundParticles.push_back(newParticle);
+    nbBoundParticles++;
 
     //Add forces to the new particule
     force_registry->add(newParticle, force_friction);
@@ -165,7 +172,6 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
 
     std::cout << "New particle created @" << mouseXPos << ' ' << mouseYPos << '\n';
     collision_manager._debug_print_all_particles();
-    numberParticles++;
 }
 
 void ofApp::DrawSpring(Particle p)

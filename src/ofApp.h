@@ -33,6 +33,7 @@ public:
 public:
 
 	vector<Particle*> myParticles;
+	vector<Particle*> myBoundParticles;
 	vector<Particle*> myFreeParticles;
 	ofBoxPrimitive box;
 	Particle init; //Particle that the user control
@@ -44,6 +45,7 @@ public:
 	ParticleSpring* force_spring;
 	//Count the number of particles created (excluding the one the user control)
 	int numberParticles;
+	int nbBoundParticles;
 	Particle ground; //Create a ground for the particles to collide with
 
 };
