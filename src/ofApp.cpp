@@ -71,9 +71,10 @@ void ofApp::draw()
     }
     ofSetColor(init.getColor());
     ofDrawBitmapString("Numbers of particles :" + ofToString(numberParticles), 10, 10);
-    ofDrawBitmapString("Press e to add a particle in the game", 10, 25);
-    ofDrawBitmapString("Press b to remove a particle from the blob", 10, 40);
-    ofDrawBitmapString("Press a to fuse a particle with the blob", 10, 55);
+    ofDrawBitmapString("Numbers of particles attached to the blob :" + ofToString(myBoundParticles.size()), 10, 25);
+    ofDrawBitmapString("Press e to add a particle in the game", 10, 40);
+    ofDrawBitmapString("Press b to remove a particle from the blob", 10, 55);
+    ofDrawBitmapString("Press a to fuse a particle with the blob", 10, 70);
 }
 
 //--------------------------------------------------------------
