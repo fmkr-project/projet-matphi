@@ -33,6 +33,7 @@ public:
 public:
 
 	vector<Particle*> myParticles;
+	vector<Particle*> myFreeParticles;
 	ofBoxPrimitive box;
 	Particle init; //Particle that the user control
 	ParticleForceRegistry* force_registry;

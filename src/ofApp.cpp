@@ -22,7 +22,7 @@ void ofApp::setup()
     init = Particle(Vector3(),Vector3(), 1, 10.);
     numberParticles = 0;
 
-    ground = Particle(Vector3(500,1600,0), Vector3(), 10000000, 1000.);
+    ground = Particle(Vector3(500,1600,0), Vector3(), 10000000, 1000., ofColor(160,160,160));
 
     force_registry = new ParticleForceRegistry();
     //ParticleGravity* tmp = new ParticleGravity(Vector3());
@@ -54,15 +54,18 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
-    ground.draw();
     // Update init position in collision manager
+    ground.draw();
     init.setPosition(Vector3(mouseXPos, mouseYPos, 0.));
-    ofSetColor(init.getColor());
     init.draw();
     for (auto& particle : myParticles) {
-        ofSetColor(particle->getColor());
+        if (particle->getMass() < 1000) { //Allow to exclude the ground
+            particle->draw();
+            DrawSpring(*particle);
+        }
+    }
+    for (auto& particle : myFreeParticles) {
         particle->draw();
-        DrawSpring(*particle);
     }
     ofSetColor(init.getColor());
     ofDrawBitmapString("Numbers of particles :" + ofToString(numberParticles), 10, 10);
@@ -74,6 +77,19 @@ void ofApp::keyPressed(int key)
     ofColor randomColor = ofColor(ofRandom(127, 256), ofRandom(127, 256), ofRandom(127, 256));
     if (key == 'e' && numberParticles <20) {
         SpawnParticle(1, 100, randomColor);
+    }
+    if (key == 'b' && numberParticles > 0) {
+        Particle* p = myParticles.back();
+        myFreeParticles.push_back(p);
+        myParticles.pop_back();
+        collision_manager.remove_particle(p);
+
+    }
+    if (key == 'a' && numberParticles > 0 && myFreeParticles.size() > 0) {
+        Particle* p = myFreeParticles.back();
+        myParticles.push_back(p);
+        myFreeParticles.pop_back();
+        collision_manager.add_particle(p);
     }
 }
 
