@@ -26,7 +26,7 @@ void ofApp::setup()
     collision_manager.add_particle(&init);
     force_friction = new ParticleFriction(0.1f, 0.1f);
     force_gravity = new ParticleGravity();
-    force_spring = new ParticleSpring(1.);
+    force_spring = new ParticleSpring(42., &init);
 }
 
 //--------------------------------------------------------------
@@ -66,7 +66,7 @@ void ofApp::keyPressed(int key)
 {
     ofColor randomColor = ofColor(ofRandom(127, 256), ofRandom(127, 256), ofRandom(127, 256));
     if (key == 'e') {
-        SpawnParticle(1, 10, randomColor);
+        SpawnParticle(1, 100, randomColor);
     }
 }
 
@@ -135,7 +135,7 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     myParticles.push_back(newParticle);
 
     //Add forces to the new particule
-    force_registry->add(newParticle, force_friction);
+    //force_registry->add(newParticle, force_friction);
     force_registry->add(newParticle, force_gravity);
     force_registry->add(newParticle, force_spring);
 
@@ -143,6 +143,7 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     //World::addParticle(newParticle);
 
     std::cout << "New particle created @" << mouseXPos << ' ' << mouseYPos << '\n';
+    collision_manager._debug_print_all_particles();
 }
 
 void ofApp::DrawSpring(Particle p)

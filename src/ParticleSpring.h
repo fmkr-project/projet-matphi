@@ -6,12 +6,11 @@ class ParticleSpring : public ParticleForceGenerator
 private:
 	float k;
 
-	Vector3 restPos;
+	Particle* anchorParticle;
 
 public:
 
-	ParticleSpring(float kInit);
-	ParticleSpring(float kInit, Vector3 pos);
+	ParticleSpring(float kInit, Particle* anchor);
 
 	void updateForce(Particle* particle, float duration);
 

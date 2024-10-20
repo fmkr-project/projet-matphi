@@ -1,19 +1,13 @@
 #include "ParticleSpring.h"
 
 
-ParticleSpring::ParticleSpring(float k)
+ParticleSpring::ParticleSpring(float k, Particle* anchor)
 {
 	this->k = k;
-	restPos = *Vector3::zero;
-}
-
-ParticleSpring::ParticleSpring(float k, Vector3 pos)
-{
-	this->k = k;
-	restPos = pos;
+	anchorParticle = anchor;
 }
 
 void ParticleSpring::updateForce(Particle* particle, float duration) {
-	Vector3 springForce = k * (restPos - particle->getPosition());
+	Vector3 springForce = k * (anchorParticle->getPosition() - particle->getPosition());
 	particle->addForce(springForce);
 }
