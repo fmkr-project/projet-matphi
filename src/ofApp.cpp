@@ -22,9 +22,14 @@ void ofApp::setup()
     init = Particle(Vector3(),Vector3(), 1, 10.);
     numberParticles = 0;
 
+    ground = Particle(Vector3(500,1600,0), Vector3(), 10000000, 1000.);
+
     force_registry = new ParticleForceRegistry();
+    //ParticleGravity* tmp = new ParticleGravity(Vector3());
+    //force_registry->add(&ground, tmp);
     collision_manager = *new CollisionManager();
     collision_manager.add_particle(&init);
+    collision_manager.add_particle(&ground);
     force_friction = new ParticleFriction(0.1f, 0.1f);
     force_gravity = new ParticleGravity();
     force_spring = new ParticleSpring(500., 10., &init);
@@ -49,10 +54,9 @@ void ofApp::update()
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+    ground.draw();
     // Update init position in collision manager
-    collision_manager.remove_particle(&init);
     init.setPosition(Vector3(mouseXPos, mouseYPos, 0.));
-    collision_manager.add_particle(&init);
     ofSetColor(init.getColor());
     init.draw();
     for (auto& particle : myParticles) {
@@ -60,6 +64,7 @@ void ofApp::draw()
         particle->draw();
         DrawSpring(*particle);
     }
+    ofSetColor(init.getColor());
     ofDrawBitmapString("Numbers of particles :" + ofToString(numberParticles), 10, 10);
 }
 

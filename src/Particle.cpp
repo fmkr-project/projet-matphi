@@ -118,7 +118,7 @@ void Particle::move()
 }
 
 void Particle::draw() {
-	ofDrawIcoSphere(position.v3(), 10);
+	ofDrawIcoSphere(position.v3(), size);
 }
 
 void Particle::addForce(const Vector3& force) {

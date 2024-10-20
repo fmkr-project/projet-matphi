@@ -37,9 +37,12 @@ public:
 	Particle init; //Particle that the user control
 	ParticleForceRegistry* force_registry;
 	CollisionManager collision_manager;
+	//Forces linked to future particles
 	ParticleFriction* force_friction;
 	ParticleGravity* force_gravity;
 	ParticleSpring* force_spring;
+	//Count the number of particles created (excluding the one the user control)
 	int numberParticles;
+	Particle ground; //Create a ground for the particles to collide with
 
 };
