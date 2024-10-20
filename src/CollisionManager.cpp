@@ -38,8 +38,10 @@ void CollisionManager::detect_collisions()
 	
 	for each (Particle* p in particles)
 	{
+		if (collisionNb >= threshold) break;
 		for each (Particle* q in particles)
 		{
+			if (collisionNb >= threshold) break;
 			if (p == q) continue;
 
 			// Interpenetration
