@@ -78,7 +78,7 @@ void ofApp::keyPressed(int key)
     if (key == 'e' && numberParticles <20) {
         SpawnParticle(1, 100, randomColor);
     }
-    if (key == 'b' && numberParticles > 0) {
+    if (key == 'b' && numberParticles > 0 && myParticles.size() > 0) {
         Particle* p = myParticles.back();
         myFreeParticles.push_back(p);
         myParticles.pop_back();
