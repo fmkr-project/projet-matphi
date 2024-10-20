@@ -19,14 +19,14 @@ void ofApp::setup()
 {
 	box.set(500);
     ofBackground(0);
-    init = Particle(Vector3(),Vector3(), 1, 200.);
+    init = Particle(Vector3(),Vector3(), 1, 10.);
 
     force_registry = new ParticleForceRegistry();
     collision_manager = *new CollisionManager();
     collision_manager.add_particle(&init);
     force_friction = new ParticleFriction(0.1f, 0.1f);
     force_gravity = new ParticleGravity();
-    force_spring = new ParticleSpring(5000., 10., &init);
+    force_spring = new ParticleSpring(500., 10., &init);
 }
 
 //--------------------------------------------------------------
