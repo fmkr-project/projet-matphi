@@ -58,6 +58,7 @@ public:
     bool operator==(const Vector3& v) const;
     bool operator!=(const Vector3& v) const;
 
+    float magnitude() const;
     void normalise();
     float dotProduct(const Vector3& v) const;
     static float dotProduct(const Vector3& v1, const Vector3& v2);

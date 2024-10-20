@@ -193,6 +193,10 @@ bool Vector3::operator!=(const Vector3& v) const
 // ============================================================================
 // ============================================================================
 
+float Vector3::magnitude() const {
+    return std::sqrt(x_ * x_ + y_ * y_ + z_ * z_); 
+}
+
 /**
  * @brief Normalise le vecteur courant
  *
@@ -209,6 +213,7 @@ void Vector3::normalise()
         z_ /= length;
     }
 }
+
 
 /**
  * @brief Effectue le produit scalaire entre 2 vecteurs
