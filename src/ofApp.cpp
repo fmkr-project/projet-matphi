@@ -123,11 +123,9 @@ void ofApp::dragEvent(ofDragInfo dragInfo) {
 
 void ofApp::SpawnParticle(float speed, float mass, ofColor col)
 {
-    Vector3 speedVector = Vector3(ofRandom(0.1, 0.8), ofRandom(-1., 0.), ofRandom(-0.25, 0.25));
-    speedVector.normalise();
     auto newParticle = new Particle(
         Vector3(mouseXPos, mouseYPos - 100),
-        speed * speedVector,
+        *Vector3::zero,
         mass,
         10.,
         col
@@ -135,9 +133,9 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     myParticles.push_back(newParticle);
 
     //Add forces to the new particule
-    force_registry->add(newParticle, force_friction);
+    //force_registry->add(newParticle, force_friction);
     force_registry->add(newParticle, force_gravity);
-    //force_registry->add(newParticle, force_spring);
+    force_registry->add(newParticle, force_spring);
 
     collision_manager.add_particle(newParticle);
     //World::addParticle(newParticle);
