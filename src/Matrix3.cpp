@@ -208,3 +208,48 @@ Matrix3 Matrix3::inverse() const {
 	return inverseMatrix;
 }
 
+// ============================================================================
+// Operateurs externes ========================================================
+// ============================================================================
+
+Matrix3 operator+(const Matrix3& m1, const Matrix3& m2)
+{
+	Matrix3 mat3 = Matrix3(m1);
+	
+	return mat3 += m2;
+}
+
+Matrix3 operator-(const Matrix3& m1, const Matrix3& m2)
+{
+	Matrix3 mat3 = Matrix3(m1);
+
+	return mat3 -= m2;
+}
+
+Matrix3 operator*(const Matrix3& m1, const Matrix3& m2)
+{
+	Matrix3 mat3 = Matrix3(m1);
+
+	return mat3 *= m2;
+}
+
+Matrix3 operator*(const Matrix3& m, float d)
+{
+	Matrix3 mat3 = Matrix3(m);
+
+	return mat3 *= d;
+}
+
+Matrix3 operator*(float d, const Matrix3& m)
+{
+	Matrix3 mat3 = Matrix3(m);
+
+	return mat3 *= d;
+}
+
+Matrix3 operator/(const Matrix3& m, float& d)
+{
+	Matrix3 mat3 = Matrix3(m);
+
+	return mat3 /= d;
+}
