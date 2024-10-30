@@ -1,4 +1,5 @@
 #pragma once
+#include "Vector3.h"
 
 class Matrix3
 {
@@ -9,10 +10,9 @@ public:
 
 	//Constructors & destructor
 	Matrix3();
-	//Matrix3(float row1[3], float row2[3], float row3[3]);
-	//Matrix3(float a, float b, float c, float d, float e, float f, float g, float h, float i);
 	Matrix3(float m[3][3]);
 	Matrix3(const Matrix3& m);
+	Matrix3(float a, float b, float c, float d, float e, float f, float g, float h, float i);
 	~Matrix3();
 
 	//Getter & setter
@@ -47,5 +47,7 @@ Matrix3 operator-(const Matrix3& m1, const Matrix3& m2);
 Matrix3 operator*(const Matrix3& m1, const Matrix3& m2);
 Matrix3 operator*(const Matrix3& m, float d);
 Matrix3 operator*(float d, const Matrix3& m);
+Matrix3 operator*(Vector3 v, const Matrix3& m);
+Matrix3 operator*(const Matrix3& m, Vector3 v);
 Matrix3 operator/(const Matrix3& m, float& d);
 

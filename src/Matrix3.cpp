@@ -27,6 +27,18 @@ Matrix3::Matrix3(const Matrix3& m) {
 	}
 }
 
+Matrix3::Matrix3(float a, float b, float c, float d, float e, float f, float g, float h, float i) {
+	matrix[0][0] = a;
+	matrix[0][1] = b;
+	matrix[0][2] = c;
+	matrix[1][0] = d;
+	matrix[1][1] = e;
+	matrix[1][2] = f;
+	matrix[2][0] = g;
+	matrix[2][1] = h;
+	matrix[2][2] = i;
+}
+
 //Destructor
 Matrix3::~Matrix3() {
 
@@ -35,10 +47,16 @@ Matrix3::~Matrix3() {
 
 //Getter & Setter
 float Matrix3::getElement(int i, int j) {
+	if (i >= 3 || j >= 3) {
+		throw std::runtime_error("Invalid Arguments");
+	}
 	return matrix[i][j];
 }
 
 void Matrix3::setElement(int i, int j, float val) {
+	if (i >= 3 || j >= 3) {
+		throw std::runtime_error("Invalid Arguments");
+	}
 	matrix[i][j] = val;
 }
 
