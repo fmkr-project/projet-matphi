@@ -107,8 +107,11 @@
     <ClCompile Include="src\CollisionManager.cpp" />
     <ClCompile Include="src\ForceFriction.cpp" />
     <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Matrix3.cpp" />
+    <ClCompile Include="src\Matrix4.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Particle.cpp" />
+    <ClCompile Include="src\ParticleBungee.cpp" />
     <ClCompile Include="src\ParticleForceRegistry.cpp" />
     <ClCompile Include="src\ParticleFriction.cpp" />
     <ClCompile Include="src\ParticleGravity.cpp">
@@ -263,6 +266,8 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
+    <ClCompile Include="src\Quaternion.cpp" />
+    <ClCompile Include="src\TwoParticlesSpring.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
@@ -270,13 +275,18 @@
     <ClInclude Include="src\CollisionManager.h" />
     <ClInclude Include="src\consts.h" />
     <ClInclude Include="src\ForceFriction.h" />
+    <ClInclude Include="src\Matrix3.h" />
+    <ClInclude Include="src\Matrix4.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\Particle.h" />
+    <ClInclude Include="src\ParticleBungee.h" />
     <ClInclude Include="src\ParticleForceGenerator.h" />
     <ClInclude Include="src\ParticleForceRegistry.h" />
     <ClInclude Include="src\ParticleFriction.h" />
     <ClInclude Include="src\ParticleGravity.h" />
     <ClInclude Include="src\ParticleSpring.h" />
+    <ClInclude Include="src\Quaternion.h" />
+    <ClInclude Include="src\TwoParticlesSpring.h" />
     <ClInclude Include="src\Vector3.h" />
     <ClInclude Include="src\World.h" />
   </ItemGroup>
