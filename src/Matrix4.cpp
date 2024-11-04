@@ -33,6 +33,14 @@ Matrix4::~Matrix4() {
 
 }
 
+//Constants
+Matrix4 Matrix4::identity() {
+	Matrix4 res = Matrix4();
+	for (int i; i < 4; i++) {
+		res.matrix[i][i] = 1.0f;
+	}
+	return res;
+}
 
 //Getter & Setter
 float Matrix4::getElement(int i, int j) {
@@ -222,6 +230,65 @@ Matrix4 Matrix4::inverse() const {
 	return inverseMatrix;
 }
 
+
+float Matrix4::trace() const {
+	float t = 0.0f;
+	for (size_t i = 0; i < 3; i++)
+	{
+		t += this->matrix[i][i];
+	}
+	return t;
+}
+
+Matrix4 Matrix4::translation(Vector3 translation) {
+	Matrix4 res = identity();
+	res.matrix[0][3] = translation.getX();
+	res.matrix[1][3] = translation.getY();
+	res.matrix[2][3] = translation.getZ();
+	return res;
+}
+
+Matrix4 Matrix4::rotationAxis(float angle, string axis) {
+	Matrix4 res = identity();
+	if (axis == "x") {
+		res.matrix[1][1] = cos(angle);
+		res.matrix[1][2] = sin(angle);
+		res.matrix[2][1] = -sin(angle);
+		res.matrix[2][2] = cos(angle);
+	}
+	else if (axis == "y") {
+		res.matrix[0][0] = cos(angle);
+		res.matrix[0][2] = -sin(angle);
+		res.matrix[2][0] = sin(angle);
+		res.matrix[0][0] = cos(angle);
+	}
+	else if (axis == "z") {
+		res.matrix[0][0] = cos(angle);
+		res.matrix[0][1] = -sin(angle);
+		res.matrix[1][0] = sin(angle);
+		res.matrix[1][1] = cos(angle);
+	}
+	else {
+		throw std::runtime_error("Erreur dans l'axe donné");
+	}
+
+	return res;
+}
+
+Matrix4 Matrix4::rotation(Vector3 rotation) {
+	Matrix4 rx = rotationAxis(rotation.getX(), "x");
+	Matrix4 ry = rotationAxis(rotation.getY(), "y");
+	Matrix4 rz = rotationAxis(rotation.getZ(), "z");
+	return rz * ry * rx;
+}
+
+Matrix4 Matrix4::scalling(Vector3 scale) {
+	Matrix4 res = identity();
+	res.matrix[0][0] = scale.getX();
+	res.matrix[1][1] = scale.getY();
+	res.matrix[2][2] = scale.getZ();
+	return res;
+}
 
 // ============================================================================
 // Operateurs externes ========================================================

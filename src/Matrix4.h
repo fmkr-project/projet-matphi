@@ -13,6 +13,9 @@ public:
 	Matrix4(const Matrix4& m);
 	~Matrix4();
 
+	//Constants
+	Matrix4 identity();
+
 	//Getter & setter
 	float getElement(int i, int j);
 	void setElement(int i, int j, float val);
@@ -34,10 +37,10 @@ public:
 	Matrix4 comatrix() const;
 	Matrix4 inverse() const;
 	float trace() const;
-	Matrix4 crossProduct(const Matrix4& m) const;
-	Matrix4 translation(float x, float y);
-	Matrix4 rotation(float angle);
-	Matrix4 scalling(float sx, float sy);
+	Matrix4 translation(Vector3 translation);
+	Matrix4 rotationAxis(float angle, string axis);
+	Matrix4 rotation(Vector3 rotation);
+	Matrix4 scalling(Vector3 scale);
 };
 
 Matrix4 operator+(const Matrix4& m1, const Matrix4& m2);

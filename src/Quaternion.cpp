@@ -4,6 +4,13 @@
 
 #include "Vector3.h"
 
+Quaternion::Quaternion() {
+    this->x = 1;
+    this->y = 0;
+    this->z = 0;
+    this->w = 0;
+}
+
 Quaternion::Quaternion(float x, float y, float z, float w)
 {
     this->x = x;

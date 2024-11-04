@@ -44,6 +44,15 @@ Matrix3::~Matrix3() {
 
 }
 
+//Constants
+Matrix3 Matrix3::identity() {
+	Matrix3 res = Matrix3();
+	for (int i = 0; i < 3; i++) {
+		res.matrix[i][i] = 1.0f;
+	}
+	return res;
+}
+
 
 //Getter & Setter
 float Matrix3::getElement(int i, int j) {
@@ -233,7 +242,7 @@ float Matrix3::trace() const
 	{
 		t += this->matrix[i][i];
 	}
-	return ;
+	return t;
 }
 
 // ============================================================================

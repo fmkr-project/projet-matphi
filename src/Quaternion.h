@@ -5,6 +5,7 @@ private:
     float x, y, z, w;
 
 public:
+    Quaternion();
     Quaternion(float x, float y, float z, float w);
     ~Quaternion();
 
