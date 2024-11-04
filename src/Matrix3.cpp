@@ -119,14 +119,15 @@ Matrix3& Matrix3::operator*=(const Matrix3& m) {
 	return *this;
 }
 
-Matrix3& Matrix3::operator*=(float& d) {
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 3; j++) {
-			matrix[i][j] *= d;
-		}
-	}
-	return *this;
+Matrix3& Matrix3::operator*=(const float& d) {
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            matrix[i][j] *= d;
+        }
+    }
+    return *this;
 }
+
 
 Matrix3& Matrix3::operator/=(float& d) {
 	if (d == 0) {

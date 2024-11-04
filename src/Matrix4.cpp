@@ -241,7 +241,7 @@ float Matrix4::trace() const {
 }
 
 Matrix4 Matrix4::translation(Vector3 translation) {
-	Matrix4 res = identity();
+	Matrix4 res = Matrix4::identity();  
 	res.matrix[0][3] = translation.getX();
 	res.matrix[1][3] = translation.getY();
 	res.matrix[2][3] = translation.getZ();
@@ -276,14 +276,14 @@ Matrix4 Matrix4::rotationAxis(float angle, string axis) {
 }
 
 Matrix4 Matrix4::rotation(Vector3 rotation) {
-	Matrix4 rx = rotationAxis(rotation.getX(), "x");
-	Matrix4 ry = rotationAxis(rotation.getY(), "y");
-	Matrix4 rz = rotationAxis(rotation.getZ(), "z");
+	Matrix4 rx = Matrix4::rotationAxis(rotation.getX(), "x");
+	Matrix4 ry = Matrix4::rotationAxis(rotation.getY(), "y");
+	Matrix4 rz = Matrix4::rotationAxis(rotation.getZ(), "z");
 	return rz * ry * rx;
 }
 
 Matrix4 Matrix4::scalling(Vector3 scale) {
-	Matrix4 res = identity();
+	Matrix4 res = Matrix4::identity();  
 	res.matrix[0][0] = scale.getX();
 	res.matrix[1][1] = scale.getY();
 	res.matrix[2][2] = scale.getZ();

@@ -16,7 +16,7 @@ public:
 	~Matrix3();
 
 	//Constants
-	Matrix3 identity();
+	static Matrix3 identity();
 
 	//Getter & setter
 	float getElement(int i, int j);
@@ -28,7 +28,7 @@ public:
 	Matrix3& operator-=(const Matrix3& m);
 	Matrix3& operator-=(float& d);
 	Matrix3& operator*=(const Matrix3& m);
-	Matrix3& operator*=(float& d);
+	Matrix3& operator*=(const float& d);
 	Matrix3& operator/=(float& d);
 	void operator=(const Matrix3& m);
 	bool operator==(const Matrix3& m) const;
