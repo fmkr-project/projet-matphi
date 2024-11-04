@@ -226,6 +226,16 @@ Matrix3 Matrix3::inverse() const {
 	return inverseMatrix;
 }
 
+float Matrix3::trace() const
+{
+	float t = 0.0f;
+	for (size_t i = 0; i < 3; i++)
+	{
+		t += this->matrix[i][i];
+	}
+	return ;
+}
+
 // ============================================================================
 // Operateurs externes ========================================================
 // ============================================================================
@@ -263,6 +273,25 @@ Matrix3 operator*(float d, const Matrix3& m)
 	Matrix3 mat3 = Matrix3(m);
 
 	return mat3 *= d;
+}
+
+Vector3 operator*(Vector3 v, Matrix3& m)
+{
+	Vector3 v3 = Vector3();
+	v3.setX(v.getX() * m.getElement(0, 0) + v.getY() * m.getElement(1, 0) + v.getZ() * m.getElement(2, 0));
+	v3.setY(v.getX() * m.getElement(0, 1) + v.getY() * m.getElement(1, 1) + v.getZ() * m.getElement(2, 1));
+	v3.setZ(v.getX() * m.getElement(0, 2) + v.getY() * m.getElement(1, 2) + v.getZ() * m.getElement(2, 2));
+	return v3;
+	//Pour x : v.getX() * m[0][0] + v.getY() * m[1][0] + v.getZ() * m[2][0]
+}
+
+Vector3 operator*(Matrix3& m, Vector3 v)
+{
+	Vector3 v3 = Vector3();
+	v3.setX(v.getX() * m.getElement(0, 0) + v.getY() * m.getElement(0, 1) + v.getZ() * m.getElement(0, 2));
+	v3.setY(v.getX() * m.getElement(1, 0) + v.getY() * m.getElement(1, 1) + v.getZ() * m.getElement(1, 2));
+	v3.setZ(v.getX() * m.getElement(2, 0) + v.getY() * m.getElement(2, 1) + v.getZ() * m.getElement(2, 2));
+	return v3;
 }
 
 Matrix3 operator/(const Matrix3& m, float& d)
