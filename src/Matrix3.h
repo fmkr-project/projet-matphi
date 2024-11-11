@@ -19,7 +19,7 @@ public:
 	static Matrix3 identity();
 
 	//Getter & setter
-	float getElement(int i, int j);
+	float getElement(int i, int j) const;
 	void setElement(int i, int j, float val);
 
 	//Methods

@@ -44,6 +44,7 @@ public:
 	static Matrix4 rotationAxis(float angle, string axis);
 	static Matrix4 rotation(Vector3 rotation);
 	static Matrix4 scalling(Vector3 scale);
+	Matrix4 Matrix3ToMatrix4(const Matrix3& m);
 };
 
 Matrix4 operator+(const Matrix4& m1, const Matrix4& m2);
