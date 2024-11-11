@@ -267,6 +267,8 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="src\Quaternion.cpp" />
+    <ClCompile Include="src\RigidBody.cpp" />
+    <ClCompile Include="src\RigidBodyBox.cpp" />
     <ClCompile Include="src\TwoParticlesSpring.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
     <ClCompile Include="src\World.cpp" />
@@ -286,6 +288,8 @@
     <ClInclude Include="src\ParticleGravity.h" />
     <ClInclude Include="src\ParticleSpring.h" />
     <ClInclude Include="src\Quaternion.h" />
+    <ClInclude Include="src\RigidBody.h" />
+    <ClInclude Include="src\RigidBodyBox.h" />
     <ClInclude Include="src\TwoParticlesSpring.h" />
     <ClInclude Include="src\Vector3.h" />
     <ClInclude Include="src\World.h" />
