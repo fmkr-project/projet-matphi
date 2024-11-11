@@ -63,6 +63,22 @@ Quaternion Quaternion::Neg(const Quaternion& a)
     return {-a.x, -a.y, -a.z, -a.w};
 }
 
+Quaternion Quaternion::Euler(float yaw, float pitch, float roll)
+{
+    return
+    {
+        static_cast<float>(cos(0.5 * roll) * cos(0.5 * pitch) * cos(0.5 * yaw) + sin(0.5 * roll) * sin(0.5 * pitch) *
+            sin(0.5 * yaw)),
+        static_cast<float>(sin(0.5 * roll) * cos(0.5 * pitch) * cos(0.5 * yaw) - cos(0.5 * roll) * sin(0.5 * pitch) *
+            sin(0.5 * yaw)),
+        static_cast<float>(cos(0.5 * roll) * sin(0.5 * pitch) * cos(0.5 * yaw) + sin(0.5 * roll) * cos(0.5 * pitch) *
+            sin(0.5 * yaw)),
+        static_cast<float>(cos(0.5 * roll) * cos(0.5 * pitch) * sin(0.5 * pitch) - sin(0.5 * roll) * sin(0.5 * pitch) *
+            cos(0.5 * yaw))
+    };
+}
+
+
 float Quaternion::Magnitude(const Quaternion& a)
 {
     return static_cast<float>(std::pow(a.w * a.w + a.x * a.x + a.y * a.y + a.z * a.z, 0.5));
