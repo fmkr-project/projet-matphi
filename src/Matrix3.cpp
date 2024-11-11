@@ -55,7 +55,7 @@ Matrix3 Matrix3::identity() {
 
 
 //Getter & Setter
-float Matrix3::getElement(int i, int j) {
+float Matrix3::getElement(int i, int j) const {
 	if (i >= 3 || j >= 3) {
 		throw std::runtime_error("Invalid Arguments");
 	}

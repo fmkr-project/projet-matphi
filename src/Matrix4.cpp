@@ -290,6 +290,35 @@ Matrix4 Matrix4::scalling(Vector3 scale) {
 	return res;
 }
 
+Matrix4 Matrix4::Matrix3ToMatrix4(const Matrix3& m) {
+	// Crée une matrice 4x4 vide
+	Matrix4 result;
+
+	// Remplir la partie 3x3 de la matrice 4x4 avec la matrice 3x3
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			result.setElement(i, j, m.getElement(i, j));  
+		}
+	}
+
+	// Ajouter la dernière colonne et la dernière ligne
+	// Dernière colonne : met la valeur 0
+	for (int i = 0; i < 3; i++) {
+		result.setElement(i, 3, 0.0f);  // Dernière colonne à 0
+	}
+
+	// Dernière ligne : met la valeur 0, sauf pour la dernière position
+	result.setElement(3, 0, 0.0f);  // Dernière ligne à 0
+	result.setElement(3, 1, 0.0f);
+	result.setElement(3, 2, 0.0f);
+
+	// Mettre le dernier élément de la matrice 4x4 à 1 (même chose que dans une matrice homogène)
+	result.setElement(3, 3, 1.0f);
+
+	return result;
+}
+
+
 // ============================================================================
 // Operateurs externes ========================================================
 // ============================================================================
