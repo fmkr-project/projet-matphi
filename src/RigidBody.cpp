@@ -3,10 +3,6 @@
 #include "consts.h"
 #include "ofAppRunner.h"
 
-// Constructeur par defaut
-#include "consts.h"
-#include "ofAppRunner.h"
-
 // Constructeur par dfaut
 RigidBody::RigidBody()
     : centerMass(Particle()), orientation(Quaternion()), angularVelocity(Vector3()), momentInertia(Matrix3()) {}
