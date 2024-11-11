@@ -119,7 +119,7 @@ void Particle::move()
 
 void Particle::draw() {
 	ofSetColor(color);
-	ofDrawSphere(position.v3(), size);
+	ofDrawBox(position.v3(), size);
 }
 
 void Particle::addForce(const Vector3& force) {

@@ -1,26 +1,48 @@
 #include "RigidBody.h"
-#include "Particle.h"
-#include "Quaternion.h"
-#include "Vector3.h"
 
-RigidBody::RigidBody() {
-	center = Particle();
-	orientation = Quaternion(1,0,0,0);
-	angularVelocity = Vector3();
+// Constructeur par défaut
+RigidBody::RigidBody()
+    : centerMass(Particle()), orientation(Quaternion()), angularVelocity(Vector3()), momentInertia(Matrix3()) {}
+
+// Constructeur paramétré
+RigidBody::RigidBody(Particle center, Quaternion orientation, Vector3 angularVelocity)
+    : centerMass(center), orientation(orientation), angularVelocity(angularVelocity) {
+    setMomentInertia();  // Calcul du moment d'inertie lors de la création de l'objet
 }
 
-RigidBody::RigidBody(Particle p, Quaternion q, Vector3 v) {
-	center = p;
-	orientation = q;
-	angularVelocity = v;
+// Constructeur de copie
+RigidBody::RigidBody(const RigidBody& body)
+    : centerMass(body.centerMass), orientation(body.orientation), angularVelocity(body.angularVelocity), momentInertia(body.momentInertia) {}
+
+// Destructeur
+RigidBody::~RigidBody() {}
+
+// Getters
+Particle RigidBody::getCenterMass() const {
+    return centerMass;
 }
 
-RigidBody::RigidBody(const RigidBody& body) {
-	center = body.center;
-	orientation = body.orientation;
-	angularVelocity = body.angularVelocity;
+Quaternion RigidBody::getOrientation() const {
+    return orientation;
 }
 
-RigidBody::~RigidBody() {
+Vector3 RigidBody::getAngularVelocity() const {
+    return angularVelocity;
+}
 
+Matrix3 RigidBody::getMomentInertia() const {
+    return momentInertia;
+}
+
+// Setters
+void RigidBody::setCenterMass(const Particle& center) {
+    centerMass = center;
+}
+
+void RigidBody::setOrientation(const Quaternion& orientation) {
+    this->orientation = orientation;
+}
+
+void RigidBody::setAngularVelocity(const Vector3& angularVelocity) {
+    this->angularVelocity = angularVelocity;
 }
