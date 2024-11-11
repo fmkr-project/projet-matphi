@@ -187,7 +187,7 @@ Matrix4 Matrix4::comatrix() const {
 
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			// Construire le mineur 3x3 pour l'élément (i, j) en utilisant la classe Matrix3
+			// Construire le mineur 3x3 pour l'lment (i, j) en utilisant la classe Matrix3
 			Matrix3 minorMatrix;
 			for (int k = 0, row = 0; k < 4; ++k) {
 				if (k == i) continue; // Ignore la ligne i
@@ -197,7 +197,7 @@ Matrix4 Matrix4::comatrix() const {
 				}
 				row++;
 			}
-			// Calculer le déterminant du mineur 3x3
+			// Calculer le dterminant du mineur 3x3
 			float detMinor = minorMatrix.determinant();
 
 			// Calculer le cofacteur avec alternance de signe
@@ -212,17 +212,17 @@ Matrix4 Matrix4::comatrix() const {
 Matrix4 Matrix4::inverse() const {
 	float det = determinant();
 	if (det == 0) {
-		throw std::runtime_error("Matrice non réversible (déterminant nul).");
+		throw std::runtime_error("Matrice non rversible (dterminant nul).");
 	}
 
 	// Calculer la comatrice
 	Matrix4 cofactorMatrix = comatrix();
 
-	// Calculer l'inverse en transposant la comatrice et en divisant par le déterminant
+	// Calculer l'inverse en transposant la comatrice et en divisant par le dterminant
 	Matrix4 inverseMatrix;
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			// Transposer la comatrice (échanger i et j) et diviser par le déterminant
+			// Transposer la comatrice (ï¿½changer i et j) et diviser par le dterminant
 			inverseMatrix.matrix[i][j] = cofactorMatrix.matrix[j][i] / det;
 		}
 	}
@@ -269,7 +269,7 @@ Matrix4 Matrix4::rotationAxis(float angle, string axis) {
 		res.matrix[1][1] = cos(angle);
 	}
 	else {
-		throw std::runtime_error("Erreur dans l'axe donné");
+		throw std::runtime_error("Erreur dans l'axe donn");
 	}
 
 	return res;
