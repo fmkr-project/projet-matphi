@@ -22,10 +22,10 @@ public:
 	float getDepth() const;
 
 	// Setters
-	void setMass(const float& m);
-	void setHeight(const float& h);
-	void setWidth(const float& w);
-	void setDepth(const float& d);
+	void setMass(float m);
+	void setHeight(float h);
+	void setWidth(float w);
+	void setDepth(float d);
 
 	virtual void setMomentInertia() override;
 };

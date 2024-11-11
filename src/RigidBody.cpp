@@ -1,13 +1,13 @@
 #include "RigidBody.h"
 
-// Constructeur par défaut
+// Constructeur par defaut
 RigidBody::RigidBody()
     : centerMass(Particle()), orientation(Quaternion()), angularVelocity(Vector3()), momentInertia(Matrix3()) {}
 
-// Constructeur paramétré
+// Constructeur parametre
 RigidBody::RigidBody(Particle center, Quaternion orientation, Vector3 angularVelocity)
     : centerMass(center), orientation(orientation), angularVelocity(angularVelocity) {
-    setMomentInertia();  // Calcul du moment d'inertie lors de la création de l'objet
+    setMomentInertia(); 
 }
 
 // Constructeur de copie
@@ -45,4 +45,8 @@ void RigidBody::setOrientation(const Quaternion& orientation) {
 
 void RigidBody::setAngularVelocity(const Vector3& angularVelocity) {
     this->angularVelocity = angularVelocity;
+}
+
+void RigidBody::setMomentInertia() {
+
 }
