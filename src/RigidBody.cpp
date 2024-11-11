@@ -7,7 +7,7 @@ RigidBody::RigidBody()
 // Constructeur paramtr
 RigidBody::RigidBody(Particle center, Quaternion orientation, Vector3 angularVelocity)
     : centerMass(center), orientation(orientation), angularVelocity(angularVelocity) {
-    setMomentInertia();  // Calcul du moment d'inertie lors de la cr�ation de l'objet
+    setMomentInertia();  // Calcul du moment d'inertie lors de la cration de l'objet
 }
 
 // Constructeur de copie
