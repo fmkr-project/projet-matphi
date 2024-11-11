@@ -19,8 +19,22 @@ Quaternion::Quaternion(float x, float y, float z, float w)
     this->w = w;
 }
 
+Quaternion::Quaternion(Vector3 v, float w)
+{
+    this->x = v.getX();
+    this->y = v.getY();
+    this->z = v.getZ();
+    this->w = w;
+}
+
 Quaternion::~Quaternion()
 = default;
+
+Quaternion Quaternion::operator+(const Quaternion& other) const
+{
+    return {this->x + other.x, this->y + other.y, this->z + other.z, this->w + other.w};
+}
+
 
 Quaternion Quaternion::operator-(const Quaternion& other) const
 {
@@ -34,10 +48,10 @@ Quaternion Quaternion::operator*(const Quaternion &other) const
 
     Vector3 vc = this->w * vb + other.w * va + Vector3::crossProduct(va, vb);
     return {
-        this->w * other.w - Vector3::dotProduct(va, vb),
         vc.getX(),
         vc.getY(),
-        vc.getZ()
+        vc.getZ(),
+        this->w * other.w - Vector3::dotProduct(va, vb)
     };
     /*
     return {

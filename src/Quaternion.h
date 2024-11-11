@@ -1,4 +1,6 @@
 #pragma once
+#include "Vector3.h"
+
 class Quaternion
 {
 private:
@@ -7,10 +9,12 @@ private:
 public:
     Quaternion();
     Quaternion(float x, float y, float z, float w);
+    Quaternion(Vector3 v, float w);
     ~Quaternion();
 
     Quaternion static identity;
-    
+
+    Quaternion operator+(const Quaternion &other) const;
     Quaternion operator-(const Quaternion &other) const;
     Quaternion operator*(const Quaternion &other) const;
 

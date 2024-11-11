@@ -65,6 +65,7 @@ public:
     Vector3 crossProduct(const Vector3& v) const;
     static Vector3 crossProduct(const Vector3& v1, const Vector3& v2);
     float norm() const;
+    static float angle(const Vector3 &v1, const Vector3 &v2);
 
     glm::vec2 v2() { return glm::vec2(x_, y_); };
     glm::vec3 v3() { return glm::vec3(x_, y_, z_); };

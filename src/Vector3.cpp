@@ -256,6 +256,11 @@ float Vector3::norm() const {
     return sqrt(pow(x_, 2) + pow(y_, 2) + pow(z_, 2));
 }
 
+float Vector3::angle(const Vector3& v1, const Vector3& v2)
+{
+    return acos(dotProduct(v1, v2) / v1.magnitude() / v2.magnitude());
+}
+
 
 
 // ============================================================================

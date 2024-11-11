@@ -1,5 +1,8 @@
 #include "RigidBody.h"
 
+#include "consts.h"
+#include "ofAppRunner.h"
+
 // Constructeur par dfaut
 RigidBody::RigidBody()
     : centerMass(Particle()), orientation(Quaternion()), angularVelocity(Vector3()), momentInertia(Matrix3()) {}
@@ -33,6 +36,47 @@ Vector3 RigidBody::getAngularVelocity() const {
 Matrix3 RigidBody::getMomentInertia() const {
     return momentInertia;
 }
+
+// Physics
+void RigidBody::move()
+{
+    centerMass.clearAccum();
+    centerMass.addForce(g);
+
+    float deltaTime = ofGetLastFrameTime();
+
+    integratePosition(deltaTime);
+    integrateRotation(deltaTime);
+}
+
+void RigidBody::integratePosition(float deltaTime)
+{
+    centerMass.eulerIntegrate(deltaTime);
+}
+
+void RigidBody::integrateRotation(float deltaTime)
+{
+    Quaternion omega = *new Quaternion(angularVelocity, 0);
+    orientation = orientation + omega * orientation * 0.5 * deltaTime;
+}
+
+void RigidBody::applyForceAt(const Vector3 force, const Vector3 applyPosition, const float deltaTime)
+{
+    Vector3 l = applyPosition - getCenterMass().getPosition();
+    
+    // Modify acceleration
+    //float alpha = Vector3::angle(l, force);
+    getCenterMass().addForce(force);
+    
+    // Induce rotation
+    Vector3 torque = l * force;
+    Matrix3 moment = getMomentInertia();
+    Matrix3 momentInverse = moment.inverse();
+    Vector3 angularAcceleration = torque * momentInverse;
+
+    angularVelocity += angularAcceleration * deltaTime;
+}
+
 
 // Setters
 void RigidBody::setCenterMass(const Particle& center) {
