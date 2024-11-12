@@ -9,32 +9,32 @@
 #include <of3dGraphics.h>
 
 
-float timeSinceLastSecond = float(0.);
+float timeSinceLastSpawn = float(3.);
 
 float mouseXPos = 0;
 float mouseYPos = 0;
+
 
 //--------------------------------------------------------------
 void ofApp::setup()
 {
 	box.set(500);
     ofBackground(0);
-    init = Particle(Vector3(),Vector3(), 1, 10.);
-    numberParticles = 0;
-
-    ground = Particle(Vector3(500,1600,0), Vector3(), MAXULONGLONG, 1000., ofColor(160,160,160));
-
+    //init = Particle(Vector3(),Vector3(), 1, 10.);
+    //numberParticles = 0;
+    startPoint = new Vector3(500, 700, 0);
+    //ground = Particle(Vector3(500,1600,0), Vector3(), MAXULONGLONG, 1000., ofColor(160,160,160));
     force_registry = new ParticleForceRegistry();
-    force_registry->bind(&init);
-    force_registry->bind(&ground);
+    //force_registry->bind(&init);
+    //force_registry->bind(&ground);
     //ParticleGravity* tmp = new ParticleGravity(Vector3());
     //force_registry->add(&ground, tmp);
-    collision_manager = *new CollisionManager();
-    collision_manager.add_particle(&init);
-    collision_manager.add_particle(&ground);
+    //collision_manager = *new CollisionManager();
+    //collision_manager.add_particle(&init);
+    //collision_manager.add_particle(&ground);
     force_friction = new ParticleFriction(0.1f, 0.1f);
     force_gravity = new ParticleGravity();
-    force_spring = new ParticleSpring(500., 10., &init);
+    //force_spring = new ParticleSpring(500., 10., &init);
 }
 
 //--------------------------------------------------------------
@@ -42,45 +42,55 @@ void ofApp::update()
 {
     //Update the forces in the registry
     force_registry->updateForces(ofGetLastFrameTime());
+    timeSinceLastSpawn += ofGetLastFrameTime();
+    if (timeSinceLastSpawn >= 3.0f) {
+        for (auto particle : myParticles) {
+            delete particle;
+        }
+        myParticles.clear();
+        myParticles.push_back(new Particle(Vector3(500, 600, 0), Vector3(), 10, 10));
+    }
 	for (auto particle : myParticles)
     {
 		particle->move();
-        particle->clearAccum();
+        //particle->clearAccum();
 	}
-
+    
     // Manage resulting collisions
-    collision_manager.detect_collisions();
-    myParticles = collision_manager.get_particles();
+    //collision_manager.detect_collisions();
+    //myParticles = collision_manager.get_particles();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+    ofSetColor(255, 255, 0);
+    ofDrawIcoSphere(500,700, 10);
     // Update init position in collision manager
-    ground.draw();
-    init.setPosition(Vector3(mouseXPos, mouseYPos, 0.));
-    init.draw();
+    //ground.draw();
+    //init.setPosition(Vector3(mouseXPos, mouseYPos, 0.));
+    //init.draw();
     for (auto& particle : myParticles) {
-        if (particle->getMass() < 1000) { //Allow to exclude the ground
+        //if (particle->getMass() < 1000) { //Allow to exclude the ground
             particle->draw();
-            if (force_registry->isBound(particle)) DrawSpring(*particle);
-        }
+            //if (force_registry->isBound(particle)) DrawSpring(*particle);
+        //}
     }
-    for (auto& particle : myFreeParticles) {
-        particle->draw();
-    }
-    ofSetColor(init.getColor());
-    ofDrawBitmapString("Numbers of particles :" + ofToString(numberParticles), 10, 10);
-    ofDrawBitmapString("Numbers of particles attached to the blob :" + ofToString(myBoundParticles.size()), 10, 25);
-    ofDrawBitmapString("Press e to add a particle in the game", 10, 40);
-    ofDrawBitmapString("Press b to remove a particle from the blob", 10, 55);
-    ofDrawBitmapString("Press a to fuse a particle with the blob", 10, 70);
+    //for (auto& particle : myFreeParticles) {
+    //    particle->draw();
+    //}
+    //ofSetColor(init.getColor());
+    //ofDrawBitmapString("Numbers of particles :" + ofToString(numberParticles), 10, 10);
+    //ofDrawBitmapString("Numbers of particles attached to the blob :" + ofToString(myBoundParticles.size()), 10, 25);
+    //ofDrawBitmapString("Press e to add a particle in the game", 10, 40);
+    //ofDrawBitmapString("Press b to remove a particle from the blob", 10, 55);
+    //ofDrawBitmapString("Press a to fuse a particle with the blob", 10, 70);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
-    ofColor randomColor = ofColor(ofRandom(127, 256), ofRandom(127, 256), ofRandom(127, 256));
+    /*ofColor randomColor = ofColor(ofRandom(127, 256), ofRandom(127, 256), ofRandom(127, 256));
     if (key == 'e' && numberParticles <20) {
         SpawnParticle(1, 100, randomColor);
     }
@@ -99,6 +109,7 @@ void ofApp::keyPressed(int key)
         force_registry->bind(p);
         //collision_manager.add_particle(p);
     }
+    */
 }
 
 //--------------------------------------------------------------
@@ -119,7 +130,17 @@ void ofApp::mouseDragged(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
-
+    Vector3* mousePos = new Vector3(x, y, 0);
+    if (mouseXPos <= 550 && mouseXPos >= 450 && mouseYPos <= 650 && mouseYPos >= 550) {
+        Vector3 impulse = *mousePos - *startPoint;
+        std::cout << impulse.getX() + impulse.getY() << std::endl;
+        ofSetColor(255);
+        ofDrawBitmapString("RightPlace", 10, 10);
+        for (auto& particle : myParticles) {
+            particle->addForce(impulseStrength * impulse);
+        }
+    }
+    timeSinceLastSpawn = 0.f;
 }
 
 //--------------------------------------------------------------
@@ -129,7 +150,7 @@ void ofApp::mouseReleased(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mouseEntered(int x, int y) {
-
+    
 }
 
 //--------------------------------------------------------------
@@ -163,19 +184,19 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     );
     myParticles.push_back(newParticle);
     numberParticles++;
-    myBoundParticles.push_back(newParticle);
-    nbBoundParticles++;
+    //myBoundParticles.push_back(newParticle);
+    //nbBoundParticles++;
 
     //Add forces to the new particule
     force_registry->add(newParticle, force_friction);
     force_registry->add(newParticle, force_gravity);
-    force_registry->add(newParticle, force_spring);
+    //force_registry->add(newParticle, force_spring);
 
-    collision_manager.add_particle(newParticle);
+    //collision_manager.add_particle(newParticle);
     //World::addParticle(newParticle);
 
     std::cout << "New particle created @" << mouseXPos << ' ' << mouseYPos << '\n';
-    collision_manager._debug_print_all_particles();
+    //collision_manager._debug_print_all_particles();
 }
 
 void ofApp::DrawSpring(Particle p)

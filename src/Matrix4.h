@@ -1,6 +1,7 @@
 #pragma once
 #include <string>     
 #include "Vector3.h" 
+#include "Matrix3.h"
 using namespace std;
 
 class Matrix4

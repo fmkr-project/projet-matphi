@@ -32,20 +32,22 @@ public:
 
 public:
 
+	const Vector3* startPoint;
+	const float impulseStrength = 10.f;
 	vector<Particle*> myParticles;
-	vector<Particle*> myBoundParticles;
-	vector<Particle*> myFreeParticles;
+	//vector<Particle*> myBoundParticles;
+	//vector<Particle*> myFreeParticles;
 	ofBoxPrimitive box;
-	Particle init; //Particle that the user control
+	//Particle init; //Particle that the user control
 	ParticleForceRegistry* force_registry;
-	CollisionManager collision_manager;
+	//CollisionManager collision_manager;
 	//Forces linked to future particles
 	ParticleFriction* force_friction;
 	ParticleGravity* force_gravity;
-	ParticleSpring* force_spring;
+	//ParticleSpring* force_spring;
 	//Count the number of particles created (excluding the one the user control)
 	int numberParticles;
-	int nbBoundParticles;
-	Particle ground; //Create a ground for the particles to collide with
+	//int nbBoundParticles;
+	//Particle ground; //Create a ground for the particles to collide with
 
 };
