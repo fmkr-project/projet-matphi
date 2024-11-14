@@ -6,8 +6,7 @@
 void assertEqual(float a, float b, const std::string& testName) {
     if (std::abs(a - b) > 1e-5) {
         std::cout << "Test " << testName << " failed: " << a << " != " << b << std::endl;
-    }
-    else {
+    } else {
         std::cout << "Test " << testName << " passed." << std::endl;
     }
 }
@@ -15,8 +14,7 @@ void assertEqual(float a, float b, const std::string& testName) {
 void assertTrue(bool condition, const std::string& testName) {
     if (!condition) {
         std::cout << "Test " << testName << " failed: condition is false." << std::endl;
-    }
-    else {
+    } else {
         std::cout << "Test " << testName << " passed." << std::endl;
     }
 }
@@ -94,6 +92,26 @@ void testSlerp() {
     assertEqual(slerpQ.w, 0.707107f, "Slerp w");
 }
 
+void testAddition() {
+    Quaternion q1(1.0f, 2.0f, 3.0f, 4.0f);
+    Quaternion q2(2.0f, 3.0f, 4.0f, 5.0f);
+    Quaternion result = q1 + q2;
+    assertEqual(result.x, 3.0f, "Addition x");
+    assertEqual(result.y, 5.0f, "Addition y");
+    assertEqual(result.z, 7.0f, "Addition z");
+    assertEqual(result.w, 9.0f, "Addition w");
+}
+
+void testMultiplication() {
+    Quaternion q1(1.0f, 0.0f, 1.0f, 0.0f);
+    Quaternion q2(1.0f, 0.5f, 0.5f, 0.75f);
+    Quaternion result = q1 * q2;
+    assertEqual(result.x, 0.75f, "Multiplication x");
+    assertEqual(result.y, 1.25f, "Multiplication y");
+    assertEqual(result.z, 0.25f, "Multiplication z");
+    assertEqual(result.w, -0.5f, "Multiplication w");
+}
+
 int main() {
     testDefaultConstructor();
     testParameterizedConstructor();
@@ -104,6 +122,8 @@ int main() {
     testDot();
     testPower();
     testSlerp();
+    testAddition();
+    testMultiplication();
 
     return 0;
 }

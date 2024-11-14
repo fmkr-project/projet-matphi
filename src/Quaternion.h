@@ -4,13 +4,15 @@
 class Quaternion
 {
 private:
-    float x, y, z, w;
+    
 
 public:
+    float x, y, z, w;
     Quaternion();
     Quaternion(float x, float y, float z, float w);
     Quaternion(Vector3 v, float w);
     ~Quaternion();
+    
 
     Quaternion static identity;
 

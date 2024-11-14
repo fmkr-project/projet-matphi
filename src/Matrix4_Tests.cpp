@@ -120,6 +120,36 @@ void testOperatorAdd() {
     assertTrue(result == expected, "OperatorAdd");
 }
 
+void testMatrix3ToMatrix4() {
+    // Création d'une matrice 3x3 de test
+    float values3x3[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+    Matrix3 m3(values3x3);
+
+    // Conversion de Matrix3 à Matrix4
+    Matrix4 result = Matrix4::Matrix3ToMatrix4(m3);
+
+    // Vérification des éléments de la matrice 3x3 dans la matrice 4x4
+    bool passed = true;
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            if (result.getElement(i, j) != m3.getElement(i, j)) passed = false;
+        }
+    }
+
+    // Vérification de la dernière colonne
+    for (int i = 0; i < 3; ++i) {
+        if (result.getElement(i, 3) != 0.0f) passed = false;
+    }
+
+    // Vérification de la dernière ligne
+    if (result.getElement(3, 0) != 0.0f || result.getElement(3, 1) != 0.0f ||
+        result.getElement(3, 2) != 0.0f || result.getElement(3, 3) != 1.0f) {
+        passed = false;
+        }
+    
+    assertTrue(passed, "Matrix3ToMatrix4");
+}
+
 int main() {
     testDefaultConstructor();
     testParameterizedConstructor();
@@ -131,5 +161,6 @@ int main() {
     testScaling();
     testRotationX();
     testOperatorAdd();
+    testMatrix3ToMatrix4();
     return 0;
 }
