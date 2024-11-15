@@ -78,17 +78,23 @@ void ofApp::mouseDragged(int x, int y, int button) {
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
     
+    Vector3* mousePos = new Vector3(x, y, ofRandom(25,50) * pow(-1, static_cast<int>(ofRandom(1, 6))));
     if (x <= centerBox->getPosition().getX() + rigidBox.getWidth() 
         && x >= centerBox->getPosition().getX() - rigidBox.getWidth() 
         && y <= centerBox->getPosition().getY() + rigidBox.getHeight() 
         && y >= centerBox->getPosition().getY() - rigidBox.getHeight()
         && !isMoving) 
     {
-        Vector3* mousePos = new Vector3(x, y, ofRandom(-25,25));
         Vector3 impulse = *mousePos - *startPoint;
-        std::cout << impulse.getX() << std::endl;
-        std::cout << impulse.getY() << std::endl;
-        rigidBox.applyForceAt(impulseStrength * impulse, *mousePos, ofGetLastFrameTime());
+        Vector3 temp =
+            {
+            -impulse.getX(),
+            impulse.getY(),
+            impulse.getZ()
+            };
+        //std::cout << impulse.getX() << std::endl;
+        //std::cout << impulse.getY() << std::endl;
+        rigidBox.applyForceAt(impulseStrength * temp, *mousePos, ofGetLastFrameTime());
         timeSinceLastSpawn = 0.f;
         isMoving = true;
     }
