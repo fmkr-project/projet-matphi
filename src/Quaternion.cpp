@@ -118,10 +118,8 @@ Quaternion Quaternion::Power(const Quaternion& a, float pow)
     float alpha = acos(a.w);
     Vector3 va = *new Vector3(sin(pow * alpha) / alpha * *new Vector3(a.x, a.y, a.z));
     return {
-        cos(pow * alpha),
-        va.getX(),
-        va.getY(),
-        va.getZ()
+        va,
+        cos(pow * alpha)
     };
 }
 

@@ -89,7 +89,7 @@ void RigidBodyBox::draw(ofColor color) {
     oriente.toAxisAngle(axis, angle); 
 
     // Appliquer la rotation avec ofRotateDeg
-    ofRotateDeg(angle, axis.getX(), axis.getY(), axis.getZ()); 
+    ofRotateDeg(angle, axis.getY(), -axis.getX(), axis.getZ()); 
 
     // Dessiner la boîte centrée à l'origine locale
     ofDrawBox(glm::vec3(0, 0, 0),width,height,depth);
