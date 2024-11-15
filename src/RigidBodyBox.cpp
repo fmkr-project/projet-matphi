@@ -74,5 +74,26 @@ void RigidBodyBox::setDepth(float d) {
 
 void RigidBodyBox::draw(ofColor color) {
     ofSetColor(color);
-    ofDrawBox(centerMass.getPosition().v3(), centerMass.getSize() * 2);
+
+    // Sauvegarde de l'état de transformation
+    ofPushMatrix();
+
+    // Déplacement vers la position de la boîte
+    ofTranslate(centerMass.getPosition().v3());
+
+    // Récupération de l'orientation (quaternion)
+    Quaternion oriente = orientation; 
+    Vector3 axis;
+    float angle;
+    oriente.toAxisAngle(axis, angle); 
+
+    // Appliquer la rotation avec ofRotateDeg
+    ofRotateDeg(angle, axis.getX(), axis.getY(), axis.getZ()); 
+
+    // Dessiner la boîte centrée à l'origine locale
+    ofDrawBox(glm::vec3(0, 0, 0), centerMass.getSize() * 2);
+
+    // Restauration de l'état de transformation
+    ofPopMatrix();
 }
+
