@@ -1,5 +1,5 @@
 #pragma once
-#include "Vector3.h"  // Vérifiez que ce fichier existe et que Vector3 est bien défini
+#include "Vector3.h"  // Verifiez que ce fichier existe et que Vector3 est bien defini
 
 class Quaternion
 {
@@ -14,7 +14,7 @@ public:
     Quaternion(Vector3 v, float w);
     ~Quaternion();
 
-    // Méthodes statiques
+    // Methodes statiques
     static Quaternion identity;
     static Quaternion Neg(const Quaternion& a);
     static Quaternion Euler(float yaw, float pitch, float roll);
@@ -25,13 +25,13 @@ public:
     static Quaternion Power(const Quaternion& a, float pow);
     static Quaternion Slerp(const Quaternion& a, const Quaternion& b, float t);
 
-    // Opérateurs
+    // Operateurs
     Quaternion operator+(const Quaternion& other) const;
     Quaternion operator-(const Quaternion& other) const;
     Quaternion operator*(const Quaternion& other) const;
     Quaternion operator*(const float& other) const;
     Quaternion operator/(const float& other) const;
 
-    // Méthodes non statiques
+    // Methodes non statiques
     void toAxisAngle(Vector3& axis, float& angle) const;  
 };

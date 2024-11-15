@@ -91,7 +91,7 @@ void RigidBodyBox::draw(ofColor color) {
     ofRotateDeg(angle, axis.getX(), axis.getY(), axis.getZ()); 
 
     // Dessiner la boîte centrée à l'origine locale
-    ofDrawBox(glm::vec3(0, 0, 0), centerMass.getSize() * 2);
+    ofDrawBox(glm::vec3(0, 0, 0),width,height,depth);
 
     // Restauration de l'état de transformation
     ofPopMatrix();
