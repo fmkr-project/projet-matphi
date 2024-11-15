@@ -26,6 +26,7 @@ public:
     static Quaternion Power(const Quaternion& a, float pow);
     static Quaternion Slerp(const Quaternion& a, const Quaternion& b, float t);
     static Matrix3 ToRotationMatrix(const Quaternion& a);
+    static Quaternion Normalize(const Quaternion& a);
 
     // Operateurs
     Quaternion operator+(const Quaternion& other) const;

@@ -146,6 +146,12 @@ Matrix3 Quaternion::ToRotationMatrix(const Quaternion& a)
     };
 }
 
+Quaternion Quaternion::Normalize(const Quaternion& a)
+{
+    return a / Magnitude(a);
+}
+
+
 
 void Quaternion::toAxisAngle(Vector3& axis, float& angle) const {
     Quaternion q = *this;

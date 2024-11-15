@@ -57,7 +57,7 @@ void RigidBody::integratePosition(float deltaTime)
 void RigidBody::integrateRotation(float deltaTime)
 {
     Quaternion omega = *new Quaternion(angularVelocity, 0);
-    orientation = orientation + omega * orientation * 0.5 * deltaTime;
+    orientation = Quaternion::Normalize(orientation + omega * orientation * 0.5 * deltaTime);
 }
 
 void RigidBody::applyForceAt(const Vector3 force, const Vector3 applyPosition, const float deltaTime)
@@ -69,12 +69,21 @@ void RigidBody::applyForceAt(const Vector3 force, const Vector3 applyPosition, c
     centerMass.addForce(force);
     
     // Induce rotation
+    Quaternion a = Quaternion::Normalize(orientation);
+    Matrix3 r = Quaternion::ToRotationMatrix(a);
+    Matrix3 rInverse = r.inverse();
+    
     Vector3 torque = l * force;
     Matrix3 moment = getMomentInertia();
     Matrix3 momentInverse = moment.inverse();
     Vector3 angularAcceleration = torque * momentInverse;
 
     angularVelocity += angularAcceleration * deltaTime;
+/*
+    // Update J
+    Matrix3 jMinusOne = r * momentInverse * rInverse;
+    Matrix3 j = jMinusOne.inverse();
+    setMomentInertia(j);*/
 }
 
 
