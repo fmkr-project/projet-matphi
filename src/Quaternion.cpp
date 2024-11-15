@@ -130,6 +130,23 @@ Quaternion Quaternion::Slerp(const Quaternion& a, const Quaternion& b, float t)
     return Power(b * Inverse(a), t) * a;
 }
 
+Matrix3 Quaternion::ToRotationMatrix(const Quaternion& a)
+{
+    return
+    {
+        static_cast<float>(2 * (pow(a.w, 2) + pow(a.x, 2)) - 1),
+        static_cast<float>(2 * (a.x * a.y - a.w * a.z)),
+        static_cast<float>(2 * (a.x * a.z + a.w * a.y)),
+        static_cast<float>(2 * (a.x * a.y + a.w * a.z)),
+        static_cast<float>(2 * (pow(a.w, 2) + pow(a.y, 2)) - 1),
+        static_cast<float>(2 * (a.y * a.z - a.w * a.x)),
+        static_cast<float>(2 * (a.x * a.z - a.w * a.y)),
+        static_cast<float>(2 * (a.y * a.z + a.w * a.x)),
+        static_cast<float>(2 * (pow(a.w, 2) + pow(a.z, 2)) - 1)
+    };
+}
+
+
 void Quaternion::toAxisAngle(Vector3& axis, float& angle) const {
     Quaternion q = *this;
     q = q / q.Magnitude(q);

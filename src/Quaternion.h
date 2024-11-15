@@ -1,4 +1,5 @@
 #pragma once
+#include "Matrix3.h"
 #include "Vector3.h"  // Verifiez que ce fichier existe et que Vector3 est bien defini
 
 class Quaternion
@@ -24,6 +25,7 @@ public:
     static float Dot(const Quaternion& a, const Quaternion& b);
     static Quaternion Power(const Quaternion& a, float pow);
     static Quaternion Slerp(const Quaternion& a, const Quaternion& b, float t);
+    static Matrix3 ToRotationMatrix(const Quaternion& a);
 
     // Operateurs
     Quaternion operator+(const Quaternion& other) const;
@@ -33,5 +35,5 @@ public:
     Quaternion operator/(const float& other) const;
 
     // Methodes non statiques
-    void toAxisAngle(Vector3& axis, float& angle) const;  
+    void toAxisAngle(Vector3& axis, float& angle) const;
 };
