@@ -3,7 +3,6 @@
 class RigidBodyBox : public RigidBody
 {
 private:
-	float mass;
 	float height;
 	float width;
 	float depth;
@@ -11,18 +10,16 @@ private:
 public:
 
 	RigidBodyBox();
-	RigidBodyBox(Particle center, Quaternion orientation, Vector3 angularVelocity, float m, float h, float w, float d);
+	RigidBodyBox(Particle center, Quaternion orientation, Vector3 angularVelocity, float h, float w, float d);
 	RigidBodyBox(const RigidBodyBox& body);
 	~RigidBodyBox();
 
 	// Getters
-	float getMass() const;
 	float getHeight() const;
 	float getWidth() const;
 	float getDepth() const;
 
 	// Setters
-	void setMass(float m);
 	void setHeight(float h);
 	void setWidth(float w);
 	void setDepth(float d);
