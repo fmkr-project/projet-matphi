@@ -6,7 +6,7 @@
 
 class RigidBody
 {
-private:
+protected:
     Particle centerMass;
     Quaternion orientation;
     Vector3 angularVelocity;
@@ -16,7 +16,6 @@ private:
     void integratePosition(float deltaTime);
     void integrateRotation(float deltaTime);
     
-protected:
     Matrix3 momentInertia;
 
 public:
@@ -43,4 +42,6 @@ public:
     
     // Mthode virtuelle pure pour calculer le moment d'inertie, redfinir dans les classes enfants
     virtual void setMomentInertia() = 0; 
+
+    virtual void draw(ofColor color);
 };

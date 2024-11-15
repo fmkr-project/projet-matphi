@@ -28,5 +28,6 @@ public:
 	void setDepth(float d);
 
 	virtual void setMomentInertia() override;
+	virtual void draw(ofColor color) override;
 };
 

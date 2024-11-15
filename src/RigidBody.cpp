@@ -94,3 +94,6 @@ void RigidBody::setAngularVelocity(const Vector3& angularVelocity) {
 void RigidBody::setMomentInertia() {
 
 }
+
+void RigidBody::draw(ofColor) {
+}

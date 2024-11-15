@@ -1,4 +1,5 @@
 #include "RigidBodyBox.h"
+#include <of3dGraphics.h>
 #include <cmath>
 
 // Constructeurs
@@ -80,4 +81,9 @@ float RigidBodyBox::getDepth() const {
 void RigidBodyBox::setDepth(float d) {
     depth = d;
     setMomentInertia();  // Recalculer le moment d'inertie après avoir modifié la profondeur
+}
+
+void RigidBodyBox::draw(ofColor color) {
+    ofSetColor(color);
+    ofDrawBox(centerMass.getPosition().v3(), centerMass.getSize() * 2);
 }
