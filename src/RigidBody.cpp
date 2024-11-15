@@ -40,13 +40,13 @@ Matrix3 RigidBody::getMomentInertia() const {
 // Physics
 void RigidBody::move()
 {
-    centerMass.clearAccum();
     centerMass.addForce(g);
 
     float deltaTime = ofGetLastFrameTime();
 
     integratePosition(deltaTime);
     integrateRotation(deltaTime);
+    centerMass.clearAccum();
 }
 
 void RigidBody::integratePosition(float deltaTime)
@@ -62,11 +62,11 @@ void RigidBody::integrateRotation(float deltaTime)
 
 void RigidBody::applyForceAt(const Vector3 force, const Vector3 applyPosition, const float deltaTime)
 {
-    Vector3 l = applyPosition - getCenterMass().getPosition();
+    Vector3 l = applyPosition - centerMass.getPosition();
     
     // Modify acceleration
     //float alpha = Vector3::angle(l, force);
-    getCenterMass().addForce(force);
+    centerMass.addForce(force);
     
     // Induce rotation
     Vector3 torque = l * force;

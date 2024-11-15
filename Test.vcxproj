@@ -108,7 +108,9 @@
     <ClCompile Include="src\ForceFriction.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Matrix3.cpp" />
+    <ClCompile Include="src\Matrix3_Tests.cpp" />
     <ClCompile Include="src\Matrix4.cpp" />
+    <ClCompile Include="src\Matrix4_Tests.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\Particle.cpp" />
     <ClCompile Include="src\ParticleBungee.cpp" />
@@ -267,6 +269,7 @@
       <LinkCompiled>true</LinkCompiled>
     </ClCompile>
     <ClCompile Include="src\Quaternion.cpp" />
+    <ClCompile Include="src\Quaternion_Tests.cpp" />
     <ClCompile Include="src\RigidBody.cpp" />
     <ClCompile Include="src\RigidBodyBox.cpp" />
     <ClCompile Include="src\TwoParticlesSpring.cpp" />

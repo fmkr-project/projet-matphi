@@ -34,7 +34,7 @@ public:
 public:
 
 	const Vector3* startPoint;
-	const float impulseStrength = 1000.f;
+	const float impulseStrength = 100.f;
 	vector<Particle*> myParticles;
 	//vector<Particle*> myBoundParticles;
 	//vector<Particle*> myFreeParticles;
