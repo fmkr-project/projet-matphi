@@ -41,6 +41,7 @@ public:
 	ofBoxPrimitive box;
 	//Count the number of particles created (excluding the one the user control)
 	int numberParticles;
+	Vector3 centerStart;
 	Particle* centerBox;
 	RigidBodyBox rigidBox;
 	bool isMoving;

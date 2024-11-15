@@ -20,7 +20,8 @@ void ofApp::setup()
 {
 	box.set(500);
     ofBackground(0);
-    centerBox = new Particle(Vector3(500, 500, 0), Vector3(), 1, 50);
+    centerStart = Vector3(500, 500, 0);
+    centerBox = new Particle(centerStart, Vector3(), 1, 10);
     rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),50,50,50);
     isMoving = false;
     startPoint = new Vector3(500, 700, 0);
@@ -49,12 +50,13 @@ void ofApp::draw()
     ofSetColor(255, 255, 0);
     ofDrawIcoSphere(500,700, 10);
     rigidBox.draw(ofColor(255));
+    rigidBox.getCenterMass().draw();
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
-    //if (key == 't') timeSinceLastSpawn = 3.0f;
+    if (key == 't') timeSinceLastSpawn = 3.0f;
 }
 
 //--------------------------------------------------------------
@@ -75,16 +77,17 @@ void ofApp::mouseDragged(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
-    Vector3* mousePos = new Vector3(x, y, ofRandom(-25,25));
+    
     if (x <= centerBox->getPosition().getX() + rigidBox.getWidth() 
         && x >= centerBox->getPosition().getX() - rigidBox.getWidth() 
         && y <= centerBox->getPosition().getY() + rigidBox.getHeight() 
         && y >= centerBox->getPosition().getY() - rigidBox.getHeight()
         && !isMoving) 
     {
+        Vector3* mousePos = new Vector3(x, y, ofRandom(-25,25));
         Vector3 impulse = *mousePos - *startPoint;
-        //std::cout << impulse.getX() << std::endl;
-        //std::cout << impulse.getY() << std::endl;
+        std::cout << impulse.getX() << std::endl;
+        std::cout << impulse.getY() << std::endl;
         rigidBox.applyForceAt(impulseStrength * impulse, *mousePos, ofGetLastFrameTime());
         timeSinceLastSpawn = 0.f;
         isMoving = true;
