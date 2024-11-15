@@ -21,8 +21,8 @@ void ofApp::setup()
 	box.set(500);
     ofBackground(0);
     centerStart = Vector3(500, 500, 0);
-    centerBox = new Particle(centerStart, Vector3(), 1, 10);
-    rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),50,50,50);
+    centerBox = new Particle(centerStart, Vector3(), 100, 10);
+    rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),150,150,150);
     isMoving = false;
     startPoint = new Vector3(500, 700, 0);
 }
@@ -50,7 +50,7 @@ void ofApp::draw()
 {
     ofSetColor(255, 255, 0);
     ofDrawIcoSphere(500,700, 10);
-    rigidBox.draw(ofColor(255));
+    rigidBox.draw(ofColor(100, 100, 255));
     rigidBox.getCenterMass().draw();
     ofSetColor(255);
     ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);

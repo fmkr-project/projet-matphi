@@ -74,6 +74,7 @@ void RigidBodyBox::setDepth(float d) {
 
 void RigidBodyBox::draw(ofColor color) {
     ofSetColor(color);
+    ofNoFill();
 
     // Sauvegarde de l'état de transformation
     ofPushMatrix();

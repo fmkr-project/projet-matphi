@@ -5,10 +5,10 @@
 #include "Vector3.h"
 
 Quaternion::Quaternion() {
-    this->x = 1;
+    this->x = 0;
     this->y = 0;
     this->z = 0;
-    this->w = 0;
+    this->w = 1;
 }
 
 Quaternion::Quaternion(float x, float y, float z, float w)
@@ -157,7 +157,7 @@ void Quaternion::toAxisAngle(Vector3& axis, float& angle) const {
     Quaternion q = *this;
     q = q / q.Magnitude(q);
 
-    angle = 2 * acos(q.w);
+    angle = 2 * acos(q.w) * 360 / 3.1415926535897932384;
 
     if (fabs(angle) < 1e-6) {
         axis.setX(1); 

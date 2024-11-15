@@ -40,7 +40,7 @@ Matrix3 RigidBody::getMomentInertia() const {
 // Physics
 void RigidBody::move()
 {
-    centerMass.addForce(g);
+    centerMass.addForce(centerMass.getMass() * g);
 
     float deltaTime = ofGetLastFrameTime();
 
