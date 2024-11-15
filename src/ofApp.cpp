@@ -42,6 +42,7 @@ void ofApp::update()
         rigidBox.setAngularVelocity(Vector3());
         rigidBox.setOrientation(Quaternion());
     }
+    
 }
 
 //--------------------------------------------------------------
@@ -51,6 +52,10 @@ void ofApp::draw()
     ofDrawIcoSphere(500,700, 10);
     rigidBox.draw(ofColor(255));
     rigidBox.getCenterMass().draw();
+    ofSetColor(255);
+    ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);
+    ofDrawBitmapString("The box automatically returns to the starting position after 3 seconds", 10, 35);
+    ofDrawBitmapString("Press 't' to bring back the box to the starting position earlier", 10, 50);
 }
 
 //--------------------------------------------------------------
@@ -86,8 +91,8 @@ void ofApp::mousePressed(int x, int y, int button) {
     {
         Vector3* mousePos = new Vector3(x, y, ofRandom(-25,25));
         Vector3 impulse = *mousePos - *startPoint;
-        std::cout << impulse.getX() << std::endl;
-        std::cout << impulse.getY() << std::endl;
+        //std::cout << impulse.getX() << std::endl;
+        //std::cout << impulse.getY() << std::endl;
         rigidBox.applyForceAt(impulseStrength * impulse, *mousePos, ofGetLastFrameTime());
         timeSinceLastSpawn = 0.f;
         isMoving = true;
