@@ -222,7 +222,7 @@ Matrix4 Matrix4::inverse() const {
 	Matrix4 inverseMatrix;
 	for (int i = 0; i < 4; ++i) {
 		for (int j = 0; j < 4; ++j) {
-			// Transposer la comatrice (�changer i et j) et diviser par le dterminant
+			// Transposer la comatrice (changer i et j) et diviser par le dterminant
 			inverseMatrix.matrix[i][j] = cofactorMatrix.matrix[j][i] / det;
 		}
 	}

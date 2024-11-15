@@ -46,7 +46,7 @@ Matrix3 operator-(const Matrix3& m1, const Matrix3& m2);
 Matrix3 operator*(const Matrix3& m1, const Matrix3& m2);
 Matrix3 operator*(const Matrix3& m, float d);
 Matrix3 operator*(float d, const Matrix3& m);
-Vector3 operator*(Vector3 v, Matrix3& m); // Les "consts" ont dû être enlevés
+Vector3 operator*(Vector3 v, Matrix3& m); // Les "consts" ont dtre enlevs
 Vector3 operator*(Matrix3& m, Vector3 v); // Pour les multiplications avec des vecteurs
 Matrix3 operator/(const Matrix3& m, float& d);
 
