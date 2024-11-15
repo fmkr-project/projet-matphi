@@ -35,6 +35,7 @@ public:
     void setCenterMass(const Particle& center);
     void setOrientation(const Quaternion& orientation);
     void setAngularVelocity(const Vector3& angularVelocity);
+    void setMomentInertia(const Matrix3& momentInertia);
 
     // Physics
     void move();
