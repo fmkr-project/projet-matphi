@@ -49,6 +49,7 @@ void ofApp::draw()
     ofSetColor(255, 255, 0);
     ofDrawIcoSphere(500,700, 10);
     rigidBox.draw(ofColor(255));
+    rigidBox.getCenterMass().draw();
 }
 
 //--------------------------------------------------------------
