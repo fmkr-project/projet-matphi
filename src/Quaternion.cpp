@@ -129,3 +129,22 @@ Quaternion Quaternion::Slerp(const Quaternion& a, const Quaternion& b, float t)
 {
     return Power(b * Inverse(a), t) * a;
 }
+
+void Quaternion::toAxisAngle(Vector3& axis, float& angle) const {
+    Quaternion q = *this;
+    q = q / q.Magnitude(q);
+
+    angle = 2 * acos(q.w);
+
+    if (fabs(angle) < 1e-6) {
+        axis.setX(1); 
+        axis.setY(0);
+        axis.setZ(0);
+    }
+    else {
+        float s = sqrt(1 - q.w * q.w); 
+        axis.setX(q.x / s);
+        axis.setY(q.y / s);
+        axis.setZ(q.z / s);
+    }
+}
