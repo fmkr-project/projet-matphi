@@ -91,6 +91,10 @@ void RigidBody::setAngularVelocity(const Vector3& angularVelocity) {
     this->angularVelocity = angularVelocity;
 }
 
+void RigidBody::setMomentInertia(const Matrix3& momentInertia) {
+    this->momentInertia = momentInertia;
+}
+
 void RigidBody::setMomentInertia() {
 
 }
