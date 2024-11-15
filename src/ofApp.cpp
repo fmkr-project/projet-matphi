@@ -20,45 +20,27 @@ void ofApp::setup()
 {
 	box.set(500);
     ofBackground(0);
-    //init = Particle(Vector3(),Vector3(), 1, 10.);
-    //numberParticles = 0;
+    centerBox = new Particle(Vector3(500, 500, 0), Vector3(), 1, 50);
+    rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),50,50,50);
+    isMoving = false;
     startPoint = new Vector3(500, 700, 0);
-    //ground = Particle(Vector3(500,1600,0), Vector3(), MAXULONGLONG, 1000., ofColor(160,160,160));
-    force_registry = new ParticleForceRegistry();
-    //force_registry->bind(&init);
-    //force_registry->bind(&ground);
-    //ParticleGravity* tmp = new ParticleGravity(Vector3());
-    //force_registry->add(&ground, tmp);
-    //collision_manager = *new CollisionManager();
-    //collision_manager.add_particle(&init);
-    //collision_manager.add_particle(&ground);
-    force_friction = new ParticleFriction(0.1f, 0.1f);
-    force_gravity = new ParticleGravity();
-    //force_spring = new ParticleSpring(500., 10., &init);
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
     //Update the forces in the registry
-    force_registry->updateForces(ofGetLastFrameTime());
     timeSinceLastSpawn += ofGetLastFrameTime();
-    if (timeSinceLastSpawn >= 3.0f) {
-        for (auto particle : myParticles) {
-            delete particle;
-        }
-        myParticles.clear();
-        myParticles.push_back(new Particle(Vector3(500, 600, 0), Vector3(), 10, 10));
+    if (timeSinceLastSpawn < 3.0f) { 
+        rigidBox.move();
     }
-	for (auto particle : myParticles)
-    {
-		particle->move();
-        //particle->clearAccum();
-	}
-    
-    // Manage resulting collisions
-    //collision_manager.detect_collisions();
-    //myParticles = collision_manager.get_particles();
+    else {
+        timeSinceLastSpawn = 3.0f;
+        isMoving = false;
+        rigidBox.setCenterMass(*centerBox);
+        rigidBox.setAngularVelocity(Vector3());
+        rigidBox.setOrientation(Quaternion());
+    }
 }
 
 //--------------------------------------------------------------
@@ -66,50 +48,13 @@ void ofApp::draw()
 {
     ofSetColor(255, 255, 0);
     ofDrawIcoSphere(500,700, 10);
-    // Update init position in collision manager
-    //ground.draw();
-    //init.setPosition(Vector3(mouseXPos, mouseYPos, 0.));
-    //init.draw();
-    for (auto& particle : myParticles) {
-        //if (particle->getMass() < 1000) { //Allow to exclude the ground
-            particle->draw();
-            //if (force_registry->isBound(particle)) DrawSpring(*particle);
-        //}
-    }
-    //for (auto& particle : myFreeParticles) {
-    //    particle->draw();
-    //}
-    //ofSetColor(init.getColor());
-    //ofDrawBitmapString("Numbers of particles :" + ofToString(numberParticles), 10, 10);
-    //ofDrawBitmapString("Numbers of particles attached to the blob :" + ofToString(myBoundParticles.size()), 10, 25);
-    //ofDrawBitmapString("Press e to add a particle in the game", 10, 40);
-    //ofDrawBitmapString("Press b to remove a particle from the blob", 10, 55);
-    //ofDrawBitmapString("Press a to fuse a particle with the blob", 10, 70);
+    rigidBox.draw(ofColor(255));
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
-    /*ofColor randomColor = ofColor(ofRandom(127, 256), ofRandom(127, 256), ofRandom(127, 256));
-    if (key == 'e' && numberParticles <20) {
-        SpawnParticle(1, 100, randomColor);
-    }
-    if (key == 'b' && myBoundParticles.size() > 0 && myParticles.size() > 0) {
-        Particle* p = myBoundParticles.back();
-        myFreeParticles.push_back(p);
-        myBoundParticles.pop_back();
-        force_registry->unbind(p);
-        //collision_manager.remove_particle(p);
-
-    }
-    if (key == 'a' && myFreeParticles.size() > 0) {
-        Particle* p = myFreeParticles.back();
-        myBoundParticles.push_back(p);
-        myFreeParticles.pop_back();
-        force_registry->bind(p);
-        //collision_manager.add_particle(p);
-    }
-    */
+    //if (key == 't') timeSinceLastSpawn = 3.0f;
 }
 
 //--------------------------------------------------------------
@@ -130,17 +75,21 @@ void ofApp::mouseDragged(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
-    Vector3* mousePos = new Vector3(x, y, 0);
-    if (mouseXPos <= 550 && mouseXPos >= 450 && mouseYPos <= 650 && mouseYPos >= 550) {
+    Vector3* mousePos = new Vector3(x, y, ofRandom(-25,25));
+    if (x <= centerBox->getPosition().getX() + rigidBox.getWidth() 
+        && x >= centerBox->getPosition().getX() - rigidBox.getWidth() 
+        && y <= centerBox->getPosition().getY() + rigidBox.getHeight() 
+        && y >= centerBox->getPosition().getY() - rigidBox.getHeight()
+        && !isMoving) 
+    {
         Vector3 impulse = *mousePos - *startPoint;
-        std::cout << impulse.getX() + impulse.getY() << std::endl;
-        ofSetColor(255);
-        ofDrawBitmapString("RightPlace", 10, 10);
-        for (auto& particle : myParticles) {
-            particle->addForce(impulseStrength * impulse);
-        }
+        //std::cout << impulse.getX() << std::endl;
+        //std::cout << impulse.getY() << std::endl;
+        rigidBox.applyForceAt(impulseStrength * impulse, *mousePos, ofGetLastFrameTime());
+        timeSinceLastSpawn = 0.f;
+        isMoving = true;
     }
-    timeSinceLastSpawn = 0.f;
+    
 }
 
 //--------------------------------------------------------------
@@ -188,8 +137,8 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
     //nbBoundParticles++;
 
     //Add forces to the new particule
-    force_registry->add(newParticle, force_friction);
-    force_registry->add(newParticle, force_gravity);
+    //force_registry->add(newParticle, force_friction);
+    //force_registry->add(newParticle, force_gravity);
     //force_registry->add(newParticle, force_spring);
 
     //collision_manager.add_particle(newParticle);

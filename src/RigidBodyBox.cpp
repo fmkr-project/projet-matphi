@@ -20,7 +20,7 @@ RigidBodyBox::RigidBodyBox(const RigidBodyBox& other)
 
 // Destructeur
 RigidBodyBox::~RigidBodyBox() {
-    // Pas de ressources dynamiques librer, donc ce destructeur peut rester vide
+    // Pas de ressources dynamiques liberer, donc ce destructeur peut rester vide
 }
 
 // Calcul du moment d'inertie pour une bo�te
@@ -47,7 +47,7 @@ float RigidBodyBox::getHeight() const {
 // Setter pour la hauteur
 void RigidBodyBox::setHeight(float h) {
     height = h;
-    setMomentInertia();  // Recalculer le moment d'inertie aprs avoir modif la hauteur
+    setMomentInertia();  // Recalculer le moment d'inertie apres avoir modif la hauteur
 }
 
 // Getter pour la largeur
@@ -58,7 +58,7 @@ float RigidBodyBox::getWidth() const {
 // Setter pour la largeur
 void RigidBodyBox::setWidth(float w) {
     width = w;
-    setMomentInertia();  // Recalculer le moment d'inertie aprs avoir modifi la largeur
+    setMomentInertia();  // Recalculer le moment d'inertie apres avoir modifi la largeur
 }
 
 // Getter pour la profondeur
@@ -69,7 +69,7 @@ float RigidBodyBox::getDepth() const {
 // Setter pour la profondeur
 void RigidBodyBox::setDepth(float d) {
     depth = d;
-    setMomentInertia();  // Recalculer le moment d'inertie apr�s avoir modifi� la profondeur
+    setMomentInertia();  // Recalculer le moment d'inertie apres avoir modifie la profondeur
 }
 
 void RigidBodyBox::draw(ofColor color) {
