@@ -36,7 +36,7 @@ Matrix4::~Matrix4() {
 //Constants
 Matrix4 Matrix4::identity() {
 	Matrix4 res = Matrix4();
-	for (int i; i < 4; i++) {
+	for (int i=0; i < 4; i++) {
 		res.matrix[i][i] = 1.0f;
 	}
 	return res;
@@ -95,17 +95,27 @@ Matrix4& Matrix4::operator-=(float& d) {
 }
 
 Matrix4& Matrix4::operator*=(const Matrix4& m) {
+	
+	float temp[4][4] = { 0 };
+
+	
 	for (int i = 0; i < 4; i++) {
 		for (int j = 0; j < 4; j++) {
-			float sum = 0;
 			for (int k = 0; k < 4; k++) {
-				sum += matrix[i][k] * matrix[k][j];
+				temp[i][j] += matrix[i][k] * m.matrix[k][j];
 			}
-			matrix[i][j] = sum;
 		}
 	}
+
+	for (int i = 0; i < 4; i++) {
+		for (int j = 0; j < 4; j++) {
+			matrix[i][j] = temp[i][j];
+		}
+	}
+
 	return *this;
 }
+
 
 Matrix4& Matrix4::operator*=(float& d) {
 	for (int i = 0; i < 4; i++) {
@@ -233,7 +243,7 @@ Matrix4 Matrix4::inverse() const {
 
 float Matrix4::trace() const {
 	float t = 0.0f;
-	for (size_t i = 0; i < 3; i++)
+	for (size_t i = 0; i < 4; i++)
 	{
 		t += this->matrix[i][i];
 	}
@@ -364,3 +374,4 @@ Matrix4 operator/(const Matrix4& m, float& d)
 
 	return mat4 /= d;
 }
+

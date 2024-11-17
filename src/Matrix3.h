@@ -4,9 +4,10 @@
 class Matrix3
 {
 private:
-	float matrix[3][3];
+	
 
 public:
+	float matrix[3][3];
 
 	//Constructors & destructor
 	Matrix3();

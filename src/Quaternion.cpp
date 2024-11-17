@@ -69,8 +69,13 @@ Quaternion Quaternion::operator*(const float& other) const
 
 Quaternion Quaternion::operator/(const float& other) const
 {
-    return {x / other, y / other, z / other, w / other};
+    if (other == 0.0f) {
+        throw std::runtime_error("Division by zero.");
+    }
+    return { w / other, x / other, y / other, z / other };
 }
+
+
 
 Quaternion Quaternion::Neg(const Quaternion& a)
 {
@@ -93,20 +98,25 @@ Quaternion Quaternion::Euler(float yaw, float pitch, float roll)
 }
 
 
-float Quaternion::Magnitude(const Quaternion& a)
-{
-    return static_cast<float>(std::pow(a.w * a.w + a.x * a.x + a.y * a.y + a.z * a.z, 0.5));
+float Quaternion::Magnitude(const Quaternion& a) {
+    return std::sqrt(a.w * a.w + a.x * a.x + a.y * a.y + a.z * a.z);
 }
+
+
 
 Quaternion Quaternion::Conjugate(const Quaternion& a)
 {
     return {a.w, -a.x, -a.y, -a.z};
 }
 
-Quaternion Quaternion::Inverse(const Quaternion& a)
-{
-    return Conjugate(a) / Magnitude(a);
+Quaternion Quaternion::Inverse(const Quaternion& a) {
+    float magnitudeSquared = Magnitude(a); 
+    if (magnitudeSquared == 0.0f) {
+        throw std::runtime_error("Quaternion inverse undefined for zero magnitude.");
+    }
+    return Conjugate(a) / magnitudeSquared;
 }
+
 
 float Quaternion::Dot(const Quaternion& a, const Quaternion& b)
 {

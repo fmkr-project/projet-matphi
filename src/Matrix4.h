@@ -7,10 +7,10 @@ using namespace std;
 class Matrix4
 {
 private:
-	float matrix[4][4];
+	
 
 public:
-
+	float matrix[4][4];
 	//Constructors & destructor
 	Matrix4();
 	Matrix4(float m[4][4]);

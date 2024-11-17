@@ -107,13 +107,18 @@ Matrix3& Matrix3::operator-=(float& d) {
 }
 
 Matrix3& Matrix3::operator*=(const Matrix3& m) {
+	float temp[3][3];
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 3; j++) {
-			float sum = 0;
+			temp[i][j] = 0;
 			for (int k = 0; k < 3; k++) {
-				sum += matrix[i][k] * matrix[k][j];
+				temp[i][j] += matrix[i][k] * m.matrix[k][j];
 			}
-			matrix[i][j] = sum;
+		}
+	}
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			matrix[i][j] = temp[i][j];
 		}
 	}
 	return *this;
