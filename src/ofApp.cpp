@@ -570,49 +570,47 @@ void ofApp::runTestsMatrix4() {
 
 //--------------------------------------------------------------------------------------------
 
-
-
 void testDefaultConstructorQuaternion() {
     Quaternion q;
+    assertEqual(q.w, 1.0f, "DefaultConstructor w");
     assertEqual(q.x, 0.0f, "DefaultConstructor x");
     assertEqual(q.y, 0.0f, "DefaultConstructor y");
     assertEqual(q.z, 0.0f, "DefaultConstructor z");
-    assertEqual(q.w, 1.0f, "DefaultConstructor w");
 }
 
 void testParameterizedConstructorQuaternion() {
-    Quaternion q(1.0f, 2.0f, 3.0f, 4.0f);
+    Quaternion q(4.0f, 1.0f, 2.0f, 3.0f); // w en premier
+    assertEqual(q.w, 4.0f, "ParameterizedConstructor w");
     assertEqual(q.x, 1.0f, "ParameterizedConstructor x");
     assertEqual(q.y, 2.0f, "ParameterizedConstructor y");
     assertEqual(q.z, 3.0f, "ParameterizedConstructor z");
-    assertEqual(q.w, 4.0f, "ParameterizedConstructor w");
 }
 
 void testNeg() {
-    Quaternion q(1.0f, -2.0f, 3.0f, -4.0f);
+    Quaternion q(-4.0f, 1.0f, -2.0f, 3.0f); // w en premier
     Quaternion negQ = Quaternion::Neg(q);
+    assertEqual(negQ.w, 4.0f, "Neg w");
     assertEqual(negQ.x, -1.0f, "Neg x");
     assertEqual(negQ.y, 2.0f, "Neg y");
     assertEqual(negQ.z, -3.0f, "Neg z");
-    assertEqual(negQ.w, 4.0f, "Neg w");
 }
 
 void testMagnitude() {
-    Quaternion q(1.0f, 2.0f, 2.0f, 2.0f);
-    assertEqual(Quaternion::Magnitude(q), 3.60555f, "Magnitude"); //3.60555 almost equal to square root of 13
+    Quaternion q(1.0f, 2.0f, 2.0f, 2.0f); // w en premier
+    assertEqual(Quaternion::Magnitude(q), 3.60555f, "Magnitude"); // sqrt(13)
 }
 
 void testConjugate() {
-    Quaternion q(1.0f, 2.0f, 3.0f, 4.0f);
+    Quaternion q(4.0f, 1.0f, 2.0f, 3.0f); // w en premier
     Quaternion conjugateQ = Quaternion::Conjugate(q);
-    assertEqual(conjugateQ.x, 4.0f, "Conjugate x");
-    assertEqual(conjugateQ.y, -1.0f, "Conjugate y");
-    assertEqual(conjugateQ.z, -2.0f, "Conjugate z");
-    assertEqual(conjugateQ.w, -3.0f, "Conjugate w");
+    assertEqual(conjugateQ.w, 4.0f, "Conjugate w");
+    assertEqual(conjugateQ.x, -1.0f, "Conjugate x");
+    assertEqual(conjugateQ.y, -2.0f, "Conjugate y");
+    assertEqual(conjugateQ.z, -3.0f, "Conjugate z");
 }
 
 void testInverseQuaternion() {
-    Quaternion q(1.0f, 0.0f, 0.0f, 0.0f);
+    Quaternion q(1.0f, 0.0f, 0.0f, 0.0f); // w en premier
     Quaternion inverseQ = Quaternion::Inverse(q);
 
     std::cout << "Original Quaternion: w=" << q.w << ", x=" << q.x << ", y=" << q.y << ", z=" << q.z << std::endl;
@@ -624,51 +622,49 @@ void testInverseQuaternion() {
     assertEqual(inverseQ.z, 0.0f, "Inverse z");
 }
 
-
-
 void testDot() {
-    Quaternion q1(1.0f, 2.0f, 3.0f, 4.0f);
-    Quaternion q2(2.0f, 3.0f, 4.0f, 5.0f);
+    Quaternion q1(4.0f, 1.0f, 2.0f, 3.0f); // w en premier
+    Quaternion q2(5.0f, 2.0f, 3.0f, 4.0f); // w en premier
     assertEqual(Quaternion::Dot(q1, q2), 40.0f, "DotProduct");
 }
 
 void testPower() {
-    Quaternion q(0.0f, 1.0f, 0.0f, 0.0f);
+    Quaternion q(0.0f, 0.0f, 1.0f, 0.0f); // w en premier
     Quaternion result = Quaternion::Power(q, 2.0f);
-    assertEqual(result.x, 0.0f, "Power x");
-    assertEqual(result.y, 1.0f, "Power y");
-    assertEqual(result.z, 0.0f, "Power z");
     assertEqual(result.w, -1.0f, "Power w");
+    assertEqual(result.x, 0.0f, "Power x");
+    assertEqual(result.y, 0.0f, "Power y");
+    assertEqual(result.z, 0.0f, "Power z");
 }
 
 void testSlerp() {
-    Quaternion q1(0.0f, 0.0f, 0.0f, 1.0f);
-    Quaternion q2(1.0f, 0.0f, 0.0f, 0.0f);
+    Quaternion q1(1.0f, 0.0f, 0.0f, 0.0f); // w en premier
+    Quaternion q2(0.0f, 1.0f, 0.0f, 0.0f); // w en premier
     Quaternion slerpQ = Quaternion::Slerp(q1, q2, 0.5f);
+    assertEqual(slerpQ.w, 0.707107f, "Slerp w");
     assertEqual(slerpQ.x, 0.707107f, "Slerp x");
     assertEqual(slerpQ.y, 0.0f, "Slerp y");
     assertEqual(slerpQ.z, 0.0f, "Slerp z");
-    assertEqual(slerpQ.w, 0.707107f, "Slerp w");
 }
 
 void testAddition() {
-    Quaternion q1(1.0f, 2.0f, 3.0f, 4.0f);
-    Quaternion q2(2.0f, 3.0f, 4.0f, 5.0f);
+    Quaternion q1(4.0f, 1.0f, 2.0f, 3.0f); // w en premier
+    Quaternion q2(5.0f, 2.0f, 3.0f, 4.0f); // w en premier
     Quaternion result = q1 + q2;
+    assertEqual(result.w, 9.0f, "Addition w");
     assertEqual(result.x, 3.0f, "Addition x");
     assertEqual(result.y, 5.0f, "Addition y");
     assertEqual(result.z, 7.0f, "Addition z");
-    assertEqual(result.w, 9.0f, "Addition w");
 }
 
 void testMultiplication() {
-    Quaternion q1(1.0f, 0.0f, 1.0f, 0.0f);
-    Quaternion q2(1.0f, 0.5f, 0.5f, 0.75f);
+    Quaternion q1(0.0f, 1.0f, 0.0f, 1.0f); // w en premier
+    Quaternion q2(0.75f, 1.0f, 0.5f, 0.5f); // w en premier
     Quaternion result = q1 * q2;
-    assertEqual(result.x, 0.75f, "Multiplication x");
-    assertEqual(result.y, 1.25f, "Multiplication y");
-    assertEqual(result.z, 0.25f, "Multiplication z");
-    assertEqual(result.w, -0.5f, "Multiplication w");
+    assertEqual(result.w, -1.5f, "Multiplication w");
+    assertEqual(result.x, 0.25f, "Multiplication x");
+    assertEqual(result.y, 0.5f, "Multiplication y");
+    assertEqual(result.z, 1.25f, "Multiplication z");
 }
 
 void ofApp::runTestsQuaternion() {
@@ -683,5 +679,4 @@ void ofApp::runTestsQuaternion() {
     testSlerp();
     testAddition();
     testMultiplication();
-
 }
