@@ -29,7 +29,7 @@ public:
 	void gotMessage(ofMessage msg);
 
 	void SpawnParticle(float speed, float mass, ofColor col);
-	void DrawSpring(Particle p);
+	void DrawSpring(Particle p); //
 
 public:
 

@@ -192,7 +192,7 @@ std::ostream& operator<<(std::ostream& os, const Matrix3& matrix) {
         for (int j = 0; j < 3; ++j) {
             os << std::setw(10) << matrix.matrix[i][j] << " ";
         }
-        os << "\n"; // Nouvelle ligne après chaque ligne de la matrice
+        os << "\n"; // Nouvelle ligne aprï¿½s chaque ligne de la matrice
     }
     return os;
 }
@@ -281,17 +281,17 @@ void testInverse() {
         // Afficher l'inverse
         std::cout << "Calculated inverse:\n" << inv << std::endl;
 
-        // Créer la matrice identité
+        // Crer la matrice identit
         Matrix3 identity = Matrix3::identity();
 
         // Calculer le produit m * inv
         Matrix3 result = m * inv;
         std::cout << "Result of m * inv (should be identity):\n" << result << std::endl;
 
-        // Afficher la matrice identité attendue
+        // Afficher la matrice identit attendue
         std::cout << "Expected identity matrix:\n" << identity << std::endl;
 
-        // Vérifier la matrice résultante
+        // Vrifier la matrice rsultante
         bool passed = matricesAreEqual(result, identity, 1e-5);
         if (!passed) {
             std::cout << "Test failed! Result is not the identity matrix.\n";
@@ -452,10 +452,10 @@ void testInverseMatrix4() {
         // Afficher la matrice d'origine
         //std::cout << "Original matrix (m):\n" << m << std::endl;
 
-        // Afficher l'inverse calculée
+        // Afficher l'inverse calcule
         //std::cout << "Calculated inverse (inv):\n" << inv << std::endl;
 
-        // Créer la matrice identité attendue
+        // Crer la matrice identit attendue
         Matrix4 identity = Matrix4::identity();
         //std::cout << "Expected identity matrix:\n" << identity << std::endl;
 
@@ -463,7 +463,7 @@ void testInverseMatrix4() {
         Matrix4 result = m * inv;
         //std::cout << "Result of m * inv (should be identity):\n" << result << std::endl;
 
-        // Vérifier si le résultat est proche de la matrice identité
+        // Vrifier si le rsultat est proche de la matrice identit
         bool passed = matricesAreEqual4(result, identity, 1e-5);
         if (!passed) {
             std::cout << "Test failed! Result is not the identity matrix.\n";
@@ -524,14 +524,14 @@ void testOperatorAddMatrix4() {
 }
 
 void testMatrix3ToMatrix4() {
-    // Création d'une matrice 3x3 de test
+    // Cration d'une matrice 3x3 de test
     float values3x3[3][3] = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
     Matrix3 m3(values3x3);
 
-    // Conversion de Matrix3 à Matrix4
+    // Conversion de Matrix3 Matrix4
     Matrix4 result = Matrix4::Matrix3ToMatrix4(m3);
 
-    // Vérification des éléments de la matrice 3x3 dans la matrice 4x4
+    // Vrification des lments de la matrice 3x3 dans la matrice 4x4
     bool passed = true;
     for (int i = 0; i < 3; ++i) {
         for (int j = 0; j < 3; ++j) {
@@ -539,12 +539,12 @@ void testMatrix3ToMatrix4() {
         }
     }
 
-    // Vérification de la dernière colonne
+    // Vrification de la dernire colonne
     for (int i = 0; i < 3; ++i) {
         if (result.getElement(i, 3) != 0.0f) passed = false;
     }
 
-    // Vérification de la dernière ligne
+    // Vrification de la dernire ligne
     if (result.getElement(3, 0) != 0.0f || result.getElement(3, 1) != 0.0f ||
         result.getElement(3, 2) != 0.0f || result.getElement(3, 3) != 1.0f) {
         passed = false;
