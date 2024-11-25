@@ -37,6 +37,11 @@ Matrix3 RigidBody::getMomentInertia() const {
     return momentInertia;
 }
 
+Sphere RigidBody::getEnclosingSphere() const
+{
+    return Sphere();
+}
+
 // Physics
 void RigidBody::move()
 {

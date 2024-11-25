@@ -31,6 +31,7 @@ public:
     Quaternion getOrientation() const;
     Vector3 getAngularVelocity() const;
     Matrix3 getMomentInertia() const;
+    virtual Sphere getEnclosingSphere() const;
 
     // Setters
     void setCenterMass(const Particle& center);

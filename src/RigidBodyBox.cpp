@@ -66,6 +66,13 @@ float RigidBodyBox::getDepth() const {
     return depth;
 }
 
+Sphere RigidBodyBox::getEnclosingSphere() const
+{
+    Particle p = centerMass;
+    float r = sqrtf(powf(height, 2) + powf(width, 2) + powf(depth, 2) ) / 2.f;
+    return Sphere(p, r);
+}
+
 // Setter pour la profondeur
 void RigidBodyBox::setDepth(float d) {
     depth = d;

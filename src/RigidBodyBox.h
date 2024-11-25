@@ -18,6 +18,7 @@ public:
 	float getHeight() const;
 	float getWidth() const;
 	float getDepth() const;
+	virtual Sphere getEnclosingSphere() const override;
 
 	// Setters
 	void setHeight(float h);
