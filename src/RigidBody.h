@@ -47,4 +47,5 @@ public:
     virtual void setMomentInertia() = 0; 
 
     virtual void draw(ofColor color);
+    virtual void drawEnclosingSphere(ofColor color);
 };

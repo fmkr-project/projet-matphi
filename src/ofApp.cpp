@@ -62,6 +62,7 @@ void ofApp::draw()
     ofDrawIcoSphere(500,700, 10);
     rigidBox.draw(ofColor(100, 100, 255));
     rigidBox.getCenterMass().draw();
+    rigidBox.drawEnclosingSphere(ofColor(100,255,100)); // a enlever si genant
     ofSetColor(255);
     ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);
     ofDrawBitmapString("The box automatically returns to the starting position after 3 seconds", 10, 35);

@@ -105,3 +105,9 @@ void RigidBodyBox::draw(ofColor color) {
     ofPopMatrix();
 }
 
+void RigidBodyBox::drawEnclosingSphere(ofColor color)
+{
+    ofSetColor(color);
+    ofDrawIcoSphere(centerMass.getPosition().v3(), getEnclosingSphere().getRadius());
+}
+

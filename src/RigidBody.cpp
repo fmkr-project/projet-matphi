@@ -115,3 +115,7 @@ void RigidBody::setMomentInertia() {
 
 void RigidBody::draw(ofColor) {
 }
+
+void RigidBody::drawEnclosingSphere(ofColor color)
+{
+}

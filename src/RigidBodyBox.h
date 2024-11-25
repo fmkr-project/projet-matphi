@@ -27,5 +27,6 @@ public:
 
 	virtual void setMomentInertia() override;
 	virtual void draw(ofColor color) override;
+	virtual void drawEnclosingSphere(ofColor color) override;
 };
 
