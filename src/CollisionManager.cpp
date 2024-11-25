@@ -7,35 +7,36 @@
 
 CollisionManager::CollisionManager()
 {
-	particles = std::vector<Particle*>();
+	rigidBodies = std::vector<RigidBody*>();
 }
 
-void CollisionManager::add_particle(Particle* p)
+void CollisionManager::add_rigidbody(RigidBody* r)
 {
-	particles.push_back(p);
+	rigidBodies.push_back(r);
 }
 
-void CollisionManager::remove_particle(Particle* p)
+void CollisionManager::remove_rigidbody(RigidBody* r)
 {
-	for (unsigned int i = 0; i < particles.size(); i++)
+	for (unsigned int i = 0; i < rigidBodies.size(); i++)
 	{
-		if (p == particles[i])
-			particles.erase(particles.begin() + i);
+		if (r == rigidBodies[i])
+			rigidBodies.erase(rigidBodies.begin() + i);
 	}
 }
 
 
-std::vector<Particle*> CollisionManager::get_particles()
+std::vector<RigidBody*> CollisionManager::get_rigidbodies()
 {
-	return particles;
+	return rigidBodies;
 }
 
 
 void CollisionManager::detect_collisions()
 {
-	int threshold = 2 * particles.size();
+	int threshold = 2 * rigidBodies.size();
 	int collisionNb = 0;
-	
+
+	/*
 	for each (Particle* p in particles)
 	{
 		if (collisionNb >= threshold) break;
@@ -65,10 +66,12 @@ void CollisionManager::detect_collisions()
 			}
 		}
 	}
+	*/
 }
 
 
 // debug
+/*
 void CollisionManager::_debug_print_all_particles() const
 {
 	for (auto p : particles)
@@ -76,3 +79,4 @@ void CollisionManager::_debug_print_all_particles() const
 		std::cout << p->getPosition().getX() << ' ' << p->getPosition().getY() << '\n';
 	}
 }
+*/
