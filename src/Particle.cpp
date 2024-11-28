@@ -59,6 +59,10 @@ Vector3 Particle::getPosition() {
 	return position;
 }
 
+const Vector3& Particle::getPosition() const {
+	return position;
+}
+
 Vector3 Particle::getSpeed() {
 	return speed;
 }

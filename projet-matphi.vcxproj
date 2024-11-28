@@ -104,14 +104,15 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CollisionBoxPlane.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
+    <ClCompile Include="src\BoundingBox.cpp" />
     <ClCompile Include="src\CollisionManager.cpp" />
     <ClCompile Include="src\ForceFriction.cpp" />
     <ClCompile Include="src\Matrix3.cpp" />
-    <ClCompile Include="src\Matrix3_Tests.cpp" />
     <ClCompile Include="src\Matrix4.cpp" />
-    <ClCompile Include="src\Matrix4_Tests.cpp" />
+    <ClCompile Include="src\OcTree.cpp" />
     <ClCompile Include="src\Particle.cpp" />
     <ClCompile Include="src\ParticleBungee.cpp" />
     <ClCompile Include="src\ParticleForceRegistry.cpp" />
@@ -119,19 +120,22 @@
     <ClCompile Include="src\ParticleGravity.cpp" />
     <ClCompile Include="src\ParticleSpring.cpp" />
     <ClCompile Include="src\Quaternion.cpp" />
-    <ClCompile Include="src\Quaternion_Tests.cpp" />
     <ClCompile Include="src\RigidBody.cpp" />
     <ClCompile Include="src\RigidBodyBox.cpp" />
+    <ClCompile Include="src\Sphere.cpp" />
     <ClCompile Include="src\TwoParticlesSpring.cpp" />
     <ClCompile Include="src\Vector3.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CollisionBoxPlane.h" />
     <ClInclude Include="src\ofApp.h" />
+    <ClInclude Include="src\BoundingBox.h" />
     <ClInclude Include="src\CollisionManager.h" />
     <ClInclude Include="src\ForceFriction.h" />
     <ClInclude Include="src\Matrix3.h" />
     <ClInclude Include="src\Matrix4.h" />
+    <ClInclude Include="src\OcTree.h" />
     <ClInclude Include="src\Particle.h" />
     <ClInclude Include="src\ParticleBungee.h" />
     <ClInclude Include="src\ParticleForceGenerator.h" />
@@ -142,6 +146,7 @@
     <ClInclude Include="src\Quaternion.h" />
     <ClInclude Include="src\RigidBody.h" />
     <ClInclude Include="src\RigidBodyBox.h" />
+    <ClInclude Include="src\Sphere.h" />
     <ClInclude Include="src\TwoParticlesSpring.h" />
     <ClInclude Include="src\Vector3.h" />
     <ClInclude Include="src\World.h" />

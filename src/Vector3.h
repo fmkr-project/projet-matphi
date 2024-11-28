@@ -60,6 +60,7 @@ public:
 
     float magnitude() const;
     void normalise();
+    Vector3 normalized() const;
     float dotProduct(const Vector3& v) const;
     static float dotProduct(const Vector3& v1, const Vector3& v2);
     Vector3 crossProduct(const Vector3& v) const;

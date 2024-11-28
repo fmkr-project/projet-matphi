@@ -8,6 +8,7 @@
 #include "ParticleGravity.h"
 #include "ParticleSpring.h"
 #include "RigidBodyBox.h"
+#include "CollisionBoxPlane.h"
 
 class ofApp : public ofBaseApp {
 

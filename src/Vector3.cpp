@@ -345,6 +345,14 @@ Vector3 operator/(const Vector3& v, float& f)
     return resu /= f;
 }
 
+Vector3 Vector3::normalized() const {
+    float length = magnitude();
+    if (length == 0) {
+        throw std::runtime_error("Cannot normalize a zero-length vector.");
+    }
+    return Vector3(x_ / length, y_ / length, z_ / length);
+}
+
 
 // Usual vectors
 const Vector3* Vector3::zero = new Vector3(0, 0, 0);

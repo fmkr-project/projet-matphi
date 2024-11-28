@@ -31,10 +31,10 @@ public:
 	static float distance(const Particle& p, const Particle& q);
 
 	Vector3 getPosition();
+	const Vector3& getPosition() const;
 	Vector3 getSpeed();
 	ofColor getColor();
 	float getSize();
-
 	float getMass();
 	float getInverseMass();
 
