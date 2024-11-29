@@ -36,37 +36,40 @@ void CollisionManager::detect_collisions()
 	int threshold = 2 * rigidBodies.size();
 	int collisionNb = 0;
 
-	/*
-	for each (Particle* p in particles)
+	
+	for each (RigidBody* p in rigidBodies)
 	{
 		if (collisionNb >= threshold) break;
-		for each (Particle* q in particles)
+		
+		Particle r = p->getCenterMass();
+		for each (RigidBody* q in rigidBodies)
 		{
+			Particle s = q->getCenterMass();
+			
 			if (collisionNb >= threshold) break;
-			if (p == q) continue;
+			if (r == s) continue;
 
 			// Interpenetration
-			if (Particle::distance(*p, *q) < p->getSize() + q->getSize())
+			if (Particle::distance(r, s) < r.getSize() + s.getSize())
 			{
 				collisionNb++;
 				// Cancel penetration
-				Vector3 d = p->getSize() + q->getSize() - Particle::distance(*p, *q);
-				Vector3 unit = q->getPosition() - p->getPosition();
+				Vector3 d = r.getSize() + s.getSize() - Particle::distance(r, s);
+				Vector3 unit = s.getPosition() - r.getPosition();
 				unit.normalise();
-				p->setPosition(p->getPosition() - d * unit * (q->getMass() / (p->getMass() + q->getMass())));
-				q->setPosition(q->getPosition() + d * unit * (p->getMass() / (p->getMass() + q->getMass())));
+				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
+				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));
 
 				// Generate pulse
 				// Consider a near perfect elastic collision (ie. e=0.75)
-				float k = 1.75 * Vector3::dotProduct(p->getSpeed() - q->getSpeed(), unit) /
-					(p->getInverseMass() + q->getInverseMass());
+				float k = 1.75 * Vector3::dotProduct(r.getSpeed() - s.getSpeed(), unit) /
+					(r.getInverseMass() + s.getInverseMass());
 				// Change particle speeds accordingly
-				p->setSpeed(p->getSpeed() - k * p->getInverseMass() * unit);
-				q->setSpeed(q->getSpeed() + k * q->getInverseMass() * unit);
+				r.setSpeed(r.getSpeed() - k * r.getInverseMass() * unit);
+				s.setSpeed(s.getSpeed() + k * s.getInverseMass() * unit);
 			}
 		}
 	}
-	*/
 }
 
 
@@ -76,7 +79,7 @@ void CollisionManager::_debug_print_all_particles() const
 {
 	for (auto p : particles)
 	{
-		std::cout << p->getPosition().getX() << ' ' << p->getPosition().getY() << '\n';
+		std::cout << r.getPosition().getX() << ' ' << r.getPosition().getY() << '\n';
 	}
 }
 */
