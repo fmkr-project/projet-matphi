@@ -144,3 +144,12 @@ void Quaternion::toAxisAngle(Vector3& axis, float& angle) const {
         axis.setZ(q.z / s);
     }
 }
+
+Vector3 Quaternion::rotate(const Vector3& v) const {
+    Quaternion qv(0, v.getX(), v.getY(), v.getZ());
+    Quaternion qConjugate = Conjugate(*this);
+
+    Quaternion result = (*this) * qv * qConjugate;
+
+    return Vector3(result.x, result.y, result.z);
+}

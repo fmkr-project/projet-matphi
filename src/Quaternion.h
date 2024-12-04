@@ -37,4 +37,5 @@ public:
 
     // Methodes non statiques
     void toAxisAngle(Vector3& axis, float& angle) const;
+    Vector3 rotate(const Vector3& v) const;
 };
