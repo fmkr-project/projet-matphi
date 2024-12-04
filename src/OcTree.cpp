@@ -36,10 +36,10 @@ bool OcTree::insert(RigidBody* object, Node* node) {
         node->objects.push_back(object);
         return true;
     }
-    return false; // Retourner false si l'insertion a chou
+    return false; // Retourner false si l'insertion a echoue
 }
 
-// Subdivise un nud en 8 sous-nuds
+// Subdivise un noeud en 8 sous-noeuds
 void OcTree::subdivide(Node* node) {
     std::cout << "Here !!" << std::endl;
     BoundingBox b = node->bounds;
@@ -61,18 +61,18 @@ void OcTree::subdivide(Node* node) {
 }
 
 void OcTree::draw() {
-    // Appeler la fonction draw pour le nœud racine
+    // Appeler la fonction draw pour le noeud racine
     drawNode(root.get());
 }
 
 void OcTree::drawNode(Node* node) {
-    // Dessiner la bounding box du nœud actuel
-    node->bounds.draw();  // Utilisez une couleur appropriée
+    // Dessiner la bounding box du noeud actuel
+    node->bounds.draw();  // Utilisez une couleur appropriee
 
-    // Vérifier si le nœud a des enfants
+    // Verifier si le noeud a des enfants
     for (auto& child : node->children) {
         if (child) {
-            // Dessiner récursivement pour chaque enfant
+            // Dessiner recursivement pour chaque enfant
             drawNode(child.get());
         }
     }

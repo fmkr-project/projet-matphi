@@ -38,15 +38,13 @@ public:
 	const float impulseStrength = 5000.f;
 	vector<Particle*> myParticles;
 	CollisionManager collisionManager = CollisionManager();
-	//vector<Particle*> myBoundParticles;
-	//vector<Particle*> myFreeParticles;
 	ofBoxPrimitive box;
-	//Count the number of particles created (excluding the one the user control)
 	int numberParticles;
 	Vector3 centerStart;
 	Particle* centerBox;
 	RigidBodyBox rigidBox;
 	bool isMoving;
-	//int nbBoundParticles;
-	//Particle ground; //Create a ground for the particles to collide with
+
+	bool showOctree = false;
+
 };

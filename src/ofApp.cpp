@@ -64,15 +64,15 @@ void ofApp::draw()
     ofSetColor(255);
     ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);
     ofDrawBitmapString("The box automatically returns to the starting position after 3 seconds", 10, 35);
-    ofDrawBitmapString("Press 't' to bring back the box to the starting position earlier", 10, 50);
-
-    BoundingBox box(Vector3(1024, 0, 0), Vector3(0, 1024, -1024));
+    ofDrawBitmapString("Press 'a' to show or hide the octree's spacial partition", 10, 50);
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key)
 {
     if (key == 't') timeSinceLastSpawn = 3.0f;
+
+    if (key == 'a') showOctree = !showOctree;
 }
 
 //--------------------------------------------------------------
