@@ -3,18 +3,18 @@
 #include <vector>
 
 #include "Particle.h"
-#include "RigidBody.h"
+#include "RigidBodyBox.h"
 
 class CollisionManager
 {
 private:
-	std::vector<RigidBody*> rigidBodies;
+	std::vector<RigidBodyBox*> cubes;
 
 public:
 	CollisionManager();
-	void add_rigidbody(RigidBody* r);
-	void remove_rigidbody(RigidBody* r);
-	std::vector<RigidBody*> get_rigidbodies();
+	void add_cube(RigidBodyBox* r);
+	void remove_cube(RigidBodyBox* r);
+	std::vector<RigidBodyBox*> get_cubes();
 	void detect_collisions();
 
 	// debug

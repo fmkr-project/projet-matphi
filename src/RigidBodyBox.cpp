@@ -180,13 +180,14 @@ bool RigidBodyBox::overlapsOnAxis(const RigidBodyBox& other, const Vector3& axis
 }
 
 
-CollisionBoxResult RigidBodyBox::testCollisionWithBox(const RigidBodyBox& other) const {
+CollisionBoxResult RigidBodyBox::testCollision(const RigidBodyBox& a, const RigidBodyBox& other)
+{
     CollisionBoxResult result;
     result.hasCollision = true;  
     result.penetrationDepth = std::numeric_limits<float>::max();
 
     
-    std::vector<Vector3> axes1 = getAxes();
+    std::vector<Vector3> axes1 = a.getAxes();
     std::vector<Vector3> axes2 = other.getAxes();
 
     
@@ -201,7 +202,7 @@ CollisionBoxResult RigidBodyBox::testCollisionWithBox(const RigidBodyBox& other)
         float penetration = std::numeric_limits<float>::max();
         Vector3 collisionNormal;
 
-        if (!overlapsOnAxis(other, axis, penetration, collisionNormal)) {
+        if (!a.overlapsOnAxis(other, axis, penetration, collisionNormal)) {
             result.hasCollision = false;  
             return result;
         }

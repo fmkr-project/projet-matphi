@@ -2,61 +2,63 @@
 
 #include "CollisionManager.h"
 #include "Particle.h"
-#include "RigidBody.h"
+#include "RigidBodyBox.h"
 #include "Vector3.h"
+#include "CollisionBoxPlane.h"
 
 
 CollisionManager::CollisionManager()
 {
-	rigidBodies = std::vector<RigidBody*>();
+	cubes = std::vector<RigidBodyBox*>();
 }
 
-void CollisionManager::add_rigidbody(RigidBody* r)
+void CollisionManager::add_cube(RigidBodyBox* r)
 {
-	rigidBodies.push_back(r);
+	cubes.push_back(r);
 }
 
-void CollisionManager::remove_rigidbody(RigidBody* r)
+void CollisionManager::remove_cube(RigidBodyBox* r)
 {
-	for (unsigned int i = 0; i < rigidBodies.size(); i++)
+	for (unsigned int i = 0; i < cubes.size(); i++)
 	{
-		if (r == rigidBodies[i])
-			rigidBodies.erase(rigidBodies.begin() + i);
+		if (r == cubes[i])
+			cubes.erase(cubes.begin() + i);
 	}
 }
 
 
-std::vector<RigidBody*> CollisionManager::get_rigidbodies()
+std::vector<RigidBody*> CollisionManager::get_cubes()
 {
-	return rigidBodies;
+	return cubes;
 }
 
 
 void CollisionManager::detect_collisions()
 {
-	int threshold = 2 * rigidBodies.size();
+	int threshold = 2 * cubes.size();
 	int collisionNb = 0;
-
 	
-	for each (RigidBody* p in rigidBodies)
+	for each (RigidBodyBox* p in cubes)
 	{
 		if (collisionNb >= threshold) break;
 		
 		Particle r = p->getCenterMass();
-		for each (RigidBody* q in rigidBodies)
+		for each (RigidBodyBox* q in cubes)
 		{
 			Particle s = q->getCenterMass();
 			
 			if (collisionNb >= threshold) break;
 			if (r == s) continue;
 
+			CollisionBoxResult collisionResult = RigidBodyBox::testCollision(*p, *q);
+
 			// Interpenetration
-			if (Particle::distance(r, s) < r.getSize() + s.getSize())
+			if (collisionResult.hasCollision)
 			{
 				collisionNb++;
 				// Cancel penetration
-				Vector3 d = r.getSize() + s.getSize() - Particle::distance(r, s);
-				Vector3 unit = s.getPosition() - r.getPosition();
+				Vector3 d = collisionResult.penetrationDepth;
+				Vector3 unit = collisionResult.collisionNormal;
 				unit.normalise();
 				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
 				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));

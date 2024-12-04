@@ -18,7 +18,7 @@ private:
 
 public:
 
-	CollisionBoxResult testCollisionWithBox(const RigidBodyBox& other) const;
+	static CollisionBoxResult testCollision(const RigidBodyBox& a, const RigidBodyBox& other);
 	RigidBodyBox();
 	RigidBodyBox(Particle center, Quaternion orientation, Vector3 angularVelocity, float h, float w, float d);
 	RigidBodyBox(const RigidBodyBox& body);
