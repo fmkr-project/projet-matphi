@@ -104,10 +104,10 @@
     <PostBuildEvent />
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CollisionBoxPlane.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\ofApp.cpp" />
     <ClCompile Include="src\BoundingBox.cpp" />
+    <ClCompile Include="src\CollisionBoxPlane.cpp" />
     <ClCompile Include="src\CollisionManager.cpp" />
     <ClCompile Include="src\ForceFriction.cpp" />
     <ClCompile Include="src\Matrix3.cpp" />
@@ -128,9 +128,9 @@
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CollisionBoxPlane.h" />
     <ClInclude Include="src\ofApp.h" />
     <ClInclude Include="src\BoundingBox.h" />
+    <ClInclude Include="src\CollisionBoxPlane.h" />
     <ClInclude Include="src\CollisionManager.h" />
     <ClInclude Include="src\ForceFriction.h" />
     <ClInclude Include="src\Matrix3.h" />
