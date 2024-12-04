@@ -5,7 +5,8 @@
 struct CollisionResult {
     bool hasCollision;
     Vector3 pointOfImpact;
-    float penetrationDepth;  
+    float penetrationDepth; 
+    Vector3 impactNormal;
 };
 
 class CollisionBoxPlane {

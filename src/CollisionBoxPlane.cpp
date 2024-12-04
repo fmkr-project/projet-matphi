@@ -15,24 +15,26 @@ CollisionResult CollisionBoxPlane::testCollision(const Particle& center, float w
     result.hasCollision = false;
     result.penetrationDepth = 0.0f;
 
-    // Rcuprer les sommets de la bote
+    // Récupérer les sommets de la boîte
     Vector3 boxMin = center.getPosition() - Vector3(width / 2, height / 2, depth / 2);
     Vector3 boxMax = center.getPosition() + Vector3(width / 2, height / 2, depth / 2);
 
-    // Vrifier chaque sommet de la bote
+    // Vérifier chaque sommet de la boîte
     for (float x : {boxMin.getX(), boxMax.getX()}) {
         for (float y : {boxMin.getY(), boxMax.getY()}) {
             for (float z : {boxMin.getZ(), boxMax.getZ()}) {
                 Vector3 vertex(x, y, z);
                 float signedDistance = normal.dotProduct(vertex - point);
 
-                if (signedDistance <= 0) {  // Collision dtecte si sommet sous le plan
+                if (signedDistance <= 0) {  
                     result.hasCollision = true;
-                    result.penetrationDepth = std::max(result.penetrationDepth, -signedDistance);  // Accumuler la profondeur
-                    result.pointOfImpact = closestPointOnPlane(vertex);  // Calculer le point d'impact
+                    result.penetrationDepth = std::max(result.penetrationDepth, -signedDistance);  
+                    result.pointOfImpact = closestPointOnPlane(vertex);  
+                    result.impactNormal = normal;  
                 }
             }
         }
     }
     return result;
 }
+
