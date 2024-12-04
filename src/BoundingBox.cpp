@@ -1,4 +1,5 @@
 #include "BoundingBox.h"
+#include <of3dGraphics.h>
 
 BoundingBox::BoundingBox() {
 	min = Vector3();
@@ -36,4 +37,19 @@ bool BoundingBox::contains(const RigidBody& object) {
 
     // L'objet est contenu dans cette BoundingBox si son centre est dedans, ou si la sphre touche les bords
     return insideCenter || (overlapsX || overlapsY || overlapsZ);
+}
+
+void BoundingBox::draw() {
+    float size = max.getX() - min.getX();
+    Vector3 centerOfMass(
+        (min.getX() + max.getX()) / 2,
+        (min.getY() + max.getY()) / 2,
+        (min.getZ() + max.getZ()) / 2
+    );
+
+
+    ofSetColor(ofColor(255, 0, 0));
+    ofNoFill();
+
+    ofDrawBox(centerOfMass.v3(), size);
 }

@@ -41,6 +41,7 @@ bool OcTree::insert(RigidBody* object, Node* node) {
 
 // Subdivise un nud en 8 sous-nuds
 void OcTree::subdivide(Node* node) {
+    std::cout << "Here !!" << std::endl;
     BoundingBox b = node->bounds;
     Vector3 min = b.getMin();
     Vector3 max = b.getMax();
@@ -57,4 +58,22 @@ void OcTree::subdivide(Node* node) {
     node->children[5] = std::make_unique<Node>(BoundingBox(Vector3(midX, min.getY(), midZ), Vector3(max.getX(), midY, max.getZ())));
     node->children[6] = std::make_unique<Node>(BoundingBox(Vector3(min.getX(), midY, midZ), Vector3(midX, max.getY(), max.getZ())));
     node->children[7] = std::make_unique<Node>(BoundingBox(Vector3(midX, midY, midZ), Vector3(max.getX(), max.getY(), max.getZ())));
+}
+
+void OcTree::draw() {
+    // Appeler la fonction draw pour le nœud racine
+    drawNode(root.get());
+}
+
+void OcTree::drawNode(Node* node) {
+    // Dessiner la bounding box du nœud actuel
+    node->bounds.draw();  // Utilisez une couleur appropriée
+
+    // Vérifier si le nœud a des enfants
+    for (auto& child : node->children) {
+        if (child) {
+            // Dessiner récursivement pour chaque enfant
+            drawNode(child.get());
+        }
+    }
 }

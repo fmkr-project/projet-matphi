@@ -47,7 +47,4 @@ public:
 	bool isMoving;
 	//int nbBoundParticles;
 	//Particle ground; //Create a ground for the particles to collide with
-	void runTestsQuaternion();
-	void runTestsMatrix3();
-	void runTestsMatrix4();
 };

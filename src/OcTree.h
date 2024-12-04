@@ -22,14 +22,18 @@ private:
 	//On subdivise un noeud en 8 sous-noeuds
 	void subdivide(Node* node);
 
+	void drawNode(Node* node);
+
 public:
 
-	static const int MAX_POINTS = 4; // Limite de points avant subdivision
+	static const int MAX_POINTS = 2; // Limite de points avant subdivision
 
 	//Constructors
 	OcTree(const BoundingBox& bounds);
 
 	//Insrer une particule dans l'arbre
 	bool insert(RigidBody* object);
+
+	void draw();
 };
 
