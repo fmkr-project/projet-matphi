@@ -34,6 +34,7 @@ void ofApp::setup()
     centerStart = Vector3(500, 500, 0);
     centerBox = new Particle(centerStart, Vector3(), 100, 10);
     rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),150,150,150);
+    collisionManager.add_cube(&rigidBox);
     isMoving = false;
     startPoint = new Vector3(500, 700, 0);
 }

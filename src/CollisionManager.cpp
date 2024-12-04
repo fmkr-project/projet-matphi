@@ -26,6 +26,12 @@ void CollisionManager::remove_cube(RigidBodyBox* r)
 	}
 }
 
+void CollisionManager::clear_cubes()
+{
+	cubes.clear();
+}
+
+
 
 std::vector<RigidBodyBox*> CollisionManager::get_cubes()
 {
