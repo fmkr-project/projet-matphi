@@ -111,3 +111,109 @@ void RigidBodyBox::drawEnclosingSphere(ofColor color)
     ofDrawIcoSphere(centerMass.getPosition().v3(), getEnclosingSphere().getRadius());
 }
 
+
+std::vector<Vector3> RigidBodyBox::getVertices() const {
+    std::vector<Vector3> vertices;
+
+    
+    std::vector<Vector3> localVertices = {
+        { width / 2,  height / 2,  depth / 2},
+        { width / 2,  height / 2, -depth / 2},
+        { width / 2, -height / 2,  depth / 2},
+        { width / 2, -height / 2, -depth / 2},
+        {-width / 2,  height / 2,  depth / 2},
+        {-width / 2,  height / 2, -depth / 2},
+        {-width / 2, -height / 2,  depth / 2},
+        {-width / 2, -height / 2, -depth / 2},
+    };
+
+    
+    for (const auto& vertex : localVertices) {
+        Vector3 transformedVertex = orientation.rotate(vertex) + centerMass.getPosition();
+        vertices.push_back(transformedVertex);
+    }
+
+    return vertices;
+}
+
+
+std::vector<Vector3> RigidBodyBox::getAxes() const {
+    return {
+        orientation.rotate(Vector3(1, 0, 0)), 
+        orientation.rotate(Vector3(0, 1, 0)),  
+        orientation.rotate(Vector3(0, 0, 1))   
+    };
+}
+
+
+
+void RigidBodyBox::projectVerticesOnAxis(const std::vector<Vector3>& vertices, const Vector3& axis, float& min, float& max) const {
+    min = max = axis.dotProduct(vertices[0]);  
+    for (const auto& vertex : vertices) {
+        float projection = axis.dotProduct(vertex);
+        if (projection < min) min = projection;
+        if (projection > max) max = projection;
+    }
+}
+
+
+bool RigidBodyBox::overlapsOnAxis(const RigidBodyBox& other, const Vector3& axis, float& penetration, Vector3& collisionNormal) const {
+    float min1, max1, min2, max2;
+
+   
+    projectVerticesOnAxis(getVertices(), axis, min1, max1);
+    projectVerticesOnAxis(other.getVertices(), axis, min2, max2);
+
+    
+    if (max1 < min2 || max2 < min1) {
+        return false; 
+    }
+
+    
+    float overlap = std::min(max1, max2) - std::max(min1, min2);
+    if (overlap < penetration) {
+        penetration = overlap;
+        collisionNormal = axis;
+    }
+
+    return true;
+}
+
+
+CollisionBoxResult RigidBodyBox::testCollisionWithBox(const RigidBodyBox& other) const {
+    CollisionBoxResult result;
+    result.hasCollision = true;  
+    result.penetrationDepth = std::numeric_limits<float>::max();
+
+    
+    std::vector<Vector3> axes1 = getAxes();
+    std::vector<Vector3> axes2 = other.getAxes();
+
+    
+    for (const auto& axis1 : axes1) {
+        for (const auto& axis2 : axes2) {
+            axes1.push_back(axis1.crossProduct(axis2).normalized());
+        }
+    }
+
+  
+    for (const auto& axis : axes1) {
+        float penetration = std::numeric_limits<float>::max();
+        Vector3 collisionNormal;
+
+        if (!overlapsOnAxis(other, axis, penetration, collisionNormal)) {
+            result.hasCollision = false;  
+            return result;
+        }
+
+        
+        if (penetration < result.penetrationDepth) {
+            result.penetrationDepth = penetration;
+            result.collisionNormal = collisionNormal;
+        }
+    }
+
+
+
+    return result;
+}

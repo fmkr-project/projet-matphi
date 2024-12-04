@@ -1,6 +1,14 @@
 #pragma once
 #include "RigidBody.h"
 
+
+struct CollisionBoxResult {
+	bool hasCollision;
+	std::vector<Vector3> contactPoints;
+	float penetrationDepth;
+	Vector3 collisionNormal;
+};
+
 class RigidBodyBox : public RigidBody
 {
 private:
@@ -10,6 +18,7 @@ private:
 
 public:
 
+	CollisionBoxResult testCollisionWithBox(const RigidBodyBox& other) const;
 	RigidBodyBox();
 	RigidBodyBox(Particle center, Quaternion orientation, Vector3 angularVelocity, float h, float w, float d);
 	RigidBodyBox(const RigidBodyBox& body);
@@ -28,6 +37,13 @@ public:
 
 	virtual void setMomentInertia() override;
 	virtual void draw(ofColor color) override;
+
 	virtual void drawEnclosingSphere(ofColor color) override;
+
+
+	std::vector<Vector3> getVertices() const;
+	std::vector<Vector3> getAxes() const;
+	void projectVerticesOnAxis(const std::vector<Vector3>& vertices, const Vector3& axis, float& min, float& max) const;
+	bool overlapsOnAxis(const RigidBodyBox& other, const Vector3& axis, float& penetration, Vector3& collisionNormal) const;
 };
 
