@@ -29,7 +29,7 @@ public:
 	//Constructors
 	OcTree(const BoundingBox& bounds);
 
-	//Insérer une particule dans l'arbre
+	//Insrer une particule dans l'arbre
 	bool insert(RigidBody* object);
 };
 

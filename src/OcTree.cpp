@@ -13,18 +13,18 @@ bool OcTree::insert(RigidBody* object) {
 bool OcTree::insert(RigidBody* object, Node* node) {
 
     Particle centerMass = object->getCenterMass();
-    // Vérifier si la particule est dans la bounding box du nœud
+    // Vrifier si la particule est dans la bounding box du nud
     if (!node->bounds.contains(*object)){
         return false; 
     }
 
-    // Si le nœud a atteint sa capacité maximale de particules
+    // Si le nud a atteint sa capacit maximale de particules
     if (node->objects.size() >= MAX_POINTS) {
-        if (node->children[0] == nullptr) { // Si les sous-nœuds n'existent pas encore
-            subdivide(node); // Divise le nœud en sous-nœuds
+        if (node->children[0] == nullptr) { // Si les sous-nuds n'existent pas encore
+            subdivide(node); // Divise le nud en sous-nuds
         }
 
-        // Tenter d'insérer la particule dans l'un des sous-nœuds
+        // Tenter d'insrer la particule dans l'un des sous-nuds
         for (auto& child : node->children) {
             if (child && insert(object, child.get())) {
                 return true;
@@ -32,14 +32,14 @@ bool OcTree::insert(RigidBody* object, Node* node) {
         }
     }
     else {
-        // Si la particule peut être insérée ici (le nœud n'est pas plein)
+        // Si la particule peut tre insre ici (le nud n'est pas plein)
         node->objects.push_back(object);
         return true;
     }
-    return false; // Retourner false si l'insertion a échoué
+    return false; // Retourner false si l'insertion a chou
 }
 
-// Subdivise un nœud en 8 sous-nœuds
+// Subdivise un nud en 8 sous-nuds
 void OcTree::subdivide(Node* node) {
     BoundingBox b = node->bounds;
     Vector3 min = b.getMin();

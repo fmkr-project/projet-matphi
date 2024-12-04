@@ -2,6 +2,7 @@
 
 #include "CollisionManager.h"
 #include "Particle.h"
+#include "RigidBody.h"
 #include "Vector3.h"
 
 

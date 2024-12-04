@@ -1,7 +1,6 @@
 #pragma once
 #include "Vector3.h"
 #include "Particle.h"
-#include "ofMain.h"
 
 struct CollisionResult {
     bool hasCollision;

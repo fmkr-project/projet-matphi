@@ -1,6 +1,5 @@
 #pragma once
 #include "Particle.h"
-#include "RigidBodyBox.h"
 
 class Sphere
 {

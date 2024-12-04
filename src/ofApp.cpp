@@ -4,10 +4,11 @@
 #include "Quaternion.h"
 #include "Matrix3.h"
 #include "Matrix4.h"
-#include "World.h"
+//#include "World.h"
 #include "ParticleFriction.h"
 #include "ParticleGravity.h"
 #include "ParticleSpring.h"
+#include "RigidBodyBox.h"
 
 #include <of3dGraphics.h>
 
@@ -193,7 +194,7 @@ std::ostream& operator<<(std::ostream& os, const Matrix3& matrix) {
         for (int j = 0; j < 3; ++j) {
             os << std::setw(10) << matrix.matrix[i][j] << " ";
         }
-        os << "\n"; // Nouvelle ligne apr�s chaque ligne de la matrice
+        os << "\n"; // Nouvelle ligne aprs chaque ligne de la matrice
     }
     return os;
 }

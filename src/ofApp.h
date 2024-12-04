@@ -1,6 +1,5 @@
 #pragma once
 
-#include "CollisionManager.h"
 #include "ofMain.h"
 #include "Particle.h"
 #include "ParticleForceRegistry.h"

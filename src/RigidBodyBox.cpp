@@ -23,19 +23,19 @@ RigidBodyBox::~RigidBodyBox() {
     // Pas de ressources dynamiques liberer, donc ce destructeur peut rester vide
 }
 
-// Calcul du moment d'inertie pour une bo�te
+// Calcul du moment d'inertie pour une bote
 void RigidBodyBox::setMomentInertia() {
     float I_x = (1.0f / 12.0f) * centerMass.getMass() * (height * height + depth * depth);
     float I_y = (1.0f / 12.0f) * centerMass.getMass() * (width * width + depth * depth);
     float I_z = (1.0f / 12.0f) * centerMass.getMass() * (height * height + width * width);
 
-    // Cr�er la matrice de moment d'inertie
+    // Crer la matrice de moment d'inertie
     Matrix3 res = Matrix3();
     res.setElement(0, 0, I_x);  // Moment d'inertie autour de l'axe X
     res.setElement(1, 1, I_y);  // Moment d'inertie autour de l'axe Y
     res.setElement(2, 2, I_z);  // Moment d'inertie autour de l'axe Z
 
-    // Mettre � jour le moment d'inertie
+    // Mettre jour le moment d'inertie
     momentInertia = res;
 }
 
@@ -83,13 +83,13 @@ void RigidBodyBox::draw(ofColor color) {
     ofSetColor(color);
     ofNoFill();
 
-    // Sauvegarde de l'état de transformation
+    // Sauvegarde de l'tat de transformation
     ofPushMatrix();
 
-    // Déplacement vers la position de la boîte
+    // Dplacement vers la position de la bote
     ofTranslate(centerMass.getPosition().v3());
 
-    // Récupération de l'orientation (quaternion)
+    // Rcupration de l'orientation (quaternion)
     Quaternion oriente = orientation; 
     Vector3 axis;
     float angle;
@@ -98,10 +98,10 @@ void RigidBodyBox::draw(ofColor color) {
     // Appliquer la rotation avec ofRotateDeg
     ofRotateDeg(angle, axis.getY(), -axis.getX(), axis.getZ()); 
 
-    // Dessiner la boîte centrée à l'origine locale
+    // Dessiner la bote centre l'origine locale
     ofDrawBox(glm::vec3(0, 0, 0),width,height,depth);
 
-    // Restauration de l'état de transformation
+    // Restauration de l'tat de transformation
     ofPopMatrix();
 }
 
