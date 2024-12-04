@@ -15,11 +15,11 @@ CollisionResult CollisionBoxPlane::testCollision(const Particle& center, float w
     result.hasCollision = false;
     result.penetrationDepth = 0.0f;
 
-    // Récupérer les sommets de la boîte
+    // Rcuprer les sommets de la boîte
     Vector3 boxMin = center.getPosition() - Vector3(width / 2, height / 2, depth / 2);
     Vector3 boxMax = center.getPosition() + Vector3(width / 2, height / 2, depth / 2);
 
-    // Vérifier chaque sommet de la boîte
+    // Vrifier chaque sommet de la boîte
     for (float x : {boxMin.getX(), boxMax.getX()}) {
         for (float y : {boxMin.getY(), boxMax.getY()}) {
             for (float z : {boxMin.getZ(), boxMax.getZ()}) {
