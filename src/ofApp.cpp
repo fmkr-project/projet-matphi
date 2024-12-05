@@ -29,7 +29,14 @@ void ofApp::setup()
     centerStart = Vector3(500, 500, 0);
     centerBox = new Particle(centerStart, Vector3(), 100, 10);
     rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),150,150,150);
-    collisionManager.add_cube(&rigidBox);
+    RigidBodyBox* boxA= new RigidBodyBox(Particle(Vector3(100, 100, 0),Vector3(), 100, 5), Quaternion(), Vector3(), 100, 100,100);
+    RigidBodyBox* boxB = new RigidBodyBox(Particle(Vector3(600, 600, 0), Vector3(), 20, 1), Quaternion(), Vector3(), 100, 100, 100);
+    RigidBodyBox* boxC = new RigidBodyBox(Particle(Vector3(300, 300, 0), Vector3(), 20, 3), Quaternion(), Vector3(), 150, 150, 150);
+    myRigidBodies.push_back(&rigidBox);
+    myRigidBodies.push_back(boxA);
+    myRigidBodies.push_back(boxB);
+    myRigidBodies.push_back(boxC);
+    enlargedCollisionManager = EnlargedCollision();
     isMoving = false;
     startPoint = new Vector3(500, 700, 0);
 }
@@ -40,7 +47,11 @@ void ofApp::update()
     //Update the forces in the registry
     timeSinceLastSpawn += ofGetLastFrameTime();
     if (timeSinceLastSpawn < 3.0f) { 
-        rigidBox.move();
+        for (size_t i = 0; i < myRigidBodies.size(); i++)
+        {
+            myRigidBodies[i]->move();
+        }
+        if (myRigidBodies.size()>=2) enlargedCollisionManager.checkCollision(myRigidBodies);
     }
     else {
         timeSinceLastSpawn = 3.0f;
@@ -57,10 +68,15 @@ void ofApp::draw()
 {
     
     ofSetColor(255, 255, 0);
-    ofDrawIcoSphere(500,700, 10);
-    rigidBox.draw(ofColor(100, 100, 255));
-    rigidBox.getCenterMass().draw();
-    rigidBox.drawEnclosingSphere(ofColor(100,255,100)); // a enlever si genant
+    ofDrawIcoSphere(500, 700, 10);
+    for (size_t i = 0; i < myRigidBodies.size(); i++)
+    {
+        myRigidBodies[i]->draw(ofColor(100, 100, 255));
+        myRigidBodies[i]->getCenterMass().draw();
+        myRigidBodies[i]->drawEnclosingSphere(ofColor(100,255,100));
+    }
+     // a enlever si genant
+    enlargedCollisionManager.getOcTree().draw();
     ofSetColor(255);
     ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);
     ofDrawBitmapString("The box automatically returns to the starting position after 3 seconds", 10, 35);
@@ -111,6 +127,10 @@ void ofApp::mousePressed(int x, int y, int button) {
         //std::cout << impulse.getX() << std::endl;
         //std::cout << impulse.getY() << std::endl;
         rigidBox.applyForceAt(impulseStrength * temp, *mousePos, ofGetLastFrameTime());
+        for (size_t i = 1; i < myRigidBodies.size(); i++)
+        {
+            myRigidBodies[i]->applyForceAt(impulseStrength * temp, myRigidBodies[i]->getCenterMass().getPosition(), ofGetLastFrameTime());
+        }
         timeSinceLastSpawn = 0.f;
         isMoving = true;
     }
@@ -156,7 +176,7 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
         10.,
         col
     );
-    myParticles.push_back(newParticle);
+    //myParticles.push_back(newParticle);
     numberParticles++;
     //myBoundParticles.push_back(newParticle);
     //nbBoundParticles++;

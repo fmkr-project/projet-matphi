@@ -7,8 +7,8 @@
 #include "ParticleGravity.h"
 #include "ParticleSpring.h"
 #include "RigidBodyBox.h"
-#include "CollisionManager.h"
 #include "CollisionBoxPlane.h"
+#include "EnlargedCollision.h"
 
 class ofApp : public ofBaseApp {
 
@@ -36,8 +36,9 @@ public:
 
 	const Vector3* startPoint;
 	const float impulseStrength = 5000.f;
-	vector<Particle*> myParticles;
-	CollisionManager collisionManager = CollisionManager();
+	vector<RigidBodyBox*> myRigidBodies;
+	CollisionManager collisionManager;
+	EnlargedCollision enlargedCollisionManager;
 	ofBoxPrimitive box;
 	int numberParticles;
 	Vector3 centerStart;
