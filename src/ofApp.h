@@ -47,5 +47,6 @@ public:
 	bool isMoving;
 
 	bool showOctree = false;
+	bool showSphere = false;
 
 };

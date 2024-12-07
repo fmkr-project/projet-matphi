@@ -26,7 +26,7 @@ void ofApp::setup()
 {
 	box.set(500);
     ofBackground(0);
-    centerStart = Vector3(500, 500, 0);
+    centerStart = Vector3(150, 250, 0);
     centerBox = new Particle(centerStart, Vector3(), 100, 10);
     rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),150,150,150);
     RigidBodyBox* boxA= new RigidBodyBox(Particle(Vector3(100, 100, 0),Vector3(), 100, 5), Quaternion(), Vector3(), 100, 100,100);
@@ -73,14 +73,15 @@ void ofApp::draw()
     {
         myRigidBodies[i]->draw(ofColor(100, 100, 255));
         myRigidBodies[i]->getCenterMass().draw();
-        myRigidBodies[i]->drawEnclosingSphere(ofColor(100,255,100));
+        if (showSphere) myRigidBodies[i]->drawEnclosingSphere(ofColor(100,255,100));
     }
      // a enlever si genant
-    enlargedCollisionManager.getOcTree().draw();
+    if (showOctree) enlargedCollisionManager.getOcTree().draw();
     ofSetColor(255);
     ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);
     ofDrawBitmapString("The box automatically returns to the starting position after 3 seconds", 10, 35);
     ofDrawBitmapString("Press 'a' to show or hide the octree's spacial partition", 10, 50);
+    ofDrawBitmapString("Press 's' to show or hide the boxes englobing sphere", 10, 65);
 }
 
 //--------------------------------------------------------------
@@ -89,6 +90,8 @@ void ofApp::keyPressed(int key)
     if (key == 't') timeSinceLastSpawn = 3.0f;
 
     if (key == 'a') showOctree = !showOctree;
+
+    if (key == 's') showSphere = !showSphere;
 }
 
 //--------------------------------------------------------------
