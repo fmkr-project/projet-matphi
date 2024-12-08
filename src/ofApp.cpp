@@ -27,7 +27,7 @@ void ofApp::setup()
 	box.set(500);
     ofBackground(0);
     centerStart = Vector3(500, 500, 0);
-    centerBox = new Particle(centerStart, Vector3(), 100, 10);
+    centerBox = new Particle(centerStart, Vector3(), MAXINT, 10);
     rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),150,150,150);
     RigidBodyBox* boxA= new RigidBodyBox(Particle(Vector3(10000, 100, 0),Vector3(), 100, 5), Quaternion(), Vector3(), 100, 100,100);
     RigidBodyBox* boxB = new RigidBodyBox(Particle(Vector3(60000, 600, 0), Vector3(), 20, 1), Quaternion(), Vector3(), 100, 100, 100);
