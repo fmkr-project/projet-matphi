@@ -202,7 +202,9 @@ CollisionBoxResult RigidBodyBox::testCollision(const RigidBodyBox& a, const Rigi
     
     for (const auto& axis1 : axes1) {
         for (const auto& axis2 : axes2) {
-            axes1.push_back(axis1.crossProduct(axis2).normalized());
+            Vector3 axis = axis1.crossProduct(axis2);
+            if (axis!=(0.0, 0.0, 0.0))
+                axes1.push_back(axis);
         }
     }
 
