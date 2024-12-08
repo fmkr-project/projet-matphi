@@ -14,6 +14,7 @@ private:
 		BoundingBox bounds;
 		std::vector<RigidBodyBox* *> objects; //Particules dans le noeuds
 		std::unique_ptr<Node> children[8]; //Sous-noeuds
+		bool isLeaf;
 
 		Node(const BoundingBox& bounds) : bounds(bounds) {}
 	};

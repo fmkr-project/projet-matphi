@@ -6,6 +6,7 @@ OcTree::OcTree()
 {
     BoundingBox box(Vector3(1024, 0, 0), Vector3(0, 1024, -1024));
     root = std::make_unique<Node>(box);
+    root->isLeaf = true;
 }
 
 OcTree::OcTree(const BoundingBox& box) {
@@ -50,37 +51,34 @@ bool OcTree::insert(RigidBodyBox* *object) {
 	return insert(object, root.get());
 }
 
-bool OcTree::insert(RigidBodyBox* *object, Node* node) {
-
-    // Verifier si la particule est dans la bounding box du noeud
-    if (!node->bounds.contains(**object)){
-        return false; 
+bool OcTree::insert(RigidBodyBox** object, Node* node) {
+    // Vérifier si l'objet est dans la bounding box du noeud
+    if (!node->bounds.contains(**object)) {
+        return false;
     }
 
-    // Si le noeud a atteint sa capacit maximale de particules
-    if (node->objects.size() >= MAX_POINTS) {
-        if (node->children[0] == nullptr) { // Si les sous-noeuds n'existent pas encore
-            subdivide(node); // Divise le nud en sous-nuds
-        }
-
-        // Tenter d'inserer la particule dans l'un des sous-noeuds
-        for (auto& child : node->children) {
-            if (child && insert(object, child.get())) {
-                node->objects.push_back(object);
-            }
-        }
-    }
-    else {
-        // Si la particule peut etre insere ici (le noeud n'est pas plein)
+    // Si le noeud est une feuille et qu'il peut encore contenir des objets
+    if (node->isLeaf) {
         node->objects.push_back(object);
+
+        // Si trop d'objets dans le noeud, subdiviser
+        if (node->objects.size() >= MAX_POINTS) {
+            subdivide(node);
+        }
         return true;
     }
-    return false; // Retourner false si l'insertion a echoue
+
+    // Sinon, essayer d'insérer l'objet dans un sous-nœud
+    for (auto& child : node->children) {
+        insert(object, child.get());
+    }
+
+    return false;
 }
 
 // Subdivise un noeud en 8 sous-noeuds
 void OcTree::subdivide(Node* node) {
-    //std::cout << "Here !!" << std::endl;
+    node->isLeaf = false;
     BoundingBox b = node->bounds;
     Vector3 min = b.getMin();
     Vector3 max = b.getMax();
@@ -89,6 +87,7 @@ void OcTree::subdivide(Node* node) {
     float midY = (min.getY() + max.getY()) / 2;
     float midZ = (min.getZ() + max.getZ()) / 2;
 
+    // Créer les 8 sous-noeuds
     node->children[0] = std::make_unique<Node>(BoundingBox(Vector3(min.getX(), min.getY(), min.getZ()), Vector3(midX, midY, midZ)));
     node->children[1] = std::make_unique<Node>(BoundingBox(Vector3(midX, min.getY(), min.getZ()), Vector3(max.getX(), midY, midZ)));
     node->children[2] = std::make_unique<Node>(BoundingBox(Vector3(min.getX(), midY, min.getZ()), Vector3(midX, max.getY(), midZ)));
@@ -97,6 +96,16 @@ void OcTree::subdivide(Node* node) {
     node->children[5] = std::make_unique<Node>(BoundingBox(Vector3(midX, min.getY(), midZ), Vector3(max.getX(), midY, max.getZ())));
     node->children[6] = std::make_unique<Node>(BoundingBox(Vector3(min.getX(), midY, midZ), Vector3(midX, max.getY(), max.getZ())));
     node->children[7] = std::make_unique<Node>(BoundingBox(Vector3(midX, midY, midZ), Vector3(max.getX(), max.getY(), max.getZ())));
+
+    // Réassigner les objets aux sous-nœuds
+    for (auto& obj : node->objects) {
+        for (auto& child : node->children) {
+            insert(obj, child.get());
+        }
+    }
+
+    // Vider la liste des objets, ils ont été réinsérés dans les sous-nœuds
+    node->objects.clear();
 }
 
 void OcTree::draw() {
