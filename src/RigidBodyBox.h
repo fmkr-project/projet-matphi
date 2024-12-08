@@ -44,6 +44,6 @@ public:
 	std::vector<Vector3> getVertices() const;
 	std::vector<Vector3> getAxes() const;
 	void projectVerticesOnAxis(const std::vector<Vector3>& vertices, const Vector3& axis, float& min, float& max) const;
-	bool overlapsOnAxis(const RigidBodyBox& other, const Vector3& axis, float& penetration, Vector3& collisionNormal) const;
+	bool overlapsOnAxis(const RigidBodyBox& other, const Vector3& axis, float& penetration, Vector3& collisionNormal, std::vector<Vector3>& contactPoints) const;
 };
 

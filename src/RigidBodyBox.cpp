@@ -166,66 +166,86 @@ void RigidBodyBox::projectVerticesOnAxis(const std::vector<Vector3>& vertices, c
 }
 
 
-bool RigidBodyBox::overlapsOnAxis(const RigidBodyBox& other, const Vector3& axis, float& penetration, Vector3& collisionNormal) const {
+
+
+bool RigidBodyBox::overlapsOnAxis(const RigidBodyBox& other, const Vector3& axis, float& penetration, Vector3& collisionNormal, std::vector<Vector3>& contactPoints) const {
     float min1, max1, min2, max2;
 
    
     projectVerticesOnAxis(getVertices(), axis, min1, max1);
     projectVerticesOnAxis(other.getVertices(), axis, min2, max2);
 
-    
     if (max1 < min2 || max2 < min1) {
         return false; 
     }
 
-    
+
     float overlap = std::min(max1, max2) - std::max(min1, min2);
     if (overlap < penetration) {
         penetration = overlap;
         collisionNormal = axis;
     }
 
+
+    for (const auto& vertex : getVertices()) {
+        if (axis.dotProduct(vertex) >= min1 && axis.dotProduct(vertex) <= max1) {
+            contactPoints.push_back(vertex);
+        }
+    }
+
+    for (const auto& vertex : other.getVertices()) {
+        if (axis.dotProduct(vertex) >= min2 && axis.dotProduct(vertex) <= max2) {
+            contactPoints.push_back(vertex);
+        }
+    }
+
     return true;
 }
+
+
+
 
 
 CollisionBoxResult RigidBodyBox::testCollision(const RigidBodyBox& a, const RigidBodyBox& other)
 {
     CollisionBoxResult result;
-    result.hasCollision = true;  
+    result.hasCollision = true;
     result.penetrationDepth = std::numeric_limits<float>::max();
 
-    
     std::vector<Vector3> axes1 = a.getAxes();
     std::vector<Vector3> axes2 = other.getAxes();
+    std::vector<Vector3> axesToTest = axes1; 
 
-    
+
     for (const auto& axis1 : axes1) {
         for (const auto& axis2 : axes2) {
-            Vector3 axis = axis1.crossProduct(axis2);
-            if (axis!=(0.0, 0.0, 0.0))
-                axes1.push_back(axis);
+            if (axis1.crossProduct(axis2) != Vector3(0, 0, 0)) {
+                axesToTest.push_back(axis1.crossProduct(axis2).normalized());
+            }
         }
     }
 
-  
-    for (const auto& axis : axes1) {
+    for (const auto& axis : axesToTest) {
         float penetration = std::numeric_limits<float>::max();
         Vector3 collisionNormal;
+        std::vector<Vector3> contactPoints;  
 
-        if (!a.overlapsOnAxis(other, axis, penetration, collisionNormal)) {
-            result.hasCollision = false;  
+        if (!a.overlapsOnAxis(other, axis, penetration, collisionNormal, contactPoints)) {
+            result.hasCollision = false; 
             return result;
         }
 
-        
         if (penetration < result.penetrationDepth) {
             result.penetrationDepth = penetration;
             result.collisionNormal = collisionNormal;
         }
-    }
 
+        result.contactPoints.insert(result.contactPoints.end(), contactPoints.begin(), contactPoints.end());
+
+      
+    }
 
 
     return result;
 }
+
