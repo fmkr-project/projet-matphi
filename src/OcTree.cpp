@@ -52,7 +52,6 @@ bool OcTree::insert(RigidBodyBox* *object) {
 
 bool OcTree::insert(RigidBodyBox* *object, Node* node) {
 
-    Particle centerMass = (*object)->getCenterMass();
     // Verifier si la particule est dans la bounding box du noeud
     if (!node->bounds.contains(**object)){
         return false; 
@@ -67,7 +66,7 @@ bool OcTree::insert(RigidBodyBox* *object, Node* node) {
         // Tenter d'inserer la particule dans l'un des sous-noeuds
         for (auto& child : node->children) {
             if (child && insert(object, child.get())) {
-                return true;
+                node->objects.push_back(object);
             }
         }
     }
