@@ -3,7 +3,6 @@
 #include "RigidBodyBox.h"
 #include "consts.h"
 #include <vector>
-#include <array>
 #include <memory>
 
 class OcTree
@@ -27,7 +26,7 @@ private:
 
 	void drawNode(Node* node);
 
-	void collectLeafNodes(Node* node, std::vector<std::array<RigidBodyBox* *, MAX_POINTS>>& potentialCollisions);
+	void collectLeafNodes(Node* node, std::vector<std::vector<RigidBodyBox* *>>& potentialCollisions);
 
 public:
 
@@ -40,7 +39,7 @@ public:
 	//Insrer une particule dans l'arbre
 	bool insert(RigidBodyBox* *object);
 
-	std::vector<std::array<RigidBodyBox* *, MAX_POINTS>> getPotentialCollisions();
+	std::vector<std::vector<RigidBodyBox* *>> getPotentialCollisions();
 
 	void draw();
 };

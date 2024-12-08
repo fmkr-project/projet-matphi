@@ -17,7 +17,7 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 		octree.insert(&myBoxes[i]);
 	}
 
-	std::vector<std::array<RigidBodyBox* *, MAX_POINTS>> potentialCollisions = octree.getPotentialCollisions();
+	std::vector<std::vector<RigidBodyBox* *>> potentialCollisions = octree.getPotentialCollisions();
 	std::vector<RigidBodyBox*> *otherBoxes = new std::vector<RigidBodyBox*>();
 	for (size_t i = 0; i < myBoxes.size(); i++)
 	{
@@ -39,7 +39,7 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 	
 	for (size_t i = 0; i < potentialCollisions.size(); i++)
 	{
-		std::array<RigidBodyBox* *, MAX_POINTS> rigidBodies = potentialCollisions[i];
+		std::vector<RigidBodyBox**> rigidBodies = potentialCollisions[i];
 		for (size_t j = 0; j < rigidBodies.size(); j++) {
 			for (size_t k = j + 1; k < rigidBodies.size(); k++) {
 				if (rigidBodies[j] && rigidBodies[k] && (rigidBodies[j] != rigidBodies[k])) {

@@ -30,12 +30,12 @@ bool BoundingBox::contains(const RigidBody& object) {
     // Si le centre de masse de l'objet est dans la bounding box
     bool insideCenter = insideX && insideY && insideZ;
 
-    // Vrification si la sphre dpasse les limites de la BoundingBox
+    // Vrification si la sphere depasse les limites de la BoundingBox
     bool overlapsX = v.getX() - radius < min.getX() || v.getX() + radius > max.getX();
     bool overlapsY = v.getY() - radius < min.getY() || v.getY() + radius > max.getY();
     bool overlapsZ = v.getZ() - radius < min.getZ() || v.getZ() + radius > max.getZ();
 
-    // L'objet est contenu dans cette BoundingBox si son centre est dedans, ou si la sphre touche les bords
+    // L'objet est contenu dans cette BoundingBox si son centre est dedans, ou si la sphere touche les bords
     return insideCenter || (overlapsX || overlapsY || overlapsZ);
 }
 

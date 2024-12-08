@@ -13,7 +13,7 @@ OcTree::OcTree(const BoundingBox& box) {
 	root = std::make_unique<Node>(box);
 }
 
-void OcTree::collectLeafNodes(Node* node, std::vector<std::array<RigidBodyBox* *, MAX_POINTS>>& potentialCollisions) {
+void OcTree::collectLeafNodes(Node* node, std::vector<std::vector<RigidBodyBox* *>>& potentialCollisions) {
     if (!node) return;
 
     // Si le noeud n'a pas d'enfants, c'est une feuille
@@ -26,18 +26,18 @@ void OcTree::collectLeafNodes(Node* node, std::vector<std::array<RigidBodyBox* *
     }
 
     // Si c'est une feuille et qu'elle contient des objets, on l'ajoute
-    if (isLeaf && !node->objects.empty()) {
+    if (isLeaf && node->objects.size() >= 2) {
         // Ajouter le tableau des objets a la liste de collisions potentielles
-        std::array<RigidBodyBox* *, MAX_POINTS> nodeObjects = {};
+        std::vector<RigidBodyBox* *> nodeObjects = {};
         for (int i = 0; i < node->objects.size(); ++i) {
-            nodeObjects[i] = node->objects[i];
+            nodeObjects.push_back(node->objects[i]);
         }
         potentialCollisions.push_back(nodeObjects);
     }
 }
 
-std::vector<std::array<RigidBodyBox* *, OcTree::MAX_POINTS>> OcTree::getPotentialCollisions() {
-    std::vector<std::array<RigidBodyBox* *, MAX_POINTS>> potentialCollisions;
+std::vector<std::vector<RigidBodyBox* *>> OcTree::getPotentialCollisions() {
+    std::vector<std::vector<RigidBodyBox* *>> potentialCollisions;
 
     // Parcours depuis la racine
     if (root) {
@@ -78,6 +78,7 @@ bool OcTree::insert(RigidBodyBox** object, Node* node) {
 
 // Subdivise un noeud en 8 sous-noeuds
 void OcTree::subdivide(Node* node) {
+    if ((node->bounds.getMax() - node->bounds.getMin()).magnitude() < 1000) return;
     node->isLeaf = false;
     BoundingBox b = node->bounds;
     Vector3 min = b.getMin();
