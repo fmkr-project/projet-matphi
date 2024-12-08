@@ -67,6 +67,7 @@ bool OcTree::insert(RigidBodyBox* *object, Node* node) {
         for (auto& child : node->children) {
             if (child && insert(object, child.get())) {
                 node->objects.push_back(object);
+                return true;
             }
         }
     }
