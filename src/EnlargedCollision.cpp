@@ -8,6 +8,7 @@ EnlargedCollision::EnlargedCollision()
 
 std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBodyBox*> myBoxes)
 {
+	std::cout << "before" << myBoxes.size() << std::endl;
 	std::vector<RigidBodyBox*> *final = new std::vector<RigidBodyBox*>();
 	
 	octree = OcTree();
@@ -23,14 +24,15 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 		bool boxHasCollision = false;
 		for (size_t j = 0; j < potentialCollisions.size(); j++)
 		{
+			std::cout << potentialCollisions[j].size() << std::endl;
 			if (!potentialCollisions[j][1]) continue;
 			for (size_t k = 0; k < potentialCollisions[j].size(); k++)
 			{
 				if (myBoxes[i] == *potentialCollisions[j][k]) boxHasCollision = true;
 			}
 		}
-
-		if (!boxHasCollision) otherBoxes->push_back(myBoxes[i]);
+		std::cout << boxHasCollision << std::endl;
+		if (!boxHasCollision) final->push_back(myBoxes[i]);
 	}
 	
 	for (size_t i = 0; i < potentialCollisions.size(); i++)
@@ -55,10 +57,8 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 			}
 		}
 	}
-
-	for (size_t i = 0; i < otherBoxes->size(); i++)
-		final->push_back((*otherBoxes)[i]);
-	std::cout << final->size() << std::endl;
+	
+	std::cout << "after" << final->size() << std::endl;
 	return *final;
 }
 

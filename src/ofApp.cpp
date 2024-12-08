@@ -29,9 +29,9 @@ void ofApp::setup()
     centerStart = Vector3(500, 500, 0);
     centerBox = new Particle(centerStart, Vector3(), 100, 10);
     rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),150,150,150);
-    RigidBodyBox* boxA= new RigidBodyBox(Particle(Vector3(100, 100, 0),Vector3(), 100, 5), Quaternion(), Vector3(), 100, 100,100);
-    RigidBodyBox* boxB = new RigidBodyBox(Particle(Vector3(600, 600, 0), Vector3(), 20, 1), Quaternion(), Vector3(), 100, 100, 100);
-    RigidBodyBox* boxC = new RigidBodyBox(Particle(Vector3(300, 300, 0), Vector3(), 20, 3), Quaternion(), Vector3(), 150, 150, 150);
+    RigidBodyBox* boxA= new RigidBodyBox(Particle(Vector3(10000, 100, 0),Vector3(), 100, 5), Quaternion(), Vector3(), 100, 100,100);
+    RigidBodyBox* boxB = new RigidBodyBox(Particle(Vector3(60000, 600, 0), Vector3(), 20, 1), Quaternion(), Vector3(), 100, 100, 100);
+    RigidBodyBox* boxC = new RigidBodyBox(Particle(Vector3(30000, 300, 0), Vector3(), 20, 3), Quaternion(), Vector3(), 150, 150, 150);
     myRigidBodies.push_back(&rigidBox);
     myRigidBodies.push_back(boxA);
     myRigidBodies.push_back(boxB);
