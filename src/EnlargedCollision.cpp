@@ -6,7 +6,7 @@ EnlargedCollision::EnlargedCollision()
 	collisionManager = CollisionManager();
 }
 
-std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBodyBox*> myBoxes)
+std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBodyBox*> myBoxes, double t)
 {
 	//std::cout << "before: " << myBoxes.size() << std::endl;
 	std::vector<RigidBodyBox*> *final = new std::vector<RigidBodyBox*>();
@@ -50,7 +50,7 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 						std::cout << "ow" << std::endl;
 						collisionManager.add_cube(*rigidBodies[j]);
 						collisionManager.add_cube(*rigidBodies[k]);
-						collisionManager.detect_collisions();
+						collisionManager.detect_collisions(t);
 						//final->push_back(*rigidBodies[j]);
 						//final->push_back(*rigidBodies[k]);
 						collisionManager.clear_cubes();

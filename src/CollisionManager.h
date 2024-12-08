@@ -16,7 +16,7 @@ public:
 	void remove_cube(RigidBodyBox* r);
 	std::vector<RigidBodyBox*> get_cubes();
 	void clear_cubes();
-	void detect_collisions();
+	void detect_collisions(double t);
 
 	// debug
 	void _debug_print_all_rigidbodies() const;

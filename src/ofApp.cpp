@@ -27,7 +27,7 @@ void ofApp::setup()
 	box.set(500);
     ofBackground(0);
     centerStart = Vector3(500, 500, 0);
-    centerBox = new Particle(centerStart, Vector3(), 100, 10);
+    centerBox = new Particle(centerStart, Vector3(), 100000000000, 10);
     rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),150,150,150);
     RigidBodyBox* boxA= new RigidBodyBox(Particle(Vector3(10000, 100, 0),Vector3(), 100, 5), Quaternion(), Vector3(), 100, 100,100);
     RigidBodyBox* boxB = new RigidBodyBox(Particle(Vector3(60000, 600, 0), Vector3(), 20, 1), Quaternion(), Vector3(), 100, 100, 100);
@@ -49,7 +49,7 @@ void ofApp::update()
         if (myRigidBodies[i] != &rigidBox) myRigidBodies[i]->move();
     }
 
-    if (myRigidBodies.size()>=2) myRigidBodies = enlargedCollisionManager.checkCollision(myRigidBodies);
+    if (myRigidBodies.size()>=2) myRigidBodies = enlargedCollisionManager.checkCollision(myRigidBodies, ofGetLastFrameTime());
 
     //Update the forces in the registry
     /*

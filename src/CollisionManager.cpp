@@ -39,7 +39,7 @@ std::vector<RigidBodyBox*> CollisionManager::get_cubes()
 }
 
 
-void CollisionManager::detect_collisions()
+void CollisionManager::detect_collisions(double t)
 {
 	int threshold = 2 * cubes.size();
 	int collisionNb = 0;
@@ -65,12 +65,15 @@ void CollisionManager::detect_collisions()
 				collisionNb++;
 				// Cancel penetration
 				Vector3 unit = collisionResult.collisionNormal;
+				unit.normalise();
 				float d = collisionResult.penetrationDepth;
 				Vector3 point = collisionResult.contactPoints[0];
-				//Vector3 impulse = point * unit;
-				//Vector3 temp = { -impulse.getX(), impulse.getY(), impulse.getZ() };
-				unit.normalise();
-				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
+				Vector3 impulse = point * unit;
+				Vector3 temp = { -impulse.getX(), impulse.getY(), impulse.getZ() };
+
+				(*q).applyForceAt(5.0f*temp, point, t);
+				
+				/*r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
 				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));
 
 				// Generate pulse
@@ -79,7 +82,7 @@ void CollisionManager::detect_collisions()
 					(r.getInverseMass() + s.getInverseMass());
 				// Change particle speeds accordingly
 				r.setSpeed(r.getSpeed() - k * r.getInverseMass() * unit);
-				s.setSpeed(s.getSpeed() + k * s.getInverseMass() * unit);
+				s.setSpeed(s.getSpeed() + k * s.getInverseMass() * unit);*/
 			}
 		}
 	}
