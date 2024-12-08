@@ -49,7 +49,7 @@ void ofApp::update()
         if (myRigidBodies[i] != &rigidBox) myRigidBodies[i]->move();
     }
 
-    if (myRigidBodies.size()>=2) enlargedCollisionManager.checkCollision(&myRigidBodies);
+    if (myRigidBodies.size()>=2) myRigidBodies = enlargedCollisionManager.checkCollision(myRigidBodies);
 
     //Update the forces in the registry
     /*
