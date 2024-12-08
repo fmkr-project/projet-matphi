@@ -78,7 +78,7 @@ bool OcTree::insert(RigidBodyBox** object, Node* node) {
 
 // Subdivise un noeud en 8 sous-noeuds
 void OcTree::subdivide(Node* node) {
-    if ((node->bounds.getMax() - node->bounds.getMin()).magnitude() < 1000) return;
+    if ((node->bounds.getMax() - node->bounds.getMin()).magnitude() < 500) return;
     node->isLeaf = false;
     BoundingBox b = node->bounds;
     Vector3 min = b.getMin();

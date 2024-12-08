@@ -48,10 +48,10 @@ void CollisionManager::detect_collisions()
 	{
 		if (collisionNb >= threshold) break;
 		
-		Particle r = p->getCenterMass();
+		Particle& r = p->getCenterMass();
 		for each (RigidBodyBox* q in cubes)
 		{
-			Particle s = q->getCenterMass();
+			Particle& s = q->getCenterMass();
 			
 			if (collisionNb >= threshold) break;
 			if (p == q) continue;
@@ -63,8 +63,8 @@ void CollisionManager::detect_collisions()
 			{
 				collisionNb++;
 				// Cancel penetration
-				Vector3 d = collisionResult.penetrationDepth;
 				Vector3 unit = collisionResult.collisionNormal;
+				float d = collisionResult.penetrationDepth;
 				unit.normalise();
 				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
 				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));

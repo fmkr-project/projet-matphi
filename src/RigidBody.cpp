@@ -21,7 +21,12 @@ RigidBody::RigidBody(const RigidBody& body)
 RigidBody::~RigidBody() {}
 
 // Getters
-Particle RigidBody::getCenterMass() const {
+Particle& RigidBody::getCenterMass() {
+    return centerMass;
+}
+
+const Particle& RigidBody::getCenterMass() const
+{
     return centerMass;
 }
 

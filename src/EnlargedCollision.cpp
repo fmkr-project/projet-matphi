@@ -8,7 +8,7 @@ EnlargedCollision::EnlargedCollision()
 
 std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBodyBox*> myBoxes)
 {
-	std::cout << "before" << myBoxes.size() << std::endl;
+	//std::cout << "before: " << myBoxes.size() << std::endl;
 	std::vector<RigidBodyBox*> *final = new std::vector<RigidBodyBox*>();
 	
 	octree = OcTree();
@@ -60,7 +60,7 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 		}
 	}
 	
-	std::cout << "after" << final->size() << std::endl;
+	std::cout << "after " << (myBoxes[1]->getCenterMass()).getSpeed().getY() << std::endl;
 	return myBoxes;
 }
 

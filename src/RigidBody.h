@@ -27,7 +27,9 @@ public:
     virtual ~RigidBody();
 
     // Getters
-    Particle getCenterMass() const;
+    Particle& getCenterMass();
+    const Particle& getCenterMass() const;
+ 
     Quaternion getOrientation() const;
     Vector3 getAngularVelocity() const;
     Matrix3 getMomentInertia() const;
