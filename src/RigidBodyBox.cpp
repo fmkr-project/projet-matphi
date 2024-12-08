@@ -129,8 +129,7 @@ std::vector<Vector3> RigidBodyBox::getVertices() const {
 
     
     for (const auto& vertex : localVertices) {
-        Vector3 transformedVertex = orientation.rotate(vertex) + centerMass.getPosition();
-        vertices.push_back(transformedVertex);
+        vertices.push_back(orientation.rotate(vertex) + centerMass.getPosition());
     }
 
     return vertices;
