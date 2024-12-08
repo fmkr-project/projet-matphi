@@ -57,6 +57,7 @@ void CollisionManager::detect_collisions()
 			if (p == q) continue;
 
 			CollisionBoxResult collisionResult = RigidBodyBox::testCollision(*p, *q);
+			
 
 			// Interpenetration
 			if (collisionResult.hasCollision)
@@ -65,6 +66,9 @@ void CollisionManager::detect_collisions()
 				// Cancel penetration
 				Vector3 unit = collisionResult.collisionNormal;
 				float d = collisionResult.penetrationDepth;
+				Vector3 point = collisionResult.contactPoints[0];
+				//Vector3 impulse = point * unit;
+				//Vector3 temp = { -impulse.getX(), impulse.getY(), impulse.getZ() };
 				unit.normalise();
 				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
 				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));
