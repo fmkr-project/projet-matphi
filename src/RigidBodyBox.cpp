@@ -137,12 +137,22 @@ std::vector<Vector3> RigidBodyBox::getVertices() const {
 }
 
 
-std::vector<Vector3> RigidBodyBox::getAxes() const {
-    return {
+std::vector<Vector3> RigidBodyBox::getAxes() const
+{
+    const Matrix3 r = Quaternion::ToRotationMatrix(orientation);
+    return
+    {
+        Vector3(r.getElement(0, 0), r.getElement(1, 0), r.getElement(2, 0)),
+        Vector3(r.getElement(0, 1), r.getElement(1, 1), r.getElement(2, 1)),
+        Vector3(r.getElement(0, 2), r.getElement(1, 2), r.getElement(2, 2)),
+    };
+    /*
+     *return {
         orientation.rotate(Vector3(1, 0, 0)), 
         orientation.rotate(Vector3(0, 1, 0)),  
         orientation.rotate(Vector3(0, 0, 1))   
     };
+    */
 }
 
 

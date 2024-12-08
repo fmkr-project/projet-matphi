@@ -26,7 +26,7 @@ void ofApp::setup()
 {
 	box.set(500);
     ofBackground(0);
-    centerStart = Vector3(150, 250, 0);
+    centerStart = Vector3(500, 500, 0);
     centerBox = new Particle(centerStart, Vector3(), 100, 10);
     rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),150,150,150);
     RigidBodyBox* boxA= new RigidBodyBox(Particle(Vector3(100, 100, 0),Vector3(), 100, 5), Quaternion(), Vector3(), 100, 100,100);
@@ -44,14 +44,22 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
+    for (size_t i = 0; i < myRigidBodies.size(); i++)
+    {
+        if (myRigidBodies[i] != &rigidBox) myRigidBodies[i]->move();
+    }
+
+    if (myRigidBodies.size()>=2) enlargedCollisionManager.checkCollision(&myRigidBodies);
+
     //Update the forces in the registry
+    /*
     timeSinceLastSpawn += ofGetLastFrameTime();
     if (timeSinceLastSpawn < 3.0f) { 
         for (size_t i = 0; i < myRigidBodies.size(); i++)
         {
-            myRigidBodies[i]->move();
+            if (myRigidBodies[i] != &rigidBox) myRigidBodies[i]->move();
         }
-        if (myRigidBodies.size()>=2) enlargedCollisionManager.checkCollision(myRigidBodies);
+        if (myRigidBodies.size()>=2) enlargedCollisionManager.checkCollision(&myRigidBodies);
     }
     else {
         timeSinceLastSpawn = 3.0f;
@@ -59,7 +67,7 @@ void ofApp::update()
         rigidBox.setCenterMass(*centerBox);
         rigidBox.setAngularVelocity(Vector3());
         rigidBox.setOrientation(Quaternion());
-    }
+    }*/
     
 }
 
@@ -92,6 +100,8 @@ void ofApp::keyPressed(int key)
     if (key == 'a') showOctree = !showOctree;
 
     if (key == 's') showSphere = !showSphere;
+
+    if (key == 'f') spawnCube();
 }
 
 //--------------------------------------------------------------
@@ -194,6 +204,25 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
 
     std::cout << "New particle created @" << mouseXPos << ' ' << mouseYPos << '\n';
     //collision_manager._debug_print_all_particles();
+}
+
+void ofApp::spawnCube()
+{
+    std::cout << "hej" << std::endl;
+    auto x = ofRandom(450, 550);
+    auto y = 200;
+    auto z = 0;
+
+    RigidBodyBox* newBox = new RigidBodyBox(
+        Particle(Vector3(x, y, z), Vector3(), 20, 3),
+        Quaternion(),
+        Vector3(),
+        100,
+        100,
+        100
+        );
+    newBox->setOrientation(Quaternion::Euler(ofRandom(-45, 45), 0, 0));
+    myRigidBodies.push_back(newBox);
 }
 
 void ofApp::DrawSpring(Particle p)

@@ -56,7 +56,7 @@ void RigidBody::move()
 
 void RigidBody::integratePosition(float deltaTime)
 {
-    centerMass.eulerIntegrate(deltaTime);
+    centerMass.move(deltaTime);
 }
 
 void RigidBody::integrateRotation(float deltaTime)

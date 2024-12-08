@@ -12,7 +12,7 @@ OcTree::OcTree(const BoundingBox& box) {
 	root = std::make_unique<Node>(box);
 }
 
-void OcTree::collectLeafNodes(Node* node, std::vector<std::array<RigidBodyBox*, MAX_POINTS>>& potentialCollisions) {
+void OcTree::collectLeafNodes(Node* node, std::vector<std::array<RigidBodyBox* *, MAX_POINTS>>& potentialCollisions) {
     if (!node) return;
 
     // Si le noeud n'a pas d'enfants, c'est une feuille
@@ -27,7 +27,7 @@ void OcTree::collectLeafNodes(Node* node, std::vector<std::array<RigidBodyBox*, 
     // Si c'est une feuille et qu'elle contient des objets, on l'ajoute
     if (isLeaf && !node->objects.empty()) {
         // Ajouter le tableau des objets a la liste de collisions potentielles
-        std::array<RigidBodyBox*, MAX_POINTS> nodeObjects = {};
+        std::array<RigidBodyBox* *, MAX_POINTS> nodeObjects = {};
         for (int i = 0; i < node->objects.size(); ++i) {
             nodeObjects[i] = node->objects[i];
         }
@@ -35,8 +35,8 @@ void OcTree::collectLeafNodes(Node* node, std::vector<std::array<RigidBodyBox*, 
     }
 }
 
-std::vector<std::array<RigidBodyBox*, OcTree::MAX_POINTS>> OcTree::getPotentialCollisions() {
-    std::vector<std::array<RigidBodyBox*, MAX_POINTS>> potentialCollisions;
+std::vector<std::array<RigidBodyBox* *, OcTree::MAX_POINTS>> OcTree::getPotentialCollisions() {
+    std::vector<std::array<RigidBodyBox* *, MAX_POINTS>> potentialCollisions;
 
     // Parcours depuis la racine
     if (root) {
@@ -46,15 +46,15 @@ std::vector<std::array<RigidBodyBox*, OcTree::MAX_POINTS>> OcTree::getPotentialC
     return potentialCollisions;
 }
 
-bool OcTree::insert(RigidBodyBox* object) {
+bool OcTree::insert(RigidBodyBox* *object) {
 	return insert(object, root.get());
 }
 
-bool OcTree::insert(RigidBodyBox* object, Node* node) {
+bool OcTree::insert(RigidBodyBox* *object, Node* node) {
 
-    Particle centerMass = object->getCenterMass();
+    Particle centerMass = (*object)->getCenterMass();
     // Verifier si la particule est dans la bounding box du noeud
-    if (!node->bounds.contains(*object)){
+    if (!node->bounds.contains(**object)){
         return false; 
     }
 
@@ -81,7 +81,7 @@ bool OcTree::insert(RigidBodyBox* object, Node* node) {
 
 // Subdivise un noeud en 8 sous-noeuds
 void OcTree::subdivide(Node* node) {
-    std::cout << "Here !!" << std::endl;
+    //std::cout << "Here !!" << std::endl;
     BoundingBox b = node->bounds;
     Vector3 min = b.getMin();
     Vector3 max = b.getMax();

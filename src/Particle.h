@@ -46,7 +46,7 @@ public:
 	void eulerIntegrate(float t);
 	void verletIntegrate(float t);
 
-	void move();
+	void move(float t);
 	void draw();
 
 	void addForce(const Vector3& force);

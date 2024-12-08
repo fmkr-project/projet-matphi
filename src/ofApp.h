@@ -29,6 +29,7 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
+	void spawnCube();
 	void SpawnParticle(float speed, float mass, ofColor col);
 	void DrawSpring(Particle p); //
 

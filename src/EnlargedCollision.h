@@ -13,7 +13,7 @@ public:
 	//Constructeurs
 	EnlargedCollision();
 
-	void checkCollision(std::vector<RigidBodyBox*>);
+	void checkCollision(std::vector<RigidBodyBox*> *);
 
 	OcTree& getOcTree();
 };

@@ -12,7 +12,7 @@ private:
 	
 	struct Node {
 		BoundingBox bounds;
-		std::vector<RigidBodyBox*> objects; //Particules dans le noeuds
+		std::vector<RigidBodyBox* *> objects; //Particules dans le noeuds
 		std::unique_ptr<Node> children[8]; //Sous-noeuds
 
 		Node(const BoundingBox& bounds) : bounds(bounds) {}
@@ -20,13 +20,13 @@ private:
 
 	std::unique_ptr<Node> root; // Racine de l'octree
 
-	bool insert(RigidBodyBox* object, Node* node);
+	bool insert(RigidBodyBox* *object, Node* node);
 	//On subdivise un noeud en 8 sous-noeuds
 	void subdivide(Node* node);
 
 	void drawNode(Node* node);
 
-	void collectLeafNodes(Node* node, std::vector<std::array<RigidBodyBox*, MAX_POINTS>>& potentialCollisions);
+	void collectLeafNodes(Node* node, std::vector<std::array<RigidBodyBox* *, MAX_POINTS>>& potentialCollisions);
 
 public:
 
@@ -37,9 +37,9 @@ public:
 	OcTree(const BoundingBox& bounds);
 
 	//Insrer une particule dans l'arbre
-	bool insert(RigidBodyBox* object);
+	bool insert(RigidBodyBox* *object);
 
-	std::vector<std::array<RigidBodyBox*, MAX_POINTS>> getPotentialCollisions();
+	std::vector<std::array<RigidBodyBox* *, MAX_POINTS>> getPotentialCollisions();
 
 	void draw();
 };

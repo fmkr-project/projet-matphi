@@ -54,7 +54,7 @@ void CollisionManager::detect_collisions()
 			Particle s = q->getCenterMass();
 			
 			if (collisionNb >= threshold) break;
-			if (r == s) continue;
+			if (p == q) continue;
 
 			CollisionBoxResult collisionResult = RigidBodyBox::testCollision(*p, *q);
 
