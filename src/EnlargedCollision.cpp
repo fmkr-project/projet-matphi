@@ -19,12 +19,12 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 
 	std::vector<std::vector<RigidBodyBox* *>> potentialCollisions = octree.getPotentialCollisions();
 	std::vector<RigidBodyBox*> *otherBoxes = new std::vector<RigidBodyBox*>();
-	for (size_t i = 0; i < myBoxes.size(); i++)
+	/*for (size_t i = 0; i < myBoxes.size(); i++)
 	{
 		bool boxHasCollision = false;
 		for (size_t j = 0; j < potentialCollisions.size(); j++)
 		{
-			std::cout << potentialCollisions[j].size() << std::endl;
+			//std::cout << potentialCollisions[j].size() << std::endl;
 			if (!&potentialCollisions[j]) continue;
 			if (!potentialCollisions[j][1]) continue;
 			for (size_t k = 0; k < potentialCollisions[j].size(); k++)
@@ -35,7 +35,7 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 		}
 		std::cout << boxHasCollision << std::endl;
 		if (!boxHasCollision) final->push_back(myBoxes[i]);
-	}
+	}*/
 	
 	for (size_t i = 0; i < potentialCollisions.size(); i++)
 	{
@@ -51,8 +51,8 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 						collisionManager.add_cube(*rigidBodies[j]);
 						collisionManager.add_cube(*rigidBodies[k]);
 						collisionManager.detect_collisions();
-						final->push_back(*rigidBodies[j]);
-						final->push_back(*rigidBodies[k]);
+						//final->push_back(*rigidBodies[j]);
+						//final->push_back(*rigidBodies[k]);
 						collisionManager.clear_cubes();
 					}
 				}
@@ -61,7 +61,7 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 	}
 	
 	std::cout << "after" << final->size() << std::endl;
-	return *final;
+	return myBoxes;
 }
 
 OcTree& EnlargedCollision::getOcTree()

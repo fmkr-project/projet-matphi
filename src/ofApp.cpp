@@ -87,8 +87,8 @@ void ofApp::draw()
     if (showOctree) enlargedCollisionManager.getOcTree().draw();
     ofSetColor(255);
     ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);
-    ofDrawBitmapString("The box automatically returns to the starting position after 3 seconds", 10, 35);
-    ofDrawBitmapString("Press 'a' to show or hide the octree's spacial partition", 10, 50);
+    ofDrawBitmapString("Press 'a' to show or hide the octree's spacial partition", 10, 35);
+    ofDrawBitmapString("Press 'c' to clear the all the boxes except the ground", 10, 50);
     ofDrawBitmapString("Press 's' to show or hide the boxes englobing sphere", 10, 65);
 }
 
@@ -100,6 +100,12 @@ void ofApp::keyPressed(int key)
     if (key == 'a') showOctree = !showOctree;
 
     if (key == 's') showSphere = !showSphere;
+
+    if (key == 'c') for (size_t i = 0; i < myRigidBodies.size(); i++)
+    {
+        myRigidBodies.clear();
+        myRigidBodies.push_back(&rigidBox);
+    }
 
     if (key == 'f') spawnCube();
 }
