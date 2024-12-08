@@ -25,9 +25,11 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 		for (size_t j = 0; j < potentialCollisions.size(); j++)
 		{
 			std::cout << potentialCollisions[j].size() << std::endl;
+			if (!&potentialCollisions[j]) continue;
 			if (!potentialCollisions[j][1]) continue;
 			for (size_t k = 0; k < potentialCollisions[j].size(); k++)
 			{
+				if (!potentialCollisions[j][k]) continue;
 				if (myBoxes[i] == *potentialCollisions[j][k]) boxHasCollision = true;
 			}
 		}

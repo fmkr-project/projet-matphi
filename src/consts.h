@@ -5,6 +5,6 @@
 
 const Vector3 g = Vector3(0, 500, 0);
 
-static const int MAX_POINTS = 2;
+static const int MAX_POINTS = 8;
 
 #endif

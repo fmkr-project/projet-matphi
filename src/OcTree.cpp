@@ -62,7 +62,7 @@ bool OcTree::insert(RigidBodyBox** object, Node* node) {
         node->objects.push_back(object);
 
         // Si trop d'objets dans le noeud, subdiviser
-        if (node->objects.size() >= MAX_POINTS) {
+        if (node->objects.size() > MAX_POINTS) {
             subdivide(node);
         }
         return true;

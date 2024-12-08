@@ -33,9 +33,9 @@ void ofApp::setup()
     RigidBodyBox* boxB = new RigidBodyBox(Particle(Vector3(60000, 600, 0), Vector3(), 20, 1), Quaternion(), Vector3(), 100, 100, 100);
     RigidBodyBox* boxC = new RigidBodyBox(Particle(Vector3(30000, 300, 0), Vector3(), 20, 3), Quaternion(), Vector3(), 150, 150, 150);
     myRigidBodies.push_back(&rigidBox);
-    myRigidBodies.push_back(boxA);
-    myRigidBodies.push_back(boxB);
-    myRigidBodies.push_back(boxC);
+    //myRigidBodies.push_back(boxA);
+    //myRigidBodies.push_back(boxB);
+    //myRigidBodies.push_back(boxC);
     enlargedCollisionManager = EnlargedCollision();
     isMoving = false;
     startPoint = new Vector3(500, 700, 0);
