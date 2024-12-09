@@ -11,7 +11,7 @@ private:
 	
 	struct Node {
 		BoundingBox bounds;
-		std::vector<RigidBodyBox* *> objects; //Particules dans le noeuds
+		std::vector<RigidBodyBox* *> objects; //Solides dans le noeuds
 		std::unique_ptr<Node> children[8]; //Sous-noeuds
 		bool isLeaf;
 
@@ -26,7 +26,7 @@ private:
 
 	void drawNode(Node* node);
 
-	void collectLeafNodes(Node* node, std::vector<std::vector<RigidBodyBox* *>>& potentialCollisions);
+	void collectLeafCollisions(Node* node, std::vector<std::vector<RigidBodyBox* *>>& potentialCollisions);
 
 public:
 

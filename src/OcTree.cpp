@@ -13,7 +13,7 @@ OcTree::OcTree(const BoundingBox& box) {
 	root = std::make_unique<Node>(box);
 }
 
-void OcTree::collectLeafNodes(Node* node, std::vector<std::vector<RigidBodyBox* *>>& potentialCollisions) {
+void OcTree::collectLeafCollisions(Node* node, std::vector<std::vector<RigidBodyBox* *>>& potentialCollisions) {
     if (!node) return;
 
     // Si le noeud n'a pas d'enfants, c'est une feuille
@@ -21,7 +21,7 @@ void OcTree::collectLeafNodes(Node* node, std::vector<std::vector<RigidBodyBox* 
     for (const auto& child : node->children) {
         if (child) {
             isLeaf = false;
-            collectLeafNodes(child.get(), potentialCollisions); // Parcourir les enfants
+            collectLeafCollisions(child.get(), potentialCollisions); // Parcourir les enfants
         }
     }
 
@@ -41,7 +41,7 @@ std::vector<std::vector<RigidBodyBox* *>> OcTree::getPotentialCollisions() {
 
     // Parcours depuis la racine
     if (root) {
-        collectLeafNodes(root.get(), potentialCollisions);
+        collectLeafCollisions(root.get(), potentialCollisions);
     }
 
     return potentialCollisions;

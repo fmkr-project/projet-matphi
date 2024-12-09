@@ -44,13 +44,14 @@ void CollisionManager::detect_collisions(double t)
 	int threshold = 2 * cubes.size();
 	int collisionNb = 0;
 	
-	for each (RigidBodyBox* p in cubes)
+	for (int i = 0; i < cubes.size(); i++)
 	{
 		if (collisionNb >= threshold) break;
-		
+		RigidBodyBox* p = cubes[i];
 		Particle& r = p->getCenterMass();
-		for each (RigidBodyBox* q in cubes)
+		for (int j = i+1; j<cubes.size(); j++)
 		{
+			RigidBodyBox* q = cubes[j];
 			Particle& s = q->getCenterMass();
 			
 			if (collisionNb >= threshold) break;
@@ -63,24 +64,27 @@ void CollisionManager::detect_collisions(double t)
 			if (collisionResult.hasCollision)
 			{
 				collisionNb++;
-				// Cancel penetration
+				
 				Vector3 unit = collisionResult.collisionNormal;
 				unit.normalise();
 				float d = collisionResult.penetrationDepth;
-				Vector3 point = collisionResult.contactPoints[0];
-				Vector3 impulse = point * unit;
-				Vector3 temp = { -impulse.getX(), impulse.getY(), impulse.getZ() };
-
-				//(*q).applyForceAt(10.f * temp, point, t);
-				//(*p).applyForceAt(-10.f * temp, point, t);
-				
-				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
-				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));
 
 				// Generate pulse
 				// Consider a near perfect elastic collision (ie. e=0.75)
-				float k = 1.35 * Vector3::dotProduct(r.getSpeed() - s.getSpeed(), unit) /
+				float k = 1.75 * Vector3::dotProduct(r.getSpeed() - s.getSpeed(), unit) /
 					(r.getInverseMass() + s.getInverseMass());
+				/*
+				for (size_t i = 0; i < collisionResult.contactPoints.size(); i++)
+				{
+					(*q).applyForceAt(1.f * k * unit, point, t);
+					(*p).applyForceAt(-1.f * k * unit, point, t);
+				}
+				*/
+				
+				// Cancel penetration
+				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
+				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));
+				
 				// Change particle speeds accordingly
 				r.setSpeed(r.getSpeed() - k * r.getInverseMass() * unit);
 				s.setSpeed(s.getSpeed() + k * s.getInverseMass() * unit);

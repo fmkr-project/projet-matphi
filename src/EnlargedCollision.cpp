@@ -18,7 +18,7 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 	}
 
 	std::vector<std::vector<RigidBodyBox* *>> potentialCollisions = octree.getPotentialCollisions();
-	std::vector<RigidBodyBox*> *otherBoxes = new std::vector<RigidBodyBox*>();
+	//std::vector<RigidBodyBox*> *otherBoxes = new std::vector<RigidBodyBox*>();
 	/*for (size_t i = 0; i < myBoxes.size(); i++)
 	{
 		bool boxHasCollision = false;
