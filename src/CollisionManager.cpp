@@ -78,7 +78,7 @@ void CollisionManager::detect_collisions(double t)
 
 				// Generate pulse
 				// Consider a near perfect elastic collision (ie. e=0.75)
-				float k = 1.75 * Vector3::dotProduct(r.getSpeed() - s.getSpeed(), unit) /
+				float k = 1.35 * Vector3::dotProduct(r.getSpeed() - s.getSpeed(), unit) /
 					(r.getInverseMass() + s.getInverseMass());
 				// Change particle speeds accordingly
 				r.setSpeed(r.getSpeed() - k * r.getInverseMass() * unit);
