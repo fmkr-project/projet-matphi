@@ -54,14 +54,14 @@ void ofApp::update()
 
     auto it = myRigidBodies.begin();
     while (it != myRigidBodies.end()) {
-        RigidBodyBox* body = *it; // Récupérer le pointeur
-        // Vérifier si la position Y est en dessous du seuil
+        RigidBodyBox* body = *it; // Rï¿½cupï¿½rer le pointeur
+        // Vï¿½rifier si la position Y est en dessous du seuil
         if (body->getCenterMass().getPosition().getY() < -500 || body->getCenterMass().getPosition().getY() > 1500) {
-            delete body; // Libérer la mémoire
-            it = myRigidBodies.erase(it); // Supprimer l'élément et avancer l'itérateur
+            delete body; // Libï¿½rer la mï¿½moire
+            it = myRigidBodies.erase(it); // Supprimer l'ï¿½lï¿½ment et avancer l'itï¿½rateur
         }
         else {
-            ++it; // Avancer si l'élément reste dans le vecteur
+            ++it; // Avancer si l'ï¿½lï¿½ment reste dans le vecteur
         }
     }
     std::cout << "Le nombre de rigidBody est : " << myRigidBodies.size() << std::endl;
@@ -109,6 +109,7 @@ void ofApp::draw()
     ofDrawBitmapString("Press 'a' to show or hide the octree's spacial partition", 10, 35);
     ofDrawBitmapString("Press 'c' to clear the all the boxes except the ground", 10, 50);
     ofDrawBitmapString("Press 's' to show or hide the boxes englobing sphere", 10, 65);
+    ofDrawBitmapString("Press 'f' to spawn a new cube", 10, 80);
 }
 
 //--------------------------------------------------------------
