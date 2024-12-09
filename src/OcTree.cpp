@@ -4,7 +4,7 @@
 
 OcTree::OcTree()
 {
-    BoundingBox box(Vector3(1024, 0, 0), Vector3(0, 1024, -1024));
+    BoundingBox box(Vector3(0, 0, -512), Vector3(1024, 1024, 512));
     root = std::make_unique<Node>(box);
     root->isLeaf = true;
 }

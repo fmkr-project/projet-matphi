@@ -25,6 +25,7 @@ float mouseYPos = 0;
 void ofApp::setup()
 {
 	box.set(500);
+    glEnable(GL_DEPTH_TEST);
     ofBackground(0);
     centerStart = Vector3(500, 1500, 0);
     centerBox = new Particle(centerStart, Vector3(), MAXINT, 10);
@@ -51,6 +52,19 @@ void ofApp::update()
 
     if (myRigidBodies.size()>=2) myRigidBodies = enlargedCollisionManager.checkCollision(myRigidBodies, ofGetLastFrameTime());
 
+    auto it = myRigidBodies.begin();
+    while (it != myRigidBodies.end()) {
+        RigidBodyBox* body = *it; // Récupérer le pointeur
+        // Vérifier si la position Y est en dessous du seuil
+        if (body->getCenterMass().getPosition().getY() < -500 || body->getCenterMass().getPosition().getY() > 1500) {
+            delete body; // Libérer la mémoire
+            it = myRigidBodies.erase(it); // Supprimer l'élément et avancer l'itérateur
+        }
+        else {
+            ++it; // Avancer si l'élément reste dans le vecteur
+        }
+    }
+    std::cout << "Le nombre de rigidBody est : " << myRigidBodies.size() << std::endl;
     //Update the forces in the registry
     /*
     timeSinceLastSpawn += ofGetLastFrameTime();
@@ -85,7 +99,11 @@ void ofApp::draw()
         if (showSphere) myRigidBodies[i]->drawEnclosingSphere(ofColor(100, 255, 100));
     }
      // a enlever si genant
-    if (showOctree) enlargedCollisionManager.getOcTree().draw();
+    if (showOctree) {
+        glDisable(GL_DEPTH_TEST);
+        enlargedCollisionManager.getOcTree().draw();
+        glEnable(GL_DEPTH_TEST);
+    }
     ofSetColor(255);
     ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);
     ofDrawBitmapString("Press 'a' to show or hide the octree's spacial partition", 10, 35);

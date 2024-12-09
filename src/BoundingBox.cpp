@@ -22,21 +22,22 @@ bool BoundingBox::contains(const RigidBody& object) {
 	Sphere s = object.getEnclosingSphere();
     float radius = s.getRadius(); // Rayon de la sphre
 
-    // Vrification si le centre de masse est l'intrieur de la BoundingBox
-    bool insideX = v.getX() >= min.getX() && v.getX() <= max.getX();
-    bool insideY = v.getY() >= min.getY() && v.getY() <= max.getY();
-    bool insideZ = v.getZ() >= min.getZ() && v.getZ() <= max.getZ();
+    // Vrification si le centre de masse est a l'intrieur de la BoundingBox
+    bool insideX = (v.getX() >= min.getX()) && (v.getX() <= max.getX());
+    bool insideY = (v.getY() >= min.getY()) && (v.getY() <= max.getY());
+    bool insideZ = (v.getZ() >= min.getZ()) && (v.getZ() <= max.getZ());
 
     // Si le centre de masse de l'objet est dans la bounding box
     bool insideCenter = insideX && insideY && insideZ;
 
-    // Vrification si la sphere depasse les limites de la BoundingBox
-    bool overlapsX = v.getX() - radius < min.getX() || v.getX() + radius > max.getX();
-    bool overlapsY = v.getY() - radius < min.getY() || v.getY() + radius > max.getY();
-    bool overlapsZ = v.getZ() - radius < min.getZ() || v.getZ() + radius > max.getZ();
-
+    bool intersectsX = (v.getX() + radius >= min.getX()) && (v.getX() - radius <= max.getX());
+    bool intersectsY = (v.getY() + radius >= min.getY()) && (v.getY() - radius <= max.getY());
+    bool intersectsZ = (v.getZ() + radius >= min.getZ()) && (v.getZ() - radius <= max.getZ());
+    bool intersectsBoundingBox = intersectsX && intersectsY && intersectsZ;
+    
+    
     // L'objet est contenu dans cette BoundingBox si son centre est dedans, ou si la sphere touche les bords
-    return insideCenter || (overlapsX || overlapsY || overlapsZ);
+    return insideCenter || intersectsBoundingBox;
 }
 
 void BoundingBox::draw() {

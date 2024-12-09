@@ -349,7 +349,6 @@ Vector3 Vector3::normalized() const {
     float length = magnitude();
     if (length == 0) {
         throw std::runtime_error("Cannot normalize a zero-length vector.");
-        return Vector3(0, 0, 0);
     }
     return Vector3(x_ / length, y_ / length, z_ / length);
 }

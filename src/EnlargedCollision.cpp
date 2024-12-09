@@ -60,7 +60,6 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 		}
 	}
 	
-	std::cout << "after " << (myBoxes[1]->getCenterMass()).getSpeed().getY() << std::endl;
 	return myBoxes;
 }
 

@@ -30,7 +30,7 @@ private:
 
 public:
 
-	static const int MAX_POINTS = 8; // Limite de points avant subdivision
+	static const int MAX_POINTS = 2; // Limite de points avant subdivision
 
 	//Constructors
 	OcTree();
