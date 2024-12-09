@@ -48,6 +48,6 @@ public:
     // Mthode virtuelle pure pour calculer le moment d'inertie, redfinir dans les classes enfants
     virtual void setMomentInertia() = 0; 
 
-    virtual void draw(ofColor color);
+    virtual void draw(ofColor color, bool fill);
     virtual void drawEnclosingSphere(ofColor color);
 };

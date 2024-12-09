@@ -79,9 +79,14 @@ void RigidBodyBox::setDepth(float d) {
     setMomentInertia();  // Recalculer le moment d'inertie apres avoir modifie la profondeur
 }
 
-void RigidBodyBox::draw(ofColor color) {
+void RigidBodyBox::draw(ofColor color, bool fill) {
     ofSetColor(color);
-    ofNoFill();
+    if (!fill) {
+        ofNoFill();
+    }
+    else {
+        ofFill();
+    }
 
     // Sauvegarde de l'tat de transformation
     ofPushMatrix();
@@ -104,6 +109,9 @@ void RigidBodyBox::draw(ofColor color) {
     // Restauration de l'tat de transformation
     ofPopMatrix();
 }
+
+
+
 
 void RigidBodyBox::drawEnclosingSphere(ofColor color)
 {
@@ -229,6 +237,7 @@ CollisionBoxResult RigidBodyBox::testCollision(const RigidBodyBox& a, const Rigi
         float penetration = std::numeric_limits<float>::max();
         Vector3 collisionNormal;
         std::vector<Vector3> contactPoints;  
+
 
         if (!a.overlapsOnAxis(other, axis, penetration, collisionNormal, contactPoints)) {
             result.hasCollision = false; 

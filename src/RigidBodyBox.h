@@ -36,7 +36,7 @@ public:
 	void setDepth(float d);
 
 	virtual void setMomentInertia() override;
-	virtual void draw(ofColor color) override;
+	virtual void draw(ofColor color, bool fill) override;
 
 	virtual void drawEnclosingSphere(ofColor color) override;
 

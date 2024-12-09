@@ -26,9 +26,9 @@ void ofApp::setup()
 {
 	box.set(500);
     ofBackground(0);
-    centerStart = Vector3(500, 500, 0);
+    centerStart = Vector3(500, 1500, 0);
     centerBox = new Particle(centerStart, Vector3(), MAXINT, 10);
-    rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),150,150,150);
+    rigidBox = RigidBodyBox(*centerBox,Quaternion(),Vector3(),1500,1500,1500);
     RigidBodyBox* boxA= new RigidBodyBox(Particle(Vector3(10000, 100, 0),Vector3(), 100, 5), Quaternion(), Vector3(), 100, 100,100);
     RigidBodyBox* boxB = new RigidBodyBox(Particle(Vector3(60000, 600, 0), Vector3(), 20, 1), Quaternion(), Vector3(), 100, 100, 100);
     RigidBodyBox* boxC = new RigidBodyBox(Particle(Vector3(30000, 300, 0), Vector3(), 20, 3), Quaternion(), Vector3(), 150, 150, 150);
@@ -77,11 +77,12 @@ void ofApp::draw()
     
     ofSetColor(255, 255, 0);
     ofDrawIcoSphere(500, 700, 10);
+    rigidBox.draw(ofColor(255, 255, 255), true);
     for (size_t i = 0; i < myRigidBodies.size(); i++)
     {
-        myRigidBodies[i]->draw(ofColor(100, 100, 255));
+        myRigidBodies[i]->draw(ofColor(100, 100, 255), false);
         myRigidBodies[i]->getCenterMass().draw();
-        if (showSphere) myRigidBodies[i]->drawEnclosingSphere(ofColor(100,255,100));
+        if (showSphere) myRigidBodies[i]->drawEnclosingSphere(ofColor(100, 255, 100));
     }
      // a enlever si genant
     if (showOctree) enlargedCollisionManager.getOcTree().draw();
@@ -227,7 +228,7 @@ void ofApp::spawnCube()
         100,
         100
         );
-    newBox->setOrientation(Quaternion::Euler(30, 0, -10));
+    newBox->setOrientation(Quaternion::Euler(ofRandom(-45,45), 0, ofRandom(-45, 45)));
     myRigidBodies.push_back(newBox);
 }
 
