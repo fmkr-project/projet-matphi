@@ -12,4 +12,4 @@ Pour lancer le projet:
 - Faire un clic droit sur le dossier "src" puis faire Add > Existing Item
 - Sélectionner les fichiers manquants (ne pas inclure les ofApp) et les ajouter au projet
 - Lancer le projet, une fenêtre devrait s'ouvrir
-- Pour lancer des projectiles, voir les notes en haut à gauche de la fenêtre
+- Pour apprendre comment fonctionne le jeu, voir les notes en haut à gauche de la fenêtre

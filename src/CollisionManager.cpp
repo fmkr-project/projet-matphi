@@ -77,8 +77,6 @@ void CollisionManager::detect_collisions(double t)
 				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
 				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));
 
-				std::cout << d << std::endl;
-
 				// Generate pulse
 				// Consider a near perfect elastic collision (ie. e=0.75)
 				float k = 1.35 * Vector3::dotProduct(r.getSpeed() - s.getSpeed(), unit) /

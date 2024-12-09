@@ -4,6 +4,7 @@
 #include "Quaternion.h"
 #include "Sphere.h"
 #include "Vector3.h"
+#include "ParticleFriction.h"
 
 class RigidBody
 {

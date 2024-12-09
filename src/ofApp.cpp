@@ -54,11 +54,11 @@ void ofApp::update()
 
     auto it = myRigidBodies.begin();
     while (it != myRigidBodies.end()) {
-        RigidBodyBox* body = *it; // R�cup�rer le pointeur
+        RigidBodyBox* body = *it; // Recuperer le pointeur
         // V�rifier si la position Y est en dessous du seuil
         if (body->getCenterMass().getPosition().getY() < -500 || body->getCenterMass().getPosition().getY() > 1500) {
-            delete body; // Lib�rer la m�moire
-            it = myRigidBodies.erase(it); // Supprimer l'�l�ment et avancer l'it�rateur
+            delete body; // Liberer la memoire
+            it = myRigidBodies.erase(it); // Supprimer l'element et avancer l'iterateur
         }
         else {
             ++it; // Avancer si l'element reste dans le vecteur
@@ -89,7 +89,6 @@ void ofApp::draw()
 {
     
     ofSetColor(255, 255, 0);
-    ofDrawIcoSphere(500, 700, 10);
     rigidBox.draw(ofColor(255, 255, 255), true);
     for (size_t i = 0; i < myRigidBodies.size(); i++)
     {
@@ -102,11 +101,10 @@ void ofApp::draw()
         enlargedCollisionManager.getOcTree().draw();
     }
     ofSetColor(255);
-    ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);
-    ofDrawBitmapString("Press 'a' to show or hide the octree's spacial partition", 10, 35);
-    ofDrawBitmapString("Press 'c' to clear the all the boxes except the ground", 10, 50);
-    ofDrawBitmapString("Press 's' to show or hide the boxes englobing sphere", 10, 65);
-    ofDrawBitmapString("Press 'f' to spawn a new cube", 10, 80);
+    ofDrawBitmapString("Press 'a' to show or hide the octree's spacial partition", 10, 20);
+    ofDrawBitmapString("Press 'c' to clear all the boxes except the ground", 10, 35);
+    ofDrawBitmapString("Press 's' to show or hide the boxes englobing sphere", 10, 50);
+    ofDrawBitmapString("Press 'f' to spawn a new cube", 10, 65);
 }
 
 //--------------------------------------------------------------
@@ -145,7 +143,7 @@ void ofApp::mouseDragged(int x, int y, int button) {
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button) {
-    
+    /*
     Vector3* mousePos = new Vector3(x, y, ofRandom(25,50) * pow(-1, static_cast<int>(ofRandom(1, 6))));
     if (x <= centerBox->getPosition().getX() + rigidBox.getWidth() 
         && x >= centerBox->getPosition().getX() - rigidBox.getWidth() 
@@ -170,7 +168,7 @@ void ofApp::mousePressed(int x, int y, int button) {
         timeSinceLastSpawn = 0.f;
         isMoving = true;
     }
-    
+    */
 }
 
 //--------------------------------------------------------------
@@ -231,7 +229,7 @@ void ofApp::SpawnParticle(float speed, float mass, ofColor col)
 
 void ofApp::spawnCube()
 {
-    std::cout << "hej" << std::endl;
+    //std::cout << "hej" << std::endl;
     auto x = ofRandom(450, 550);
     auto y = 200;
     auto z = 0;

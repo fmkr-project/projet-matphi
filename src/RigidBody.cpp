@@ -51,6 +51,11 @@ Sphere RigidBody::getEnclosingSphere() const
 void RigidBody::move()
 {
     centerMass.addForce(centerMass.getMass() * g);
+    Vector3 speed = centerMass.getSpeed();
+    float tmp = 0.1 * speed.norm() + 0.1 * pow(speed.norm(), 2);
+    speed.normalise();
+    Vector3 forceFriction = Vector3(-1 * speed * tmp);
+    centerMass.addForce(forceFriction);
 
     float deltaTime = ofGetLastFrameTime();
 

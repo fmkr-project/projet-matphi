@@ -15,7 +15,7 @@ private:
 		std::unique_ptr<Node> children[8]; //Sous-noeuds
 		bool isLeaf;
 
-		Node(const BoundingBox& bounds) : bounds(bounds) {}
+		Node(const BoundingBox& bounds) : bounds(bounds), isLeaf(true) {}
 	};
 
 	std::unique_ptr<Node> root; // Racine de l'octree
