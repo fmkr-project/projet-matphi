@@ -61,10 +61,9 @@ void ofApp::update()
             it = myRigidBodies.erase(it); // Supprimer l'�l�ment et avancer l'it�rateur
         }
         else {
-            ++it; // Avancer si l'�l�ment reste dans le vecteur
+            ++it; // Avancer si l'element reste dans le vecteur
         }
     }
-    std::cout << "Le nombre de rigidBody est : " << myRigidBodies.size() << std::endl;
     //Update the forces in the registry
     /*
     timeSinceLastSpawn += ofGetLastFrameTime();
@@ -100,9 +99,7 @@ void ofApp::draw()
     }
      // a enlever si genant
     if (showOctree) {
-        glDisable(GL_DEPTH_TEST);
         enlargedCollisionManager.getOcTree().draw();
-        glEnable(GL_DEPTH_TEST);
     }
     ofSetColor(255);
     ofDrawBitmapString("Click on the box to apply an impulsion on it", 10, 20);

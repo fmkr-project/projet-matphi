@@ -71,10 +71,13 @@ void CollisionManager::detect_collisions(double t)
 				Vector3 impulse = point * unit;
 				Vector3 temp = { -impulse.getX(), impulse.getY(), impulse.getZ() };
 
-				(*q).applyForceAt(5.0f*temp, point, t);
+				//(*q).applyForceAt(10.f * temp, point, t);
+				//(*p).applyForceAt(-10.f * temp, point, t);
 				
 				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
 				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));
+
+				std::cout << d << std::endl;
 
 				// Generate pulse
 				// Consider a near perfect elastic collision (ie. e=0.75)

@@ -47,7 +47,6 @@ std::vector<RigidBodyBox*> EnlargedCollision::checkCollision(std::vector<RigidBo
 					Sphere secondSphere = (*rigidBodies[k])->getEnclosingSphere();
 					float dist = Particle::distance(firstSphere.getCenter(), secondSphere.getCenter());
 					if (dist < (firstSphere.getRadius() + secondSphere.getRadius())) {
-						std::cout << "ow" << std::endl;
 						collisionManager.add_cube(*rigidBodies[j]);
 						collisionManager.add_cube(*rigidBodies[k]);
 						collisionManager.detect_collisions(t);

@@ -153,13 +153,6 @@ std::vector<Vector3> RigidBodyBox::getAxes() const
         Vector3(r.getElement(0, 1), r.getElement(1, 1), r.getElement(2, 1)),
         Vector3(r.getElement(0, 2), r.getElement(1, 2), r.getElement(2, 2)),
     };
-    /*
-     *return {
-        orientation.rotate(Vector3(1, 0, 0)), 
-        orientation.rotate(Vector3(0, 1, 0)),  
-        orientation.rotate(Vector3(0, 0, 1))   
-    };
-    */
 }
 
 
@@ -191,7 +184,13 @@ bool RigidBodyBox::overlapsOnAxis(const RigidBodyBox& other, const Vector3& axis
     float overlap = std::min(max1, max2) - std::max(min1, min2);
     if (overlap < penetration) {
         penetration = overlap;
-        collisionNormal = axis;
+        Vector3 direction = other.getCenterMass().getPosition() - getCenterMass().getPosition();
+        if (Vector3::dotProduct(direction, axis) < 0) {
+            collisionNormal = -1 * axis; // Inverser l'axe si nécessaire
+        }
+        else {
+            collisionNormal = axis;
+        }
     }
 
 
@@ -227,7 +226,7 @@ CollisionBoxResult RigidBodyBox::testCollision(const RigidBodyBox& a, const Rigi
 
     for (const auto& axis1 : axes1) {
         for (const auto& axis2 : axes2) {
-            if (axis1.crossProduct(axis2) != Vector3(0, 0, 0)) {
+            if (axis1.crossProduct(axis2) != (0,0,0)) {
                 axesToTest.push_back(axis1.crossProduct(axis2).normalized());
             }
         }
