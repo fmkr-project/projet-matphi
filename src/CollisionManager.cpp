@@ -73,7 +73,7 @@ void CollisionManager::detect_collisions(double t)
 
 				(*q).applyForceAt(5.0f*temp, point, t);
 				
-				/*r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
+				r.setPosition(r.getPosition() - d * unit * (s.getMass() / (r.getMass() + s.getMass())));
 				s.setPosition(s.getPosition() + d * unit * (r.getMass() / (r.getMass() + s.getMass())));
 
 				// Generate pulse
@@ -82,7 +82,7 @@ void CollisionManager::detect_collisions(double t)
 					(r.getInverseMass() + s.getInverseMass());
 				// Change particle speeds accordingly
 				r.setSpeed(r.getSpeed() - k * r.getInverseMass() * unit);
-				s.setSpeed(s.getSpeed() + k * s.getInverseMass() * unit);*/
+				s.setSpeed(s.getSpeed() + k * s.getInverseMass() * unit);
 			}
 		}
 	}

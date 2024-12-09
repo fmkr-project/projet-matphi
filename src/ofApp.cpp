@@ -227,7 +227,7 @@ void ofApp::spawnCube()
         100,
         100
         );
-    newBox->setOrientation(Quaternion::Euler(ofRandom(-45, 45), 0, 0));
+    newBox->setOrientation(Quaternion::Euler(30, 0, -10));
     myRigidBodies.push_back(newBox);
 }
 
